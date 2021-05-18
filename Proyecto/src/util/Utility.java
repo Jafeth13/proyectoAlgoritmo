@@ -68,7 +68,10 @@ public class Utility {
                 //return s1.compareTo(s2)==0; //OPCION 1
                 return s1.equalsIgnoreCase(s2); //OPCION 2
            
-
+              case "Career":
+                Career xl = (Career) a;
+                Career yl = (Career) b;
+                return (xl.getId()==(yl.getId()));
             //OPCION 2
             case "Course":
                 Course s5 = (Course) a;
@@ -91,6 +94,9 @@ public class Utility {
         }
         if (a instanceof Course && b instanceof Course) {
             return "Course";
+        }
+        if (a instanceof Career && b instanceof Career) {
+            return "Career";
         }
         return "unknown"; //desconocido
     }

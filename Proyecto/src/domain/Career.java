@@ -18,6 +18,11 @@ public class Career {
     this.description=description;
     }
 
+    public Career(Career career) {
+        this.id=career.id;
+        this.description=career.description;
+    }
+
     public int getId() {
         return id;
     }
