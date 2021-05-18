@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.FXMLSecurityController">
+   <center>
+      <AnchorPane prefHeight="522.0" prefWidth="945.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lbImage" layoutX="609.0" layoutY="53.0" prefHeight="164.0" prefWidth="319.0" text="Logo UCR" textAlignment="CENTER">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="file:/C:/UCR/2021/III%20Semestre/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%201/Proyecto/src/images/LogoUCR.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="264.0" prefHeight="42.0" prefWidth="282.0" text="Usuario/Carnet:" textAlignment="CENTER" textFill="#41ade7">
+               <font>
+                  <Font name="Arial Bold" size="36.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="68.0" layoutY="342.0" prefHeight="42.0" prefWidth="230.0" text="Contraseña:" textAlignment="RIGHT" textFill="#41ade7">
+               <font>
+                  <Font name="Arial Bold" size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnSignIn" layoutX="669.0" layoutY="374.0" mnemonicParsing="false" onAction="#SignIn" prefHeight="86.0" prefWidth="199.0" style="-fx-background-color: #41ADE7;" text="Ingresar" textFill="WHITE">
+               <effect>
+                  <InnerShadow color="#41ade7">
+                     <input>
+                        <DropShadow color="#41ade7" />
+                     </input>
+                  </InnerShadow>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Button>
+            <TextField fx:id="txtUser" layoutX="312.0" layoutY="266.0" prefHeight="45.0" prefWidth="190.0">
+               <effect>
+                  <DropShadow color="#41ade7">
+                     <input>
+                        <InnerShadow color="#41ade7" />
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Arial Bold Italic" size="24.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtPassword" layoutX="312.0" layoutY="344.0" prefHeight="45.0" prefWidth="190.0">
+               <effect>
+                  <InnerShadow color="#41ade7">
+                     <input>
+                        <DropShadow color="#41ade7" />
+                     </input>
+                  </InnerShadow>
+               </effect>
+               <font>
+                  <Font name="Arial Bold Italic" size="24.0" />
+               </font>
+            </TextField>
+            <Label layoutX="42.0" layoutY="53.0" prefHeight="190.0" prefWidth="595.0" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="file:/C:/UCR/2021/III%20Semestre/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%201/Proyecto/src/images/Ematricula.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Label>
+            <Label fx:id="txtMessage" alignment="CENTER" layoutX="66.0" layoutY="460.0" prefHeight="59.0" prefWidth="527.0" textFill="#c62626">
+               <font>
+                  <Font name="Arial" size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

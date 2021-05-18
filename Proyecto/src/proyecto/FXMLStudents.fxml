@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.FXMLCareersController">
+   <children>
+      <TableView fx:id="tvStudents" layoutX="52.0" layoutY="80.0" prefHeight="307.0" prefWidth="913.0" style="-fx-background-color: #41ade7;">
+         <columns>
+            <TableColumn fx:id="tcID" prefWidth="106.0" text="Cédula" />
+            <TableColumn fx:id="tcCarnet" prefWidth="115.0" text="Carnet" />
+            <TableColumn fx:id="tcName" minWidth="0.0" prefWidth="137.0" text="Nombre" />
+            <TableColumn fx:id="tcPhone" minWidth="0.0" prefWidth="141.0" text="Telefono" />
+            <TableColumn fx:id="tcDirection" minWidth="0.0" prefWidth="111.0" text="Dirección" />
+            <TableColumn fx:id="tcEmail" minWidth="0.0" prefWidth="160.0" text="Correo electrónico" />
+            <TableColumn fx:id="tcCareer" minWidth="0.0" prefWidth="142.0" text="Carrera" />
+         </columns>
+         <effect>
+            <InnerShadow color="#41ade7">
+               <input>
+                  <DropShadow color="#41ade7" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </TableView>
+      <Button fx:id="btnAdd" layoutX="52.0" layoutY="406.0" mnemonicParsing="false" onAction="#Add" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Agregar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRemove" layoutX="250.0" layoutY="406.0" mnemonicParsing="false" onAction="#Remove" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Eliminar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnModify" layoutX="448.0" layoutY="406.0" mnemonicParsing="false" onAction="#Modify" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Modificar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+      <Label fx:id="lbImage" layoutX="677.0" layoutY="391.0" prefHeight="151.0" prefWidth="309.0" text="Logo UCR" textAlignment="CENTER">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/UCR/2021/III%20Semestre/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%201/Proyecto/src/images/LogoUCR.png" />
+               </source>
+            </ImageInput>
+         </effect>
+      </Label>
+      <Label fx:id="txtErrorMessage" alignment="CENTER" layoutX="106.0" layoutY="472.0" prefHeight="66.0" prefWidth="473.0" textFill="#c62626">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtMessage" alignment="CENTER" layoutX="106.0" layoutY="472.0" prefHeight="66.0" prefWidth="473.0" textFill="#4ed03d">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtMessage1" alignment="CENTER" layoutX="264.0" layoutY="14.0" prefHeight="66.0" prefWidth="473.0" text="Módulo de Estudiantes" textFill="WHITE">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#41ade7" spread="0.9" />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

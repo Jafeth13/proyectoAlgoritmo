@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.FXMLMenuPrincipalController">
+   <center>
+      <AnchorPane prefHeight="537.0" prefWidth="1000.0" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <MenuBar prefHeight="27.0" prefWidth="1000.0" style="-fx-background-color: #41ADE7;" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Carreras">
+            <items>
+              <MenuItem fx:id="btnAddCareer" mnemonicParsing="false" onAction="#AddCareer" text="Agregar Carrera" />
+                  <MenuItem fx:id="btnModifyCareer" mnemonicParsing="false" onAction="#ModifyCareer" text="Modificar Carrera" />
+                  <MenuItem fx:id="btnDeleteCareer" mnemonicParsing="false" onAction="#DeleteCareer" text="Suprimir Carrera" />
+                  <MenuItem fx:id="btnShowCareers" mnemonicParsing="false" onAction="#ShowCareers" text="Mostrar Carreras" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Estudiantes">
+            <items>
+              <MenuItem fx:id="btnAddStudent" mnemonicParsing="false" onAction="#AddStudent" text="Agregar Estudiante" />
+                  <MenuItem fx:id="btnModifyStudent" mnemonicParsing="false" onAction="#ModifyStudent" text="Modificar Estudiante" />
+                  <MenuItem fx:id="btnDeleteStudent" mnemonicParsing="false" onAction="#DeleteStudent" text="Suprimir Estudiante" />
+                  <MenuItem fx:id="btnShowStudents" mnemonicParsing="false" onAction="#ShowStudents" text="Mostrar Estudiantes" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Cursos">
+            <items>
+              <MenuItem fx:id="btnAddCourse" mnemonicParsing="false" onAction="#AddCourse" text="Agregar Curso" />
+                  <MenuItem fx:id="btnModifyCourse" mnemonicParsing="false" onAction="#ModifyCourse" text="Modificar Curso" />
+                  <MenuItem fx:id="btnDeleteCourse" mnemonicParsing="false" onAction="#DeleteCourse" text="Suprimir Curso" />
+                  <MenuItem fx:id="btnShowCourses" mnemonicParsing="false" onAction="#ShowCourses" text="Mostrar Cursos" />
+            </items>
+          </Menu>
+            <Menu fx:id="btnSchedules" mnemonicParsing="false" onAction="#Schedule" text="Horarios" />
+            <Menu mnemonicParsing="false" text="Matrícula">
+               <items>
+                  <MenuItem fx:id="btnNewEnrollment" mnemonicParsing="false" onAction="#NewEnrollment" text="Nueva Matrícula" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="btnDeenrollment" mnemonicParsing="false" onAction="#Deenrollment" text="Retiro de Cursos" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Reportes">
+               <items>
+                  <MenuItem fx:id="btnEnrollmentReport" mnemonicParsing="false" onAction="#EnrollmentReport" text="Reporte de Matrícula" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="btnDeenrollmentReport" mnemonicParsing="false" onAction="#Deenrollment" text="Reporte de Retiro de Cursos" />
+               </items>
+            </Menu>
+            <Menu fx:id="btnClean" mnemonicParsing="false" onAction="#Clean" text="Limpiar" />
+            <Menu fx:id="btnLogOut" mnemonicParsing="false" onAction="#LogOut" text="Cerrar Sesión" />
+        </menus>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </MenuBar>
+   </top>
+</BorderPane>
