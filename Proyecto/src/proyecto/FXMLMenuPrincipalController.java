@@ -33,27 +33,9 @@ public class FXMLMenuPrincipalController implements Initializable {
     @FXML
     private MenuItem btnAddCareer;
     @FXML
-    private MenuItem btnModifyCareer;
-    @FXML
-    private MenuItem btnDeleteCareer;
-    @FXML
-    private MenuItem btnShowCareers;
-    @FXML
     private MenuItem btnAddStudent;
     @FXML
-    private MenuItem btnModifyStudent;
-    @FXML
-    private MenuItem btnDeleteStudent;
-    @FXML
-    private MenuItem btnShowStudents;
-    @FXML
     private MenuItem btnAddCourse;
-    @FXML
-    private MenuItem btnModifyCourse;
-    @FXML
-    private MenuItem btnDeleteCourse;
-    @FXML
-    private MenuItem btnShowCourses;
     @FXML
     private Menu btnSchedules;
     @FXML
@@ -65,9 +47,11 @@ public class FXMLMenuPrincipalController implements Initializable {
     @FXML
     private MenuItem btnDeenrollmentReport;
     @FXML
-    private Menu btnClean;
+    private MenuItem btnClean;
     @FXML
-    private Menu btnLogOut;
+    private MenuItem btnLogOut;
+    @FXML
+    private MenuItem btnSchedule;
 
     /**
      * Initializes the controller class.
@@ -92,17 +76,14 @@ public class FXMLMenuPrincipalController implements Initializable {
         
     }
 
-    @FXML
     private void ModifyCareer(ActionEvent event) {
         this.loadpage("FXMLCareers");
     }
 
-    @FXML
     private void DeleteCareer(ActionEvent event) {
         this.loadpage("FXMLCareers");
     }
 
-    @FXML
     private void ShowCareers(ActionEvent event) {
         this.loadpage("FXMLCareers");
     }
@@ -112,17 +93,14 @@ public class FXMLMenuPrincipalController implements Initializable {
         this.loadpage("FXMLStudents");
     }
 
-    @FXML
     private void ModifyStudent(ActionEvent event) {
         this.loadpage("FXMLStudents");
     }
 
-    @FXML
     private void DeleteStudent(ActionEvent event) {
         this.loadpage("FXMLStudents");
     }
 
-    @FXML
     private void ShowStudents(ActionEvent event) {
         this.loadpage("FXMLStudents");
     }
@@ -131,17 +109,6 @@ public class FXMLMenuPrincipalController implements Initializable {
     private void AddCourse(ActionEvent event) {
     }
 
-    @FXML
-    private void ModifyCourse(ActionEvent event) {
-    }
-
-    @FXML
-    private void DeleteCourse(ActionEvent event) {
-    }
-
-    @FXML
-    private void ShowCourses(ActionEvent event) {
-    }
 
     @FXML
     private void Schedule(ActionEvent event) {

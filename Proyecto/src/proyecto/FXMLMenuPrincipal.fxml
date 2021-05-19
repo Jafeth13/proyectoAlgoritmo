@@ -16,29 +16,23 @@
         <menus>
           <Menu mnemonicParsing="false" text="Carreras">
             <items>
-              <MenuItem fx:id="btnAddCareer" mnemonicParsing="false" onAction="#AddCareer" text="Agregar Carrera" />
-                  <MenuItem fx:id="btnModifyCareer" mnemonicParsing="false" onAction="#ModifyCareer" text="Modificar Carrera" />
-                  <MenuItem fx:id="btnDeleteCareer" mnemonicParsing="false" onAction="#DeleteCareer" text="Suprimir Carrera" />
-                  <MenuItem fx:id="btnShowCareers" mnemonicParsing="false" onAction="#ShowCareers" text="Mostrar Carreras" />
+              <MenuItem fx:id="btnAddCareer" mnemonicParsing="false" onAction="#AddCareer" text="Ir al menu carrera" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Estudiantes">
             <items>
-              <MenuItem fx:id="btnAddStudent" mnemonicParsing="false" onAction="#AddStudent" text="Agregar Estudiante" />
-                  <MenuItem fx:id="btnModifyStudent" mnemonicParsing="false" onAction="#ModifyStudent" text="Modificar Estudiante" />
-                  <MenuItem fx:id="btnDeleteStudent" mnemonicParsing="false" onAction="#DeleteStudent" text="Suprimir Estudiante" />
-                  <MenuItem fx:id="btnShowStudents" mnemonicParsing="false" onAction="#ShowStudents" text="Mostrar Estudiantes" />
+              <MenuItem fx:id="btnAddStudent" mnemonicParsing="false" onAction="#AddStudent" text="Ir al menu Estudiantes" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Cursos">
             <items>
-              <MenuItem fx:id="btnAddCourse" mnemonicParsing="false" onAction="#AddCourse" text="Agregar Curso" />
-                  <MenuItem fx:id="btnModifyCourse" mnemonicParsing="false" onAction="#ModifyCourse" text="Modificar Curso" />
-                  <MenuItem fx:id="btnDeleteCourse" mnemonicParsing="false" onAction="#DeleteCourse" text="Suprimir Curso" />
-                  <MenuItem fx:id="btnShowCourses" mnemonicParsing="false" onAction="#ShowCourses" text="Mostrar Cursos" />
+              <MenuItem fx:id="btnAddCourse" mnemonicParsing="false" onAction="#AddCourse" text="Ir al menu Cursos" />
             </items>
           </Menu>
-            <Menu fx:id="btnSchedules" mnemonicParsing="false" onAction="#Schedule" text="Horarios" />
+            <Menu fx:id="btnSchedules" mnemonicParsing="false" onAction="#Schedule" text="Horarios">
+               <items>
+                  <MenuItem fx:id="btnSchedule" mnemonicParsing="false" onAction="#Schedule" text="Ir al menu Horarios" />
+               </items></Menu>
             <Menu mnemonicParsing="false" text="Matrícula">
                <items>
                   <MenuItem fx:id="btnNewEnrollment" mnemonicParsing="false" onAction="#NewEnrollment" text="Nueva Matrícula" />
@@ -53,8 +47,14 @@
                   <MenuItem fx:id="btnDeenrollmentReport" mnemonicParsing="false" onAction="#DeenrollmentReport" text="Reporte de Retiro de Cursos" />
                </items>
             </Menu>
-            <Menu fx:id="btnClean" mnemonicParsing="false" onAction="#Clean" text="Limpiar" />
-            <Menu fx:id="btnLogOut" mnemonicParsing="false" onAction="#LogOut" text="Cerrar Sesión" />
+            <Menu mnemonicParsing="false" text="Limpiar">
+               <items>
+                  <MenuItem fx:id="btnClean" mnemonicParsing="false" onAction="#Clean" text="Limpiar Pantalla" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" text="Cerrar Sesión">
+               <items>
+                  <MenuItem fx:id="btnLogOut" mnemonicParsing="false" onAction="#LogOut" text="Cerrar Sesión" />
+               </items></Menu>
         </menus>
          <effect>
             <InnerShadow />
