@@ -96,7 +96,7 @@ public class FXMLCareersController implements Initializable {
     @FXML
     private void Remove(ActionEvent event) throws ListException {
          id.setTitle("SinglyLinkedList");
-        id.setHeaderText("Ingrese el ID de la carrera a borrar:");
+        id.setHeaderText("Ingrese el ID de la carrera a borrar: ");
         id.setContentText("");
         
         Optional<String> result = id.showAndWait();
