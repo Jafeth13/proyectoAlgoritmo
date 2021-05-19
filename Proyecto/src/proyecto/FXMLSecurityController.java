@@ -58,14 +58,6 @@ public class FXMLSecurityController implements Initializable {
     @FXML
    
     private void SignIn(ActionEvent event) {
-        
-   
-    SinglyLinkedList list = new SinglyLinkedList();
-         list.add(new Career(1, "INGENIERIA ESPACIAL"));
-          list.add(new Career(2, "INFORMATICA EMPRESARIAL"));
-        list.add(new Career(3, "ENSEÑANZA DEL INGLES"));
-      
-       util.Utility.exportToPDF(list.toString());
        
         if(this.txtUser.getText().equals("Admin")&&this.txtPassword.getText().equals("1234")){
         this.loadpage("FXMLMenuPrincipal");

@@ -146,7 +146,7 @@ public class Utility {
         }
         return false; //en cualquier otro caso
     }
-    public static void exportToPDF(Object show){
+    public static void exportToPDF(Object show,String name){
         System.out.println("SOY SHOW: \n"+show);
          try  {
              
@@ -159,18 +159,15 @@ public class Utility {
 
              
              contenido.beginText();
-             contenido.setFont(PDType1Font.TIMES_BOLD, 1);
+             contenido.setFont(PDType1Font.TIMES_BOLD, 12);
              contenido.newLineAtOffset(20, pagina.getMediaBox().getHeight()-52);
              contenido.showText(show.toString());
-             
-
-             contenido.showText("asdf");
 
              contenido.endText();
              
              contenido.close();
              
-            documento.save("prueba.pdf");
+            documento.save(name);
         } catch (IOException ex) {
             Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
