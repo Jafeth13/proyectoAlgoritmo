@@ -11,39 +11,30 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
  * @author jodas
  */
-public class FXMLCareersController implements Initializable {
+public class FXMLEnrollmentController implements Initializable {
 
-    @FXML
-    private Label lbImage;
-    @FXML
-    private TableColumn<?, ?> tcID;
-    @FXML
-    private TableColumn<?, ?> tcName;
-    @FXML
-    private Button btnAdd;
-    @FXML
-    private Button btnRemove;
-    @FXML
-    private Button btnModify;
-    @FXML
-    private Label txtErrorMessage;
     @FXML
     private Label txtMessage;
     @FXML
-    private Label txtMessage1;
+    private Label lbUCR;
     @FXML
-    private TableView<?> tvCareers;
+    private ComboBox<?> cbxEnrollmentCourses;
     @FXML
-    private TableColumn<?, ?> tcDescription;
+    private ComboBox<?> cbxSchedules;
+    @FXML
+    private Label txtError;
+    @FXML
+    private Label txtStudent;
+    @FXML
+    private Button btnConfirm;
 
     /**
      * Initializes the controller class.
@@ -54,15 +45,7 @@ public class FXMLCareersController implements Initializable {
     }    
 
     @FXML
-    private void Add(ActionEvent event) {
-    }
-
-    @FXML
-    private void Remove(ActionEvent event) {
-    }
-
-    @FXML
-    private void Modify(ActionEvent event) {
+    private void Confirm(ActionEvent event) {
     }
     
 }

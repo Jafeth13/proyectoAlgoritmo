@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="proyecto.FXMLDeEnrollmentController">
+   <children>
+      <Label fx:id="lbLogo" layoutX="666.0" layoutY="-7.0" prefHeight="157.0" prefWidth="297.0" text="Logo UCR" textAlignment="CENTER">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/UCR/2021/III%20Semestre/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%201/Proyecto/src/images/LogoUCR.png" />
+               </source>
+            </ImageInput>
+         </effect>
+      </Label>
+      <Label fx:id="txtTittle" alignment="CENTER" layoutX="52.0" layoutY="38.0" prefHeight="66.0" prefWidth="363.0" text="Retiro de Cursos" textFill="WHITE">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#41ade7" spread="0.9" />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtGreen" alignment="CENTER" layoutX="608.0" layoutY="467.0" prefHeight="66.0" prefWidth="363.0" text="Curso Retirado correctamente" textFill="#4ed03d">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtRed" alignment="CENTER" layoutX="608.0" layoutY="467.0" prefHeight="66.0" prefWidth="363.0" textFill="#c62626">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtMessage" alignment="CENTER_RIGHT" layoutX="28.0" layoutY="117.0" prefHeight="66.0" prefWidth="206.0" text="Ingrese el carnet:" textFill="WHITE">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#41ade7" spread="0.9" />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCarnet" layoutX="240.0" layoutY="134.0" prefHeight="33.0" prefWidth="193.0">
+         <effect>
+            <DropShadow color="#41ade7">
+               <input>
+                  <InnerShadow color="#41ade7" />
+               </input>
+            </DropShadow>
+         </effect>
+      </TextField>
+      <Button fx:id="btnConfirm" layoutX="442.0" layoutY="134.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="122.0" style="-fx-background-color: #41ade7;" text="Confirmar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <DropShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
+      <TableView layoutX="31.0" layoutY="183.0" prefHeight="355.0" prefWidth="540.0" style="-fx-background-color: #41ade7;">
+        <columns>
+          <TableColumn prefWidth="123.0" text="Sigla" />
+          <TableColumn prefWidth="152.0" text="Nombre" />
+            <TableColumn prefWidth="264.0" text="Horario" />
+        </columns>
+         <effect>
+            <DropShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </DropShadow>
+         </effect>
+      </TableView>
+      <Label fx:id="txtInfo" layoutX="582.0" layoutY="118.0" prefHeight="66.0" prefWidth="414.0" text="El estudiante no ha realizado su matrícula" textFill="#c62626">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnDeEnrollment" layoutX="718.0" layoutY="424.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="144.0" style="-fx-background-color: #41ade7;" text="Retirar Curso" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <DropShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="txtAreaName" editable="false" layoutX="590.0" layoutY="230.0" prefHeight="25.0" prefWidth="399.0" text="Aqui va el nombre del curso seleccionado">
+         <effect>
+            <InnerShadow color="#41ade7">
+               <input>
+                  <DropShadow color="#41ade7" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </TextArea>
+      <Label fx:id="txtMessage2" alignment="CENTER" layoutX="664.0" layoutY="167.0" prefHeight="66.0" prefWidth="251.0" text="Usted Seleccionó:" textFill="WHITE">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#41ade7" spread="0.9" />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txtAreaRemark" layoutX="590.0" layoutY="264.0" prefHeight="146.0" prefWidth="399.0" promptText="Ingrese el motivo de su retiro">
+         <effect>
+            <InnerShadow color="#41ade7">
+               <input>
+                  <DropShadow color="#41ade7" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </TextArea>
+      <Label fx:id="txtInfo2" layoutX="582.0" layoutY="118.0" prefHeight="66.0" prefWidth="414.0" textFill="#4ed03d">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="proyecto.FXMLEnrollmentController">
+   <children>
+      <TableView layoutX="42.0" layoutY="100.0" prefHeight="422.0" prefWidth="530.0" style="-fx-background-color: #41ade7;">
+        <columns>
+          <TableColumn prefWidth="130.0" text="Cédula" />
+          <TableColumn prefWidth="124.0" text="Carnet" />
+            <TableColumn prefWidth="136.0" text="Apellidos" />
+            <TableColumn prefWidth="139.0" text="Nombre" />
+        </columns>
+         <effect>
+            <DropShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </DropShadow>
+         </effect>
+      </TableView>
+      <Label fx:id="txtMessage" alignment="CENTER" layoutX="42.0" layoutY="28.0" prefHeight="66.0" prefWidth="363.0" text="Módulo de Matrícula" textFill="WHITE">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#41ade7" spread="0.9" />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbUCR" layoutX="656.0" layoutY="-17.0" prefHeight="157.0" prefWidth="297.0" text="Logo UCR" textAlignment="CENTER">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/UCR/2021/III%20Semestre/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%201/Proyecto/src/images/LogoUCR.png" />
+               </source>
+            </ImageInput>
+         </effect>
+      </Label>
+      <ComboBox fx:id="cbxEnrollmentCourses" layoutX="691.0" layoutY="263.0" prefHeight="26.0" prefWidth="227.0" promptText="Cursos matriculables" style="-fx-background-color: #ffffff;">
+         <effect>
+            <InnerShadow color="#43afe5">
+               <input>
+                  <DropShadow color="#41ade7" spread="0.8" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </ComboBox>
+      <ComboBox fx:id="cbxSchedules" layoutX="691.0" layoutY="320.0" prefHeight="26.0" prefWidth="227.0" promptText="Horarios" style="-fx-background-color: #ffffff;">
+         <effect>
+            <DropShadow color="#41ade7" spread="0.8">
+               <input>
+                  <InnerShadow color="#41ade7" />
+               </input>
+            </DropShadow>
+         </effect>
+      </ComboBox>
+      <Label fx:id="txtError" alignment="CENTER" layoutX="624.0" layoutY="457.0" prefHeight="66.0" prefWidth="363.0" textFill="#c62626">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtMessage" alignment="CENTER" layoutX="636.0" layoutY="457.0" prefHeight="66.0" prefWidth="363.0" textFill="#4ed03d">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtStudent" alignment="CENTER" layoutX="625.0" layoutY="176.0" prefHeight="66.0" prefWidth="363.0" text="*Nombre Estudiante aqui*" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow color="#41ade7" spread="0.9" />
+         </effect>
+      </Label>
+      <Button fx:id="btnConfirm" layoutX="714.0" layoutY="383.0" mnemonicParsing="false" onAction="#Confirm" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Confirmar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
