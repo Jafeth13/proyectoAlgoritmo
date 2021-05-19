@@ -5,6 +5,8 @@
  */
 package proyecto;
 
+import domain.Career;
+import domain.SinglyLinkedList;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -147,22 +149,42 @@ public class FXMLMenuPrincipalController implements Initializable {
 
     @FXML
     private void NewEnrollment(ActionEvent event) {
+        this.loadpage("FXMLEnrollment");
     }
 
     @FXML
     private void Deenrollment(ActionEvent event) {
+        this.loadpage("FXMLDeEnrollment");
     }
 
     @FXML
     private void EnrollmentReport(ActionEvent event) {
+        
+    SinglyLinkedList list = new SinglyLinkedList();
+         list.add(new Career(1, "INGENIERIA ESPACIAL"));
+          list.add(new Career(2, "INFORMATICA EMPRESARIAL"));
+        list.add(new Career(3, "ENSEÑANZA DEL INGLES"));
+      
+       util.Utility.exportToPDF(list.toString(),"Reporte de Matrícula.pdf");
     }
 
     @FXML
     private void Clean(ActionEvent event) {
+        this.loadpage("FXMLMenuPrincipal");
     }
 
     @FXML
     private void LogOut(ActionEvent event) {
         this.loadpage("FXMLSecurity");
+    }
+
+    @FXML
+    private void DeenrollmentReport(ActionEvent event) {
+    SinglyLinkedList list = new SinglyLinkedList();
+         list.add(new Career(1, "INGENIERIA ESPACIAL"));
+          list.add(new Career(2, "INFORMATICA EMPRESARIAL"));
+        list.add(new Career(3, "ENSEÑANZA DEL INGLES"));
+      
+       util.Utility.exportToPDF(list.toString(),"Reporte de Retiro de cursos.pdf");
     }
 }

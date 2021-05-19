@@ -12,7 +12,7 @@
       <AnchorPane prefHeight="537.0" prefWidth="1000.0" BorderPane.alignment="CENTER" />
    </center>
    <top>
-      <MenuBar prefHeight="27.0" prefWidth="1000.0" style="-fx-background-color: #41ADE7;" BorderPane.alignment="CENTER">
+      <MenuBar prefHeight="23.0" prefWidth="1000.0" style="-fx-background-color: #41ADE7;" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Carreras">
             <items>
@@ -50,7 +50,7 @@
                <items>
                   <MenuItem fx:id="btnEnrollmentReport" mnemonicParsing="false" onAction="#EnrollmentReport" text="Reporte de Matrícula" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="btnDeenrollmentReport" mnemonicParsing="false" onAction="#Deenrollment" text="Reporte de Retiro de Cursos" />
+                  <MenuItem fx:id="btnDeenrollmentReport" mnemonicParsing="false" onAction="#DeenrollmentReport" text="Reporte de Retiro de Cursos" />
                </items>
             </Menu>
             <Menu fx:id="btnClean" mnemonicParsing="false" onAction="#Clean" text="Limpiar" />
