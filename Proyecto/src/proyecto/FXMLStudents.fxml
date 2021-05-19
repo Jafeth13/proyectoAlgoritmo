@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.FXMLCareersController">
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.FXMLCareersController">
    <children>
-      <TableView fx:id="tvStudents" layoutX="52.0" layoutY="80.0" prefHeight="307.0" prefWidth="913.0" style="-fx-background-color: #41ade7;">
+      <TableView fx:id="tvStudents" layoutX="19.0" layoutY="80.0" prefHeight="307.0" prefWidth="969.0" style="-fx-background-color: #41ade7;">
          <columns>
-            <TableColumn fx:id="tcID" prefWidth="106.0" text="Cédula" />
-            <TableColumn fx:id="tcCarnet" prefWidth="115.0" text="Carnet" />
-            <TableColumn fx:id="tcName" minWidth="0.0" prefWidth="137.0" text="Nombre" />
-            <TableColumn fx:id="tcPhone" minWidth="0.0" prefWidth="141.0" text="Telefono" />
-            <TableColumn fx:id="tcDirection" minWidth="0.0" prefWidth="111.0" text="Dirección" />
-            <TableColumn fx:id="tcEmail" minWidth="0.0" prefWidth="160.0" text="Correo electrónico" />
-            <TableColumn fx:id="tcCareer" minWidth="0.0" prefWidth="142.0" text="Carrera" />
+            <TableColumn fx:id="tcIDStu" prefWidth="106.0" text="Cédula" />
+            <TableColumn fx:id="tcCarnet" prefWidth="114.0" text="Carnet" />
+            <TableColumn fx:id="tcLast" prefWidth="128.0" text="Apellido" />
+            <TableColumn fx:id="tcName" prefWidth="142.0" text="Nombre" />
+            <TableColumn fx:id="tcPhone" minWidth="0.0" prefWidth="115.0" text="Telefono" />
+            <TableColumn fx:id="tcEmail" minWidth="0.0" prefWidth="131.0" text="Correo electrónico" />
+            <TableColumn fx:id="tcDirection" minWidth="0.0" prefWidth="118.0" text="Dirección" />
+            <TableColumn fx:id="tcCareer" minWidth="0.0" prefWidth="114.0" text="Carrera" />
          </columns>
          <effect>
             <InnerShadow color="#41ade7">
@@ -29,7 +32,7 @@
             </InnerShadow>
          </effect>
       </TableView>
-      <Button fx:id="btnAdd" layoutX="52.0" layoutY="406.0" mnemonicParsing="false" onAction="#Add" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Agregar" textFill="WHITE">
+      <Button fx:id="btnAddStudent" layoutX="52.0" layoutY="406.0" mnemonicParsing="false" onAction="#AddStudent" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Agregar" textFill="WHITE">
          <effect>
             <InnerShadow>
                <input>
@@ -41,7 +44,7 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="btnRemove" layoutX="250.0" layoutY="406.0" mnemonicParsing="false" onAction="#Remove" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Eliminar" textFill="WHITE">
+      <Button fx:id="btnRemoveStudent" layoutX="250.0" layoutY="406.0" mnemonicParsing="false" onAction="#RemoveStudent" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Eliminar" textFill="WHITE">
          <effect>
             <InnerShadow>
                <input>
@@ -53,7 +56,7 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="btnModify" layoutX="448.0" layoutY="406.0" mnemonicParsing="false" onAction="#Modify" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Modificar" textFill="WHITE">
+      <Button fx:id="btnModifyStudent" layoutX="448.0" layoutY="406.0" mnemonicParsing="false" onAction="#ModifyStudent" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Modificar" textFill="WHITE">
          <effect>
             <InnerShadow>
                <input>

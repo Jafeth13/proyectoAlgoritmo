@@ -73,11 +73,11 @@ public class Utility {
                 Career yl = (Career) b;
                 return (xl.getId()==(yl.getId()));
             //OPCION 2
-            case "Course":
-                Course s5 = (Course) a;
-                Course s6 = (Course) b;
+            case "Student":
+                Student s5 = (Student) a;
+                Student s6 = (Student) b;
 
-                return (s5.getId().equals(s6.getId()) && s5.getName().equalsIgnoreCase(s6.getName()));
+                return s5.getId()==(s6.getId());
         }
         return false; //en cualquier otro caso
     }

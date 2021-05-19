@@ -34,6 +34,18 @@ public class Student {
         this.careerID=careerID;
     }
 
+    public Student(Student student) {
+        this.id=student.id;
+        this.studentID=student.studentID;
+        this.firstname=student.firstname;
+        this.lastname=student.lastname;
+        this.phoneNumber=student.phoneNumber;
+        this.email=student.email;
+        this.address=student.address;
+        this.careerID=student.careerID;
+        
+    }
+
     public int getId() {
         return id;
     }
