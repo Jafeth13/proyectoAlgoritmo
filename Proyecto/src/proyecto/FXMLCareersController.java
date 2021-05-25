@@ -47,6 +47,7 @@ public class FXMLCareersController implements Initializable {
     
     @FXML
     private Label lbImage;
+      @FXML
     private TableColumn<Career, Integer> tcID;
     @FXML
     private Label txtErrorMessage;
@@ -54,7 +55,9 @@ public class FXMLCareersController implements Initializable {
     private Label txtMessage;
     @FXML
     private Label txtMessage1;
+      @FXML
     private TableView<Career> tvCareers;
+      @FXML
     private TableColumn<Career, String> tcDescription;
     
     @FXML
@@ -72,15 +75,15 @@ public class FXMLCareersController implements Initializable {
     @FXML
     private TableColumn<Student, Career> tcCareer;
     @FXML
+    private TableColumn<Student, Integer> tcIDStu;
+    @FXML
+    private TableColumn<Student, String> tcLast;
+    @FXML
     private Button btnAddStudent;
     @FXML
     private Button btnRemoveStudent;
     @FXML
     private Button btnModifyStudent;
-    @FXML
-    private TableColumn<Student, Integer> tcIDStu;
-    @FXML
-    private TableColumn<Student, String> tcLast;
 
     /**
      * Initializes the controller class.
@@ -91,6 +94,7 @@ public class FXMLCareersController implements Initializable {
     }    
     private int idcurso;
     private String des;
+    @FXML
     private void Add(ActionEvent event) {
         id.setTitle("DoublyLinkedList");
         id.setHeaderText("Ingrese el ID de la carrera a añadir:");
@@ -123,6 +127,7 @@ public class FXMLCareersController implements Initializable {
     }
     private int idcursoRE;
     private String desRE;
+    @FXML
     private void Remove(ActionEvent event) throws ListException {
          id.setTitle("DoublyLinkedList");
         id.setHeaderText("Ingrese el ID de la carrera a borrar:");
@@ -160,7 +165,7 @@ public class FXMLCareersController implements Initializable {
         }
           
     }
-
+@FXML
     private void Modify(ActionEvent event) {
         if (list.isEmpty()) {
 
