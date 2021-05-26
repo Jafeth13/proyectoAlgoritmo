@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.effect.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="proyecto.FXMLEnrollmentController">
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.FXMLEnrollmentController">
    <children>
-      <TableView layoutX="42.0" layoutY="100.0" prefHeight="422.0" prefWidth="530.0" style="-fx-background-color: #41ade7;">
+      <TableView fx:id="TVStu" layoutX="42.0" layoutY="100.0" prefHeight="422.0" prefWidth="530.0" style="-fx-background-color: #41ade7;">
         <columns>
-          <TableColumn prefWidth="130.0" text="Cédula" />
-          <TableColumn prefWidth="124.0" text="Carnet" />
-            <TableColumn prefWidth="136.0" text="Apellidos" />
-            <TableColumn prefWidth="139.0" text="Nombre" />
+          <TableColumn fx:id="tcIDM" prefWidth="130.0" text="Cédula" />
+          <TableColumn fx:id="tcCE" prefWidth="124.0" text="Carnet" />
+            <TableColumn fx:id="tcAE" prefWidth="136.0" text="Apellidos" />
+            <TableColumn fx:id="tcNE" prefWidth="139.0" text="Nombre" />
         </columns>
          <effect>
             <DropShadow>

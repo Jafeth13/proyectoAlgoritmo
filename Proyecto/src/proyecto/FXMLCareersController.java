@@ -45,6 +45,7 @@ public class FXMLCareersController implements Initializable {
     TextInputDialog dirrecion = new TextInputDialog("");
     TextInputDialog idCarrera = new TextInputDialog("");
     
+    
     @FXML
     private Label lbImage;
       @FXML
@@ -312,7 +313,7 @@ public class FXMLCareersController implements Initializable {
         }
        
         list2.add(new Student(idE, carne, last, first, d, phone, correo, casa,new Career(idER, "")));
-        
+
     }
     private int idEstudianteBorrar;
     @FXML
@@ -386,7 +387,6 @@ public class FXMLCareersController implements Initializable {
                 System.out.println("Error");
             }
         }
-        
     }
     
 }

@@ -5,6 +5,7 @@
  */
 package proyecto;
 
+import domain.Student;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -13,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
@@ -35,6 +38,16 @@ public class FXMLEnrollmentController implements Initializable {
     private Label txtStudent;
     @FXML
     private Button btnConfirm;
+    @FXML
+    public TableView<Student> TVStu;
+    @FXML
+    public TableColumn<?, ?> tcIDM;
+    @FXML
+    public TableColumn<?, ?> tcCE;
+    @FXML
+    public TableColumn<?, ?> tcAE;
+    @FXML
+    public TableColumn<?, ?> tcNE;
 
     /**
      * Initializes the controller class.
@@ -43,7 +56,7 @@ public class FXMLEnrollmentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+    
     @FXML
     private void Confirm(ActionEvent event) {
     }

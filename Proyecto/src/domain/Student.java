@@ -43,7 +43,7 @@ public class Student {
         this.email=student.email;
         this.address=student.address;
         this.careerID=student.careerID;
-        
+       
     }
 
     public int getId() {
@@ -110,8 +110,8 @@ public class Student {
         this.address = address;
     }
 
-    public Career getCareerID() {
-        return careerID;
+    public int getCareerID() {
+        return careerID.getId();
     }
 
     public void setCareerID(Career careerID) {
