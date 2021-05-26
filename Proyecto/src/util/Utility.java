@@ -12,6 +12,7 @@ import domain.ListException;
 import domain.SinglyLinkedList;
 import domain.Student;
 import static java.awt.font.TextHitInfo.leading;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Date;
@@ -172,5 +173,9 @@ public class Utility {
             Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
     }  
- 
+ public static void file(Object b,String name) throws IOException{
+     FileWriter file=new FileWriter(name);
+     file.write(b+"\n");
+     file.close();
+ }
 }

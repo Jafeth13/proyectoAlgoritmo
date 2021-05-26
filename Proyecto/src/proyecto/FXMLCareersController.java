@@ -11,6 +11,7 @@ import domain.DoublyLinkedList;
 import domain.ListException;
 import domain.SinglyLinkedList;
 import domain.Student;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.Optional;
@@ -96,7 +97,7 @@ public class FXMLCareersController implements Initializable {
     private int idcurso;
     private String des;
     @FXML
-    private void Add(ActionEvent event) {
+    private void Add(ActionEvent event) throws IOException {
         id.setTitle("DoublyLinkedList");
         id.setHeaderText("Ingrese el ID de la carrera a añadir:");
         id.setContentText("");
@@ -125,6 +126,7 @@ public class FXMLCareersController implements Initializable {
             }
         }
         list.add(new Career(idcurso, des));
+        util.Utility.file(list, "Carrera");
     }
     private int idcursoRE;
     private String desRE;
@@ -198,7 +200,7 @@ public class FXMLCareersController implements Initializable {
     private String casa;
     private int idER;
     @FXML
-    private void AddStudent(ActionEvent event) {
+    private void AddStudent(ActionEvent event) throws IOException {
         idStudent.setTitle("SinglyLinkedList");
         idStudent.setHeaderText("Ingrese el ID del estudiante a añadir:");
         idStudent.setContentText("");
@@ -313,7 +315,7 @@ public class FXMLCareersController implements Initializable {
         }
        
         list2.add(new Student(idE, carne, last, first, d, phone, correo, casa,new Career(idER, "")));
-
+        util.Utility.file(list2, "Estudiantes");
     }
     private int idEstudianteBorrar;
     @FXML
