@@ -198,7 +198,7 @@ public class FXMLCareersController implements Initializable {
     private String correo;
     private Date d;
     private String casa;
-    private int idER;
+    private String idER;
     @FXML
     private void AddStudent(ActionEvent event) throws IOException {
         idStudent.setTitle("SinglyLinkedList");
@@ -300,21 +300,21 @@ public class FXMLCareersController implements Initializable {
             }
         }
                 idCarrera.setTitle("SinglyLinkedList");
-        idCarrera.setHeaderText("Ingrese el codigo de la carrera del estudiante a añadir:");
+        idCarrera.setHeaderText("Ingrese la carrera a añadir");
         idCarrera.setContentText("");
         
         Optional<String> result2918727 = idCarrera.showAndWait();
         if (result.isPresent()) {
             
             try {
-                this.idER = Integer.parseInt(result2918727.get());
+                this.idER = result2918727.get();
                 
             } catch (NumberFormatException ex) {
                 
             }
         }
        
-        list2.add(new Student(idE, carne, last, first, d, phone, correo, casa,new Career(idER, "")));
+        list2.add(new Student(idE, carne, last, first, d, phone, correo, casa,new Career(0, idER)));
         util.Utility.file(list2, "Estudiantes");
     }
     private int idEstudianteBorrar;

@@ -110,8 +110,8 @@ public class Student {
         this.address = address;
     }
 
-    public int getCareerID() {
-        return careerID.getId();
+    public String getCareerID() {
+        return careerID.getDescription();
     }
 
     public void setCareerID(Career careerID) {
