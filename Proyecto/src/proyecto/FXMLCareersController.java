@@ -32,11 +32,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author jodas
  */
 public class FXMLCareersController implements Initializable {
-    DoublyLinkedList list = new DoublyLinkedList();
+    static DoublyLinkedList list = new DoublyLinkedList();
     TextInputDialog id = new TextInputDialog("");
     TextInputDialog descripcion = new TextInputDialog("");
     
-    SinglyLinkedList list2 = new SinglyLinkedList();
+    static SinglyLinkedList list2 = new SinglyLinkedList();
     TextInputDialog idStudent = new TextInputDialog("");
     TextInputDialog carnet = new TextInputDialog("");
     TextInputDialog lastName = new TextInputDialog("");
