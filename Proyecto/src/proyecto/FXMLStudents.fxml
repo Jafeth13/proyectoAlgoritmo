@@ -68,7 +68,7 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Button>
-      <Label fx:id="lbImage" layoutX="677.0" layoutY="391.0" prefHeight="151.0" prefWidth="309.0" text="Logo UCR" textAlignment="CENTER">
+      <Label fx:id="lbImage" layoutX="864.0" layoutY="406.0" prefHeight="76.0" prefWidth="113.0" text="Logo UCR" textAlignment="CENTER">
          <effect>
             <ImageInput>
                <source>
@@ -95,5 +95,17 @@
             <Font name="Arial Bold" size="36.0" />
          </font>
       </Label>
+      <Button fx:id="btnMostrarEstudiantes" layoutX="653.0" layoutY="406.0" mnemonicParsing="false" onAction="#btnMostrarEstudiantes" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Mostrar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

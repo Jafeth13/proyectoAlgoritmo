@@ -89,5 +89,17 @@
             <DropShadow blurType="GAUSSIAN" color="#41ade7" spread="0.9" />
          </effect>
       </Label>
+      <Button fx:id="btnMostrar" layoutX="157.0" layoutY="455.0" mnemonicParsing="false" onAction="#btnMostrar" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Mostrar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

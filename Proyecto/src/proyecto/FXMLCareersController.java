@@ -49,7 +49,6 @@ public class FXMLCareersController implements Initializable {
     
     @FXML
     private Label lbImage;
-      @FXML
     private TableColumn<Career, Integer> tcID;
     @FXML
     private Label txtErrorMessage;
@@ -57,9 +56,7 @@ public class FXMLCareersController implements Initializable {
     private Label txtMessage;
     @FXML
     private Label txtMessage1;
-      @FXML
     private TableView<Career> tvCareers;
-      @FXML
     private TableColumn<Career, String> tcDescription;
     
     @FXML
@@ -86,6 +83,8 @@ public class FXMLCareersController implements Initializable {
     private Button btnRemoveStudent;
     @FXML
     private Button btnModifyStudent;
+    @FXML
+    private Button btnMostrarEstudiantes;
 
     /**
      * Initializes the controller class.
@@ -96,7 +95,6 @@ public class FXMLCareersController implements Initializable {
     }    
     private int idcurso;
     private String des;
-    @FXML
     private void Add(ActionEvent event) throws IOException {
         id.setTitle("DoublyLinkedList");
         id.setHeaderText("Ingrese el ID de la carrera a añadir:");
@@ -130,7 +128,6 @@ public class FXMLCareersController implements Initializable {
     }
     private int idcursoRE;
     private String desRE;
-    @FXML
     private void Remove(ActionEvent event) throws ListException {
          id.setTitle("DoublyLinkedList");
         id.setHeaderText("Ingrese el ID de la carrera a borrar:");
@@ -168,8 +165,46 @@ public class FXMLCareersController implements Initializable {
         }
           
     }
-@FXML
-    private void Modify(ActionEvent event) {
+    private int idcursoMod;
+    private boolean comp;
+    private String desc2;
+    private void Modify(ActionEvent event) throws ListException {
+         id.setTitle("DoublyLinkedList");
+        id.setHeaderText("Ingrese el ID de la carrera a modificar:");
+        id.setContentText("");
+        
+        Optional<String> result3 = id.showAndWait();
+        if (result3.isPresent()) {
+            
+            try {
+                this.idcursoMod = Integer.parseInt(result3.get());
+                
+            } catch (NumberFormatException ex) {
+                
+            }
+        }
+        comp=list.contains(new Career(idcursoMod, ""));
+        if(comp==true){
+            list.remove(new Career(idcursoMod, ""));
+                   descripcion.setTitle("DoublyLinkedList");
+        descripcion.setHeaderText("Ingrese la descripcion de la carerra a modificar:");
+        descripcion.setContentText("");
+        Optional<String> resulXt = descripcion.showAndWait();
+        if (resulXt.isPresent()) {
+            
+            try {
+                this.desc2 = resulXt.get();
+                
+            } catch (NumberFormatException ex) {
+                
+            }
+        }
+        list.add(new Career(idcursoMod, desc2));
+        }else{
+            
+        }
+    }
+    private void btnMostrar(ActionEvent event) {
         if (list.isEmpty()) {
 
         } else {
@@ -299,7 +334,7 @@ public class FXMLCareersController implements Initializable {
                 
             }
         }
-                idCarrera.setTitle("SinglyLinkedList");
+        idCarrera.setTitle("SinglyLinkedList");
         idCarrera.setHeaderText("Ingrese la carrera a añadir");
         idCarrera.setContentText("");
         
@@ -361,10 +396,133 @@ public class FXMLCareersController implements Initializable {
             }
         }
     }
+private int estuBuscar;
+private boolean compa2;
+    @FXML
+    private void ModifyStudent(ActionEvent event) throws ListException {
+        idStudent.setTitle("SinglyLinkedList");
+        idStudent.setHeaderText("Ingrese el ID del estudiante a buscar:");
+        idStudent.setContentText("");
+
+        Optional<String> result55 = idStudent.showAndWait();
+        if (result55.isPresent()) {
+
+            try {
+                this.estuBuscar = Integer.parseInt(result55.get());
+
+            } catch (NumberFormatException ex) {
+
+            }
+        }
+        compa2 = list2.contains(new Student(estuBuscar, "", "", "", d, phone, last, des, new Career(idE, desRE)));
+        if (compa2 == true) {
+            list2.remove(new Student(estuBuscar, "", "", "", d, phone, last, des, new Career(idE, desRE)));
+            carnet.setTitle("SinglyLinkedList");
+            carnet.setHeaderText("Ingrese el carnet del estudiante:");
+            carnet.setContentText("");
+
+            Optional<String> result9 = carnet.showAndWait();
+            if (result9.isPresent()) {
+
+                try {
+                    this.carne = result9.get();
+
+                } catch (NumberFormatException ex) {
+
+                }
+            }
+            lastName.setTitle("SinglyLinkedList");
+            lastName.setHeaderText("Ingrese el apellido del estudiante :");
+            lastName.setContentText("");
+
+            Optional<String> result29 = lastName.showAndWait();
+            if (result29.isPresent()) {
+
+                try {
+                    this.last = result29.get();
+
+                } catch (NumberFormatException ex) {
+
+                }
+            }
+            firstName.setTitle("SinglyLinkedList");
+            firstName.setHeaderText("Ingrese el nombre del estudiante :");
+            firstName.setContentText("");
+
+            Optional<String> result292 = firstName.showAndWait();
+            if (result292.isPresent()) {
+
+                try {
+                    this.first = result292.get();
+
+                } catch (NumberFormatException ex) {
+
+                }
+            }
+            NumeroTelfono.setTitle("SinglyLinkedList");
+            NumeroTelfono.setHeaderText("Ingrese el numero de telefono del estudiante :");
+            NumeroTelfono.setContentText("");
+
+            Optional<String> result111 = NumeroTelfono.showAndWait();
+            if (result111.isPresent()) {
+
+                try {
+                    this.phone = result111.get();
+
+                } catch (NumberFormatException ex) {
+
+                }
+            }
+            email.setTitle("SinglyLinkedList");
+            email.setHeaderText("Ingrese el correo del estudiante:");
+            email.setContentText("");
+
+            Optional<String> result66 = email.showAndWait();
+            if (result66.isPresent()) {
+
+                try {
+                    this.correo = result66.get();
+
+                } catch (NumberFormatException ex) {
+
+                }
+            }
+            dirrecion.setTitle("SinglyLinkedList");
+            dirrecion.setHeaderText("Ingrese la dirrecion del estudiante :");
+            dirrecion.setContentText("");
+
+            Optional<String> result1234 = dirrecion.showAndWait();
+            if (result1234.isPresent()) {
+
+                try {
+                    this.casa = result1234.get();
+
+                } catch (NumberFormatException ex) {
+
+                }
+            }
+            idCarrera.setTitle("SinglyLinkedList");
+            idCarrera.setHeaderText("Ingrese la carrera ");
+            idCarrera.setContentText("");
+
+            Optional<String> result999 = idCarrera.showAndWait();
+            if (result999.isPresent()) {
+
+                try {
+                    this.idER = result999.get();
+
+                } catch (NumberFormatException ex) {
+
+                }
+            }
+
+            list2.add(new Student(estuBuscar, carne, last, first, d, phone, correo, casa, new Career(0, idER)));
+        }
+    }
 
     @FXML
-    private void ModifyStudent(ActionEvent event) {
-         if (list2.isEmpty()) {
+    private void btnMostrarEstudiantes(ActionEvent event) {
+        if (list2.isEmpty()) {
 
         } else {
             try {
@@ -390,5 +548,7 @@ public class FXMLCareersController implements Initializable {
             }
         }
     }
+
+
     
 }
