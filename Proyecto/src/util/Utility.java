@@ -12,6 +12,9 @@ import domain.ListException;
 import domain.SinglyLinkedList;
 import domain.Student;
 import static java.awt.font.TextHitInfo.leading;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -79,6 +82,11 @@ public class Utility {
                 Student s6 = (Student) b;
 
                 return s5.getId()==(s6.getId());
+                 case "Course":
+                Course s8 = (Course) a;
+                Course s9 = (Course) b;
+
+                return s8.getId().equals(s9.getId());
         }
         return false; //en cualquier otro caso
     }

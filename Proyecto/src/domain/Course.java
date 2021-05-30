@@ -13,13 +13,20 @@ public class Course {
     private String id;
     private String name;
     private int credtis;
-    private int careerID;
+    private Career careerID;
     
-    public Course(String id, String name, int credtis,int careerID ) {
+    public Course(String id, String name, int credtis,Career careerID ) {
         this.id = id;
         this.name = name;
         this.credtis = credtis;
         this.careerID=careerID;
+    }
+
+    public Course(Course course) {
+     this.id=course.id;
+     this.credtis=course.credtis;
+     this.name=course.name;
+     this.careerID=course.careerID;
     }
 
     public String getId() {
@@ -46,11 +53,11 @@ public class Course {
         this.credtis = credtis;
     }
 
-    public int getCareerID() {
-        return careerID;
+    public String getCareerID() {
+        return careerID.getDescription();
     }
 
-    public void setCareerID(int careerID) {
+    public void setCareerID(Career careerID) {
         this.careerID = careerID;
     }
 
