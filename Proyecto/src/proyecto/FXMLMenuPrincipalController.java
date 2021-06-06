@@ -73,7 +73,6 @@ public class FXMLMenuPrincipalController implements Initializable {
     @FXML
     private void AddCareer(ActionEvent event) {
         this.loadpage("FXMLCareers");
-        
     }
 
     private void ModifyCareer(ActionEvent event) {
@@ -113,6 +112,7 @@ public class FXMLMenuPrincipalController implements Initializable {
 
     @FXML
     private void Schedule(ActionEvent event) {
+         this.loadpage("FXMLSchedules");
     }
 
     @FXML

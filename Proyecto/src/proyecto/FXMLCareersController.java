@@ -49,6 +49,7 @@ public class FXMLCareersController implements Initializable {
     
     @FXML
     private Label lbImage;
+    @FXML
     private TableColumn<Career, Integer> tcID;
     @FXML
     private Label txtErrorMessage;
@@ -56,35 +57,36 @@ public class FXMLCareersController implements Initializable {
     private Label txtMessage;
     @FXML
     private Label txtMessage1;
+    @FXML
     private TableView<Career> tvCareers;
+    @FXML
     private TableColumn<Career, String> tcDescription;
-    
-    @FXML
+     @FXML
     private TableView<Student> tvStudents;
-    @FXML
+      @FXML
     private TableColumn<Student, String> tcCarnet;
-    @FXML
+       @FXML
     private TableColumn<Student, String> tcName;
-    @FXML
+        @FXML
     private TableColumn<Student,String> tcPhone;
-    @FXML
+         @FXML
     private TableColumn<Student, String> tcDirection;
-    @FXML
+          @FXML
     private TableColumn<Student, String> tcEmail;
-    @FXML
+           @FXML
     private TableColumn<Student, Career> tcCareer;
-    @FXML
+            @FXML
     private TableColumn<Student, Integer> tcIDStu;
-    @FXML
+             @FXML
     private TableColumn<Student, String> tcLast;
     @FXML
-    private Button btnAddStudent;
+    private Button btnAdd;
     @FXML
-    private Button btnRemoveStudent;
+    private Button btnRemove;
     @FXML
-    private Button btnModifyStudent;
+    private Button btnModify;
     @FXML
-    private Button btnMostrarEstudiantes;
+    private Button btnMostrar;
 
     /**
      * Initializes the controller class.
@@ -95,6 +97,7 @@ public class FXMLCareersController implements Initializable {
     }    
     private int idcurso;
     private String des;
+    @FXML
     private void Add(ActionEvent event) throws IOException {
         id.setTitle("DoublyLinkedList");
         id.setHeaderText("Ingrese el ID de la carrera a añadir:");
@@ -128,6 +131,7 @@ public class FXMLCareersController implements Initializable {
     }
     private int idcursoRE;
     private String desRE;
+    @FXML
     private void Remove(ActionEvent event) throws ListException {
          id.setTitle("DoublyLinkedList");
         id.setHeaderText("Ingrese el ID de la carrera a borrar:");
@@ -168,6 +172,7 @@ public class FXMLCareersController implements Initializable {
     private int idcursoMod;
     private boolean comp;
     private String desc2;
+    @FXML
     private void Modify(ActionEvent event) throws ListException {
          id.setTitle("DoublyLinkedList");
         id.setHeaderText("Ingrese el ID de la carrera a modificar:");
@@ -204,6 +209,7 @@ public class FXMLCareersController implements Initializable {
             
         }
     }
+    @FXML
     private void btnMostrar(ActionEvent event) {
         if (list.isEmpty()) {
 
@@ -234,7 +240,7 @@ public class FXMLCareersController implements Initializable {
     private Date d;
     private String casa;
     private String idER;
-    @FXML
+     @FXML
     private void AddStudent(ActionEvent event) throws IOException {
         idStudent.setTitle("SinglyLinkedList");
         idStudent.setHeaderText("Ingrese el ID del estudiante a añadir:");
@@ -353,7 +359,7 @@ public class FXMLCareersController implements Initializable {
         util.Utility.file(list2, "Estudiantes");
     }
     private int idEstudianteBorrar;
-    @FXML
+     @FXML
     private void RemoveStudent(ActionEvent event) throws ListException {
          idStudent.setTitle("SinglyLinkedList");
         idStudent.setHeaderText("Ingrese el ID del estudiante a borrar:");
@@ -398,7 +404,7 @@ public class FXMLCareersController implements Initializable {
     }
 private int estuBuscar;
 private boolean compa2;
-    @FXML
+ @FXML
     private void ModifyStudent(ActionEvent event) throws ListException {
         idStudent.setTitle("SinglyLinkedList");
         idStudent.setHeaderText("Ingrese el ID del estudiante a buscar:");
@@ -519,7 +525,7 @@ private boolean compa2;
             list2.add(new Student(estuBuscar, carne, last, first, d, phone, correo, casa, new Career(0, idER)));
         }
     }
-
+ 
     @FXML
     private void btnMostrarEstudiantes(ActionEvent event) {
         if (list2.isEmpty()) {
