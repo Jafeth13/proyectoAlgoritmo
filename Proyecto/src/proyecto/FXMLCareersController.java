@@ -17,10 +17,14 @@ import java.net.URL;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -34,7 +38,7 @@ import static proyecto.FXMLSecurityController.cL;
  * @author jodas
  */
 public class FXMLCareersController implements Initializable {
-    static DoublyLinkedList list = new DoublyLinkedList();
+  public  static DoublyLinkedList list = new DoublyLinkedList();
     TextInputDialog id = new TextInputDialog("");
     TextInputDialog descripcion = new TextInputDialog("");
     
@@ -75,32 +79,47 @@ public class FXMLCareersController implements Initializable {
     private TableColumn<Student, String> tcDirection;
           @FXML
     private TableColumn<Student, String> tcEmail;
-           @FXML
+    @FXML
     private TableColumn<Student, Career> tcCareer;
-            @FXML
+    @FXML
     private TableColumn<Student, Integer> tcIDStu;
-             @FXML
+    @FXML
     private TableColumn<Student, String> tcLast;
     @FXML
-    private Button btnAdd;
+    private Button btnAddStudent;
     @FXML
-    private Button btnRemove;
+    private Button btnRemoveStudent;
     @FXML
-    private Button btnModify;
+    private Button btnModifyStudent;
     @FXML
-    private Button btnMostrar;
+    private Button btnMostrarEstudiantes;
+    @FXML
+   public static  ComboBox<String> combo1;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+//    try {
+//            if(!list.isEmpty()){
+//            
+//            for (int i = 1; i <= list.size(); i++) {
+//                System.out.println("El elemento en la posicion " + i + " es " + list.getNode(i).data);
+//                combo1.getItems().addAll((""+list.getNode(i).data));
+////                combo1.getItems().addAll((DoublyLinkedList[]) list.getNode(i).getData());
+//            }}else{
+//                combo1.getItems().add("No hay carreras registradas");
+//            }
+//        } catch (ListException ex) {
+//            Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+
     }    
     private int idcurso;
     private String des;
     @FXML
-    private void Add(ActionEvent event) throws IOException {
+    private void Add(ActionEvent event) throws IOException, ListException {
         id.setTitle("DoublyLinkedList");
         id.setHeaderText("Ingrese el ID de la carrera a añadir:");
         id.setContentText("");
@@ -129,6 +148,7 @@ public class FXMLCareersController implements Initializable {
             }
         }
         list.add(new Career(idcurso, des));
+
         util.Utility.file(list, "Carrera");
         btnMostrar(event);
     }
@@ -235,6 +255,7 @@ public class FXMLCareersController implements Initializable {
                 System.out.println("Error");
             }
         }
+           
     }
     private int idE;
     private String carne;
@@ -245,8 +266,13 @@ public class FXMLCareersController implements Initializable {
     private Date d;
     private String casa;
     private String idER;
+    
+         
+    
      @FXML
-    private void AddStudent(ActionEvent event) throws IOException {
+    private void AddStudent(ActionEvent event) throws IOException, ListException {
+          
+//       
         idStudent.setTitle("SinglyLinkedList");
         idStudent.setHeaderText("Ingrese el ID del estudiante a añadir:");
         idStudent.setContentText("");
@@ -413,7 +439,7 @@ public class FXMLCareersController implements Initializable {
 private String estuBuscar;
 private int idl;
 private boolean compa2;
- @FXML
+   @FXML
     private void ModifyStudent(ActionEvent event) throws ListException {
         idStudent.setTitle("SinglyLinkedList");
         idStudent.setHeaderText("Ingrese el Carnet del estudiante a buscar:");
@@ -563,6 +589,9 @@ private boolean compa2;
                 System.out.println("Error");
             }
         }
+     
+
+        
     }
 
 

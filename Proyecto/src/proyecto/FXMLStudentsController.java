@@ -5,9 +5,14 @@
  */
 package proyecto;
 
+import domain.ListException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.Initializable;
+import static proyecto.FXMLCareersController.combo1;
+import static proyecto.FXMLCareersController.list;
 
 /**
  * FXML Controller class
@@ -21,7 +26,7 @@ public class FXMLStudentsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
 }

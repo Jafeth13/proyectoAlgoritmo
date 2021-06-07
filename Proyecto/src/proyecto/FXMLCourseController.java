@@ -10,17 +10,23 @@ import domain.CircularDoublyLinkedList;
 import domain.Course;
 import domain.ListException;
 import domain.Student;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import static proyecto.FXMLCareersController.list;
 import static proyecto.FXMLCareersController.list2;
 
 /**
@@ -29,7 +35,8 @@ import static proyecto.FXMLCareersController.list2;
  * @author Matamoros Cordero
  */
 public class FXMLCourseController implements Initializable {
-    static  CircularDoublyLinkedList list =new CircularDoublyLinkedList();
+    static  CircularDoublyLinkedList listp =new CircularDoublyLinkedList();
+    
     TextInputDialog idCourse = new TextInputDialog("");
     TextInputDialog name = new TextInputDialog("");
     TextInputDialog credits = new TextInputDialog("");
@@ -54,13 +61,29 @@ public class FXMLCourseController implements Initializable {
     private Button btnMostrar;
     @FXML
     private Button btnAdd;
+    @FXML
+    private ComboBox<String> combo1;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        try {
+            if(!list.isEmpty()){
+            
+            for (int i = 1; i <= list.size(); i++) {
+                System.out.println("El elemento en la posicion " + i + " es " + list.getNode(i).data);
+                combo1.getItems().addAll((""+list.getNode(i).data));
+//                combo1.getItems().addAll((DoublyLinkedList[]) list.getNode(i).getData());
+            }}else{
+                combo1.getItems().add("No hay carreras registradas");
+            }
+        } catch (ListException ex) {
+            Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }    
 private String elim;
     @FXML
@@ -79,17 +102,17 @@ private String elim;
                 
             }
         }
-        list.remove(new Course(elim, nombre, creditos, new Career(creditos, elim)));
-             if (list.isEmpty()) {
+        listp.remove(new Course(elim, nombre, creditos, new Career(creditos, elim)));
+             if (listp.isEmpty()) {
 
              } else {
             try {
-                Course r = new Course((Course) list.getNode(1).getData());
+                Course r = new Course((Course) listp.getNode(1).getData());
                 for (int j = 0; j <= twCourse.getItems().size(); j++) {
                     this.twCourse.getItems().clear();
                 }
-                for (int i = 1; i <= list.size(); i++) {
-                    r = new Course((Course) list.getNode(i).getData());
+                for (int i = 1; i <= listp.size(); i++) {
+                    r = new Course((Course) listp.getNode(i).getData());
                     this.twCourse.getItems().add(r);
                     this.icCode.setCellValueFactory(new PropertyValueFactory<>("id"));
                     this.icName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -106,7 +129,7 @@ private String elim;
 private boolean compa;
 private String d;
     @FXML
-    private void Modify(ActionEvent event) throws ListException {
+    private void Modify(ActionEvent event) throws ListException, IOException {
          busc.setTitle("CircularDoublyLinkedList");
         busc.setHeaderText("Ingrese el ID del curso a modificar:");
         busc.setContentText("");
@@ -121,9 +144,9 @@ private String d;
                 
             }
         }
-          compa = list.contains(new Course(d, nombre, creditos, new Career(creditos, d)));
+          compa = listp.contains(new Course(d, nombre, creditos, new Career(creditos, d)));
           if (compa == true) {
-            list.remove(new Course(d, nombre, creditos, new Career(creditos, d)));
+            listp.remove(new Course(d, nombre, creditos, new Career(creditos, d)));
               name.setTitle("CircularDoublyLinkedList");
         name.setHeaderText("Ingrese el nombre del curso :");
         name.setContentText("");
@@ -166,23 +189,23 @@ private String d;
                 
             }
         }
-        list.add(new Course(d, nombre, creditos, new Career(0,carrer)));
-            
+        listp.add(new Course(d, nombre, creditos, new Career(0,carrer)));
+        util.Utility.file(listp,"Cursos");
           }
     }
 
     @FXML
     private void btnMostrar(ActionEvent event) {
-            if (list.isEmpty()) {
+            if (listp.isEmpty()) {
 
         } else {
             try {
-                Course r = new Course((Course) list.getNode(1).getData());
+                Course r = new Course((Course) listp.getNode(1).getData());
                 for (int j = 0; j <= twCourse.getItems().size(); j++) {
                     this.twCourse.getItems().clear();
                 }
-                for (int i = 1; i <= list.size(); i++) {
-                    r = new Course((Course) list.getNode(i).getData());
+                for (int i = 1; i <= listp.size(); i++) {
+                    r = new Course((Course) listp.getNode(i).getData());
                     this.twCourse.getItems().add(r);
                     this.icCode.setCellValueFactory(new PropertyValueFactory<>("id"));
                     this.icName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -259,7 +282,7 @@ private String d;
                 
             }
         }
-        list.add(new Course(id, nombre, creditos, new Career(0, carrer)));
+        listp.add(new Course(id, nombre, creditos, new Career(0, carrer)));
     }
     
 }

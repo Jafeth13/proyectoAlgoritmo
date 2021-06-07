@@ -10,6 +10,7 @@ import domain.Course;
 import domain.ListException;
 import domain.SinglyLinkedList;
 import domain.TimeTable;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -55,7 +56,7 @@ public class FXMLSchedulesController implements Initializable {
      private String hora11;
      private String hora12;
     @FXML
-    private void addHorarios(ActionEvent event) {
+    private void addHorarios(ActionEvent event) throws IOException {
     TextInputDialog Curso = new TextInputDialog("");
     TextInputDialog perio = new TextInputDialog("");
     TextInputDialog hora1 = new TextInputDialog("");
@@ -131,6 +132,7 @@ public class FXMLSchedulesController implements Initializable {
 //            
 //            }else{
 list.add(new TimeTable(new Course(per, CursoPriv, 0, new Career(0, CursoPriv)), per, hora11, hora12));
+util.Utility.file(list,"Horarios");
            if (list.isEmpty()) {
 
         } else {
