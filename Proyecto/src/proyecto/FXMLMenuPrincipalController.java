@@ -37,8 +37,6 @@ public class FXMLMenuPrincipalController implements Initializable {
     @FXML
     private MenuItem btnAddCourse;
     @FXML
-    private Menu btnSchedules;
-    @FXML
     private MenuItem btnNewEnrollment;
     @FXML
     private MenuItem btnDeenrollment;
@@ -52,14 +50,30 @@ public class FXMLMenuPrincipalController implements Initializable {
     private MenuItem btnLogOut;
     @FXML
     private MenuItem btnSchedule;
+    @FXML
+    private Menu MenuCareer;
+    @FXML
+    private Menu MenuStudent;
+    @FXML
+    private Menu MenuCourses;
+    @FXML
+    private Menu MenuSchedules;
+    @FXML
+    private Menu MenuReports;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        if(FXMLSecurityController.Type==2){
+        MenuCareer.setVisible(false); MenuStudent.setVisible(false);
+        MenuCourses.setVisible(false);MenuSchedules.setVisible(false); MenuReports.setVisible(false);
+        if(FXMLSecurityController.Type==1){
+        MenuCareer.setVisible(true); MenuStudent.setVisible(true);
+        MenuCourses.setVisible(true);MenuSchedules.setVisible(true); MenuReports.setVisible(true);
+        }
+    }}    
     private void loadpage(String page){
         Parent root = null;
         try {

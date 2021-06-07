@@ -14,22 +14,22 @@
    <top>
       <MenuBar prefHeight="23.0" prefWidth="1000.0" style="-fx-background-color: #41ADE7;" BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Carreras">
+          <Menu fx:id="MenuCareer" mnemonicParsing="false" text="Carreras">
             <items>
               <MenuItem fx:id="btnAddCareer" mnemonicParsing="false" onAction="#AddCareer" text="Ir al menu carrera" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Estudiantes">
+          <Menu fx:id="MenuStudent" mnemonicParsing="false" text="Estudiantes">
             <items>
               <MenuItem fx:id="btnAddStudent" mnemonicParsing="false" onAction="#AddStudent" text="Ir al menu Estudiantes" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Cursos">
+          <Menu fx:id="MenuCourses" mnemonicParsing="false" text="Cursos">
             <items>
               <MenuItem fx:id="btnAddCourse" mnemonicParsing="false" onAction="#AddCourse" text="Ir al menu Cursos" />
             </items>
           </Menu>
-            <Menu fx:id="btnSchedules" mnemonicParsing="false" onAction="#Schedule" text="Horarios">
+            <Menu fx:id="MenuSchedules" mnemonicParsing="false" onAction="#Schedule" text="Horarios">
                <items>
                   <MenuItem fx:id="btnSchedule" mnemonicParsing="false" onAction="#Schedule" text="Ir al menu Horarios" />
                </items></Menu>
@@ -40,7 +40,7 @@
                   <MenuItem fx:id="btnDeenrollment" mnemonicParsing="false" onAction="#Deenrollment" text="Retiro de Cursos" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Reportes">
+            <Menu fx:id="MenuReports" mnemonicParsing="false" text="Reportes">
                <items>
                   <MenuItem fx:id="btnEnrollmentReport" mnemonicParsing="false" onAction="#EnrollmentReport" text="Reporte de Matrícula" />
                   <SeparatorMenuItem mnemonicParsing="false" />

@@ -9,6 +9,7 @@ package proyecto;
 import domain.Career;
 import domain.DoublyLinkedList;
 import domain.ListException;
+import domain.Security;
 import domain.SinglyLinkedList;
 import domain.Student;
 import java.io.IOException;
@@ -25,6 +26,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import static proyecto.FXMLSecurityController.cL;
 
 /**
  * FXML Controller class
@@ -128,6 +130,7 @@ public class FXMLCareersController implements Initializable {
         }
         list.add(new Career(idcurso, des));
         util.Utility.file(list, "Carrera");
+        btnMostrar(event);
     }
     private int idcursoRE;
     private String desRE;
@@ -167,7 +170,7 @@ public class FXMLCareersController implements Initializable {
                 System.out.println("Error");
             }
         }
-          
+          btnMostrar(event);
     }
     private int idcursoMod;
     private boolean comp;
@@ -207,7 +210,9 @@ public class FXMLCareersController implements Initializable {
         list.add(new Career(idcursoMod, desc2));
         }else{
             
+            
         }
+        btnMostrar(event);
     }
     @FXML
     private void btnMostrar(ActionEvent event) {
@@ -357,25 +362,27 @@ public class FXMLCareersController implements Initializable {
        
         list2.add(new Student(idE, carne, last, first, d, phone, correo, casa,new Career(0, idER)));
         util.Utility.file(list2, "Estudiantes");
+        cL.add(new Student(idE, carne, last, first, d, phone, correo, casa,new Career(0, idER)));
+        btnMostrarEstudiantes(event);
     }
-    private int idEstudianteBorrar;
+    private String idEstudianteBorrar;
      @FXML
     private void RemoveStudent(ActionEvent event) throws ListException {
          idStudent.setTitle("SinglyLinkedList");
-        idStudent.setHeaderText("Ingrese el ID del estudiante a borrar:");
+        idStudent.setHeaderText("Ingrese el Carnet del estudiante a borrar:");
         idStudent.setContentText("");
         
         Optional<String> result5 = idStudent.showAndWait();
         if (result5.isPresent()) {
             
             try {
-                this.idEstudianteBorrar = Integer.parseInt(result5.get());
+                this.idEstudianteBorrar = result5.get();
                 
             } catch (NumberFormatException ex) {
                 
             }
         }
-        list2.remove(new Student(idEstudianteBorrar, "", "", "", d, phone, last, des, new Career(idE, desRE)));
+        list2.remove(new Student(0, idEstudianteBorrar, "", "", d, phone, last, des, new Career(idE, desRE)));
           if (list2.isEmpty()) {
 
         } else {
@@ -401,37 +408,39 @@ public class FXMLCareersController implements Initializable {
                 System.out.println("Error");
             }
         }
+          btnMostrarEstudiantes(event);
     }
-private int estuBuscar;
+private String estuBuscar;
+private int idl;
 private boolean compa2;
  @FXML
     private void ModifyStudent(ActionEvent event) throws ListException {
         idStudent.setTitle("SinglyLinkedList");
-        idStudent.setHeaderText("Ingrese el ID del estudiante a buscar:");
+        idStudent.setHeaderText("Ingrese el Carnet del estudiante a buscar:");
         idStudent.setContentText("");
 
         Optional<String> result55 = idStudent.showAndWait();
         if (result55.isPresent()) {
 
             try {
-                this.estuBuscar = Integer.parseInt(result55.get());
+                this.estuBuscar = result55.get();
 
             } catch (NumberFormatException ex) {
 
             }
         }
-        compa2 = list2.contains(new Student(estuBuscar, "", "", "", d, phone, last, des, new Career(idE, desRE)));
+        compa2 = list2.contains(new Student(0, estuBuscar, "", "", d, phone, last, des, new Career(idE, desRE)));
         if (compa2 == true) {
-            list2.remove(new Student(estuBuscar, "", "", "", d, phone, last, des, new Career(idE, desRE)));
+            list2.remove(new Student(0, estuBuscar, "", "", d, phone, last, des, new Career(idE, desRE)));
             carnet.setTitle("SinglyLinkedList");
-            carnet.setHeaderText("Ingrese el carnet del estudiante:");
+            carnet.setHeaderText("Ingrese el ID del estudiante:");
             carnet.setContentText("");
 
             Optional<String> result9 = carnet.showAndWait();
             if (result9.isPresent()) {
 
                 try {
-                    this.carne = result9.get();
+                    this.idl =Integer.parseInt(result9.get());
 
                 } catch (NumberFormatException ex) {
 
@@ -522,7 +531,8 @@ private boolean compa2;
                 }
             }
 
-            list2.add(new Student(estuBuscar, carne, last, first, d, phone, correo, casa, new Career(0, idER)));
+            list2.add(new Student(idl, estuBuscar, last, first, d, phone, correo, casa, new Career(0, idER)));
+            btnMostrarEstudiantes(event);
         }
     }
  

@@ -9,10 +9,12 @@ import com.sun.javaws.Main;
 import domain.Career;
 import domain.Course;
 import domain.ListException;
+import domain.Security;
 import domain.SinglyLinkedList;
 import domain.Student;
 import static java.awt.font.TextHitInfo.leading;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -81,12 +83,18 @@ public class Utility {
                 Student s5 = (Student) a;
                 Student s6 = (Student) b;
 
-                return s5.getId()==(s6.getId());
+                return s5.getStudentID().equals(s6.getStudentID());
                  case "Course":
                 Course s8 = (Course) a;
                 Course s9 = (Course) b;
 
                 return s8.getId().equals(s9.getId());
+                
+             case "Security":
+                Security secure = (Security) a;
+                Security secure2 = (Security) b;
+
+                return secure.getUser().equals(secure2.getUser()) && secure.getPassword().equals(secure2.getPassword());
         }
         return false; //en cualquier otro caso
     }
@@ -106,6 +114,9 @@ public class Utility {
         }
         if (a instanceof Career && b instanceof Career) {
             return "Career";
+        }
+        if (a instanceof Security && b instanceof Security) {
+            return "Security";
         }
         return "unknown"; //desconocido
     }
@@ -182,8 +193,45 @@ public class Utility {
         }
     }  
  public static void file(Object b,String name) throws IOException{
-     FileWriter file=new FileWriter(name);
+     FileWriter file=new FileWriter(name+".txt");
      file.write(b+"\n");
      file.close();
  }
+ 
+ public static void ReadFile(String string){
+ 
+ File archivo = null;
+      FileReader fr = null;
+      BufferedReader br = null;
+
+      try {
+         // Apertura del fichero y creacion de BufferedReader para poder
+         // hacer una lectura comoda (disponer del metodo readLine()).
+         archivo = new File (string+".txt");
+         fr = new FileReader (archivo);
+         br = new BufferedReader(fr);
+
+         // Lectura del fichero
+         String linea;
+         while((linea=br.readLine())!=null)
+            System.out.println(linea);
+      }
+      catch(Exception e){
+         e.printStackTrace();
+      }finally{
+         // En el finally cerramos el fichero, para asegurarnos
+         // que se cierra tanto si todo va bien como si salta 
+         // una excepcion.
+         try{                    
+            if( null != fr ){   
+               fr.close();     
+            }                  
+         }catch (Exception e2){ 
+            e2.printStackTrace();
+         }
+      }
+
+     
+ }
+ 
 }

@@ -6,11 +6,18 @@
 package proyecto;
 
 import domain.Career;
+import domain.CircularLinkedList;
 import domain.ListException;
+import domain.Security;
 import domain.SinglyLinkedList;
+import domain.Student;
 import java.io.IOException;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.Base64;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +31,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import util.Utility;
 
 /**
  * FXML Controller class
@@ -50,21 +58,35 @@ public class FXMLSecurityController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+        try {
+            cL.add(new Security("Admin",MD5("1234")));
+            
 //this.TEXTAREA.setText(list.toString());
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLSecurityController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-    }    
+    }
+ public static CircularLinkedList cL = new CircularLinkedList();
+ private Date date;
  private String[] show;
-    @FXML
-   
-    private void SignIn(ActionEvent event) {
+ public static int Type=0;
+ 
+    @FXML  
+    private void SignIn(ActionEvent event) throws NoSuchAlgorithmException, IOException, ListException {
        
-        if(this.txtUser.getText().equals("Admin")&&this.txtPassword.getText().equals("1234")){
+      
+        Utility.file(cL.toString(), "Security");
+        if(cL.contains(new Security(this.txtUser.getText(), MD5(this.txtPassword.getText())))){
+            Type=1;
         this.loadpage("FXMLMenuPrincipal");
-        }else
+        } 
+        if(cL.contains(new Student(0, this.txtUser.getText(), "", "",date, "", "", "", new Career(0, "")))){
+           Type=2;
+           this.loadpage("FXMLMenuPrincipal");
+        }
+        else
             this.txtMessage.setText("Usuario no válido");
-         
-        
     }
     private void loadpage(String page){
         Parent root = null;
@@ -74,5 +96,24 @@ public class FXMLSecurityController implements Initializable {
             Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.bp.setCenter(root);
+    }
+    
+    public String MD5(String md5) throws IOException{
+    
+        try{
+         java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+         byte[] array = md.digest(md5.getBytes());
+         StringBuffer sb = new StringBuffer();
+         
+             for (int i = 0; i < array.length; i++) {
+                 sb.append(Integer.toHexString((array[i]&0xFF)|0x100).substring(1,3));
+             } 
+             
+            
+             return sb.toString();
+         
+         }catch(java.security.NoSuchAlgorithmException e){   
+         }
+    return null;
     }
 }
