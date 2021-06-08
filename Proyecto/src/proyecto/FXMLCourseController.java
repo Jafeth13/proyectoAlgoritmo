@@ -35,14 +35,13 @@ import static proyecto.FXMLCareersController.list2;
  * @author Matamoros Cordero
  */
 public class FXMLCourseController implements Initializable {
-    static  CircularDoublyLinkedList listp =new CircularDoublyLinkedList();
-    
+   public static  CircularDoublyLinkedList listp =new CircularDoublyLinkedList();
     TextInputDialog idCourse = new TextInputDialog("");
     TextInputDialog name = new TextInputDialog("");
     TextInputDialog credits = new TextInputDialog("");
     TextInputDialog Carrera = new TextInputDialog("");
     TextInputDialog busc = new TextInputDialog("");
-    
+    public static int ty;
     @FXML
     private TableView<Course> twCourse;
     @FXML
@@ -63,7 +62,7 @@ public class FXMLCourseController implements Initializable {
     private Button btnAdd;
     @FXML
     private ComboBox<String> combo1;
-
+FXMLCareersController o=new FXMLCareersController();
     /**
      * Initializes the controller class.
      */
@@ -72,7 +71,6 @@ public class FXMLCourseController implements Initializable {
         
         try {
             if(!list.isEmpty()){
-            
             for (int i = 1; i <= list.size(); i++) {
                 System.out.println("El elemento en la posicion " + i + " es " + list.getNode(i).data);
                 combo1.getItems().addAll((""+list.getNode(i).data));
@@ -225,7 +223,7 @@ private String d;
     private int creditos;
     private String carrer;
     @FXML
-    private void Add(ActionEvent event) {
+    private void Add(ActionEvent event) throws IOException {
         idCourse.setTitle("CircularDoublyLinkedList");
         idCourse.setHeaderText("Ingrese el ID del curso a añadir:");
         idCourse.setContentText("");
@@ -268,21 +266,16 @@ private String d;
                 
             }
         }
-        Carrera.setTitle("CircularDoublyLinkedList");
-        Carrera.setHeaderText("Ingrese la carrera del curso añadido");
-        Carrera.setContentText("");
-        
-        Optional<String> result291 = Carrera.showAndWait();
-        if (result.isPresent()) {
+
             
             try {
-                this.carrer = result291.get();
+                this.carrer = combo1.getValue();
                 
             } catch (NumberFormatException ex) {
                 
             }
-        }
         listp.add(new Course(id, nombre, creditos, new Career(0, carrer)));
+        util.Utility.file(listp,"Cursos");
     }
     
 }

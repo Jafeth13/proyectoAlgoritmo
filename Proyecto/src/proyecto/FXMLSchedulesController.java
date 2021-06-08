@@ -14,15 +14,19 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import static proyecto.FXMLCareersController.list;
+import static proyecto.FXMLCourseController.listp;
 
 /**
  * FXML Controller class
@@ -30,7 +34,8 @@ import static proyecto.FXMLCareersController.list;
  * @author Matamoros Cordero
  */
 public class FXMLSchedulesController implements Initializable {
-    static  SinglyLinkedList list =new SinglyLinkedList();
+    static  SinglyLinkedList listH =new SinglyLinkedList();
+    
     @FXML
     private TableView<TimeTable> twHorario;
     @FXML
@@ -43,13 +48,28 @@ public class FXMLSchedulesController implements Initializable {
     private TableColumn<String,String> TCS2;
     @FXML
     private Button btnAddHorario;
-
+    @FXML
+    private ComboBox<String> comboHorario;
+ FXMLCourseController tp=new FXMLCourseController();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+          try {
+             
+            if(!listp.isEmpty()){
+            tp.ty=2;
+            for (int i = 1; i <= listp.size(); i++) {
+                System.out.println("El elemento en la posicion " + i + " es " + listp.getNode(i).data);
+                comboHorario.getItems().addAll((""+listp.getNode(i).data));
+//                combo1.getItems().addAll((DoublyLinkedList[]) list.getNode(i).getData());
+            }}else{
+                comboHorario.getItems().add("No hay carreras registradas");
+            }
+        } catch (ListException ex) {
+            Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
      private String CursoPriv;
      private String per;
@@ -131,17 +151,17 @@ public class FXMLSchedulesController implements Initializable {
 //               ||hora12.contains("1am")||hora12.contains("12am")||hora12.contains("11pm")||hora12.contains("10pm")){               
 //            
 //            }else{
-list.add(new TimeTable(new Course(per, CursoPriv, 0, new Career(0, CursoPriv)), per, hora11, hora12));
-util.Utility.file(list,"Horarios");
-           if (list.isEmpty()) {
+listH.add(new TimeTable(new Course(per, CursoPriv, 0, new Career(0, CursoPriv)), per, hora11, hora12));
+util.Utility.file(listH,"Horarios");
+           if (listH.isEmpty()) {
 
         } else {
             try {
-                TimeTable ep = new TimeTable((TimeTable) list.getNode(1).getData());
+                TimeTable ep = new TimeTable((TimeTable) listH.getNode(1).getData());
                 for (int j = 0; j <= twHorario.getItems().size(); j++) {
                     this.twHorario.getItems().clear();
                 }
-                for (int i = 1; i <= list.size(); i++) {
+                for (int i = 1; i <= listH.size(); i++) {
                     ep = new TimeTable((TimeTable) list.getNode(i).getData());
                     this.twHorario.getItems().add(ep);
                     this.TCCourse.setCellValueFactory(new PropertyValueFactory<>("courseID"));

@@ -5,6 +5,8 @@
  */
 package domain;
 
+import proyecto.FXMLCourseController;
+
 /**
  *
  * @author Matamoros Cordero
@@ -60,10 +62,16 @@ public class Course {
     public void setCareerID(Career careerID) {
         this.careerID = careerID;
     }
-
+FXMLCourseController tp=new FXMLCourseController();
     @Override
     public String toString() {
+        if(tp.ty==0){
         return "Course{" + "id=" + id + ", name=" + name + ", credtis=" + credtis + ", careerID=" + careerID + '}';
+        }
+        if(tp.ty==2){
+           return  name;
+    }
+        return null;
     }
 
    

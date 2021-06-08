@@ -5,6 +5,8 @@
  */
 package domain;
 
+import proyecto.FXMLCareersController;
+
 /**
  *
  * @author Matamoros Cordero
@@ -38,10 +40,10 @@ public class Career {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    FXMLCareersController o=new FXMLCareersController();
     @Override
     public String toString() {
-        return id + " - " + description ;
+          return "Career{" + " id = " + id + ", description =" + description + '}';
     }
     
     

@@ -29,7 +29,7 @@ public class FXMLEnrollmentController implements Initializable {
     @FXML
     private Label lbUCR;
     @FXML
-    private ComboBox<?> cbxEnrollmentCourses;
+    private ComboBox<String> cbxEnrollmentCourses;
     @FXML
     private ComboBox<?> cbxSchedules;
     @FXML

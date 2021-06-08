@@ -41,7 +41,6 @@ public class FXMLCareersController implements Initializable {
   public  static DoublyLinkedList list = new DoublyLinkedList();
     TextInputDialog id = new TextInputDialog("");
     TextInputDialog descripcion = new TextInputDialog("");
-    
     static SinglyLinkedList list2 = new SinglyLinkedList();
     TextInputDialog idStudent = new TextInputDialog("");
     TextInputDialog carnet = new TextInputDialog("");
