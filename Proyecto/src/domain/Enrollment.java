@@ -26,6 +26,14 @@ public class Enrollment {
     this.studentID=studentID;
     }
 
+    public Enrollment(Enrollment enrollment) {
+      this.courseID=enrollment.courseID;
+        this.schedule=enrollment.schedule;
+        this.id=enrollment.id;
+    }
+
+ 
+
     public int getId() {
         return id;
     }

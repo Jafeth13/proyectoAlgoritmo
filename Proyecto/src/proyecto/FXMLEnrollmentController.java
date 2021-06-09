@@ -27,6 +27,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import static proyecto.FXMLCourseController.listp;
@@ -74,8 +75,29 @@ public class FXMLEnrollmentController implements Initializable {
     @FXML
     private ComboBox<String> cbxEstudiantes;
     public static int s;
+    @FXML
+    private ComboBox<String> cbxSchedules2;
+    @FXML
+    private TextField numMatricula;
+    @FXML
+    private Label txtStudent1;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+         try {
+             
+            if(!listH.isEmpty()){
+            tp.ty=3;
+            for (int i = 1; i <= listH.size(); i++) {
+                System.out.println("El elemento en la posicion " + i + " es " + listH.getNode(i).data);
+                cbxSchedules2.getItems().addAll((""+listH.getNode(i).data));
+            }}else{
+                cbxSchedules2.getItems().add("No hay horarios registradas");
+            }
+        } catch (ListException ex) {
+            Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
      
           try {
              
@@ -107,8 +129,6 @@ public class FXMLEnrollmentController implements Initializable {
         } catch (ListException ex) {
             Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
-     
      
       try {
              
@@ -147,11 +167,30 @@ public class FXMLEnrollmentController implements Initializable {
         }   
     }
   private Date y;
+  private String opcion;
+  
+ private int f;
     @FXML
     private void Confirm(ActionEvent event) throws ListException, IOException {
-       listEnro.add(new Enrollment(0, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
-               new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),cbxSchedules.getValue()));
+       f=Integer.parseInt(numMatricula.getText()); 
+         if(cbxSchedules.getValue()!=null){
+ 
+            opcion=cbxSchedules.getValue(); 
+           listEnro.add(new Enrollment(f, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
+               new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),(opcion)));
        util.Utility.file(listEnro, "MATRICULA");
+        }
+        if(cbxSchedules2.getValue()!=null){
+            opcion=cbxSchedules2.getValue();
+            listEnro.add(new Enrollment(f, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
+               new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),(opcion)));
+       util.Utility.file(listEnro, "MATRICULA");
+        }
+        if(cbxSchedules.getValue()!=null&&cbxSchedules2.getValue()!=null){
+            
+        }
+      
+      
     }
     
 }

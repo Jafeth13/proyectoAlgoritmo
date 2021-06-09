@@ -5,6 +5,11 @@
  */
 package domain;
 
+import javafx.scene.Scene;
+import proyecto.FXMLCourseController;
+import proyecto.FXMLEnrollmentController;
+import proyecto.FXMLSchedulesController;
+
 /**
  *
  * @author Matamoros Cordero
@@ -62,10 +67,19 @@ public class TimeTable {
     public void setSchedule2(String schedule2) {
         this.schedule2 = schedule2;
     }
-
+    FXMLCourseController fs=new FXMLCourseController();
     @Override
     public String toString() {
+       if(fs.ty==0){
         return "TimeTable{" + "courseID=" + courseID + ", period=" + period + ", schedule1=" + schedule1 + ", schedule2=" + schedule2 + '}';
+       }
+       if(fs.ty==2){
+           return schedule1;
+       }
+       if(fs.ty==3){
+           return schedule2;
+       }
+       return null;
     }
 
    

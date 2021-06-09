@@ -8,6 +8,7 @@ package util;
 import com.sun.javaws.Main;
 import domain.Career;
 import domain.Course;
+import domain.Enrollment;
 import domain.ListException;
 import domain.Security;
 import domain.SinglyLinkedList;
@@ -102,7 +103,12 @@ public class Utility {
                 TimeTable ti = (TimeTable) b;
 
                 return ti.getSchedule1().equalsIgnoreCase(to.getSchedule1())||ti.getSchedule2().equalsIgnoreCase(to.getSchedule2());
+                 
+                     case "Enrollment":
+                Enrollment s81 = (Enrollment) a;
+                Enrollment s91 = (Enrollment) b;
 
+                return s81.getId()==(s91.getId());
         }
         
         return false; //en cualquier otro caso
@@ -129,6 +135,9 @@ public class Utility {
         }
         if (a instanceof Security && b instanceof Security) {
             return "TimeTable";
+        }
+        if (a instanceof Enrollment && b instanceof Enrollment) {
+            return "Enrollment";
         }
         return "unknown"; //desconocido
     }
