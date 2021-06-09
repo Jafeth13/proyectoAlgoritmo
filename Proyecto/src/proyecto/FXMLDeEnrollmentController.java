@@ -128,14 +128,13 @@ private boolean er=false;
                 System.out.println("Error");
             }
         }
+       
     }
-        
-//        listEnro.contains(new Enrollment(d, dp, new Student(d, "", "", "", dp, "", "", "", new Career(d, "")), 
-//        new Course("", "", d, new Career(d, "")), ""));
-        
+       
     }
 
     @FXML
     private void btnDeEnrollment(ActionEvent event) {
+        
     }
 }
