@@ -86,36 +86,36 @@ public class FXMLMenuPrincipalController implements Initializable {
 
     @FXML
     private void AddCareer(ActionEvent event) {
-        this.loadpage("FXMLCareers");
+        this.loadpage("FXMLCareers1");
     }
 
     private void ModifyCareer(ActionEvent event) {
-        this.loadpage("FXMLCareers");
+        this.loadpage("FXMLCareers1");
     }
 
     private void DeleteCareer(ActionEvent event) {
-        this.loadpage("FXMLCareers");
+        this.loadpage("FXMLCareers1");
     }
 
     private void ShowCareers(ActionEvent event) {
-        this.loadpage("FXMLCareers");
+        this.loadpage("FXMLCareers1");
     }
 
     @FXML
     private void AddStudent(ActionEvent event) {
-        this.loadpage("FXMLStudents");
+        this.loadpage("FXMLStudents1");
     }
 
     private void ModifyStudent(ActionEvent event) {
-        this.loadpage("FXMLStudents");
+        this.loadpage("FXMLStudents1");
     }
 
     private void DeleteStudent(ActionEvent event) {
-        this.loadpage("FXMLStudents");
+        this.loadpage("FXMLStudents1");
     }
 
     private void ShowStudents(ActionEvent event) {
-        this.loadpage("FXMLStudents");
+        this.loadpage("FXMLStudents1");
     }
 
     @FXML

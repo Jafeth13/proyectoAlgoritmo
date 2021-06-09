@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="proyecto.FXMLCareers1Controller">
+   <children>
+      <TableView fx:id="tvCareer" layoutX="513.0" layoutY="8.0" prefHeight="536.0" prefWidth="473.0" style="-fx-background-color: #41ade7;">
+         <columns>
+            <TableColumn fx:id="tcIDs" prefWidth="144.0" text="ID" />
+            <TableColumn fx:id="tcDescriptions" minWidth="0.0" prefWidth="328.0" text="Descripción" />
+         </columns>
+         <effect>
+            <InnerShadow color="#41ade7">
+               <input>
+                  <DropShadow color="#41ade7" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </TableView>
+      <Label fx:id="lbImages" layoutX="106.0" layoutY="10.0" prefHeight="151.0" prefWidth="309.0" text="Logo UCR" textAlignment="CENTER">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/UCR/2021/III%20Semestre/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%201/Proyecto/src/images/LogoUCR.png" />
+               </source>
+            </ImageInput>
+         </effect>
+      </Label>
+      <Label fx:id="txtMessages1" alignment="CENTER" layoutX="23.0" layoutY="134.0" prefHeight="66.0" prefWidth="473.0" text="Módulo de Carreras" textFill="WHITE">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#41ade7" spread="0.9" />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnMostrars" layoutX="167.0" layoutY="416.0" mnemonicParsing="false" onAction="#btnMostrars" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Mostrar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnModifys" layoutX="167.0" layoutY="344.0" mnemonicParsing="false" onAction="#Modifys" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Modificar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRemoves" layoutX="167.0" layoutY="272.0" mnemonicParsing="false" onAction="#Removes" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Eliminar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAdds" layoutX="169.0" layoutY="200.0" mnemonicParsing="false" onAction="#Adds" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Agregar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+      <Label fx:id="txtMessages" alignment="CENTER" layoutX="25.0" layoutY="482.0" prefHeight="66.0" prefWidth="473.0" text="Proceso Correcto" textFill="#4ed03d">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtErrorMessages" alignment="CENTER" layoutX="25.0" layoutY="482.0" prefHeight="66.0" prefWidth="473.0" text="Proceso inCorrecto" textFill="#c62626">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

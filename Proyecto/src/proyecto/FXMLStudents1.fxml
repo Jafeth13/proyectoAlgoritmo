@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="552.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="proyecto.FXMLStudents1Controller">
+   <children>
+      <Label fx:id="txtMessage1" alignment="CENTER" layoutX="274.0" layoutY="24.0" prefHeight="66.0" prefWidth="473.0" text="Módulo de Estudiantes" textFill="WHITE">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#41ade7" spread="0.9" />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="36.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tvStudents" layoutX="16.0" layoutY="90.0" prefHeight="307.0" prefWidth="969.0" style="-fx-background-color: #41ade7;">
+         <columns>
+            <TableColumn fx:id="tcIDStu" prefWidth="106.0" text="Cédula" />
+            <TableColumn fx:id="tcCarnet" prefWidth="114.0" text="Carnet" />
+            <TableColumn fx:id="tcLast" prefWidth="128.0" text="Apellido" />
+            <TableColumn fx:id="tcName" prefWidth="142.0" text="Nombre" />
+            <TableColumn fx:id="tcPhone" minWidth="0.0" prefWidth="115.0" text="Telefono" />
+            <TableColumn fx:id="tcEmail" minWidth="0.0" prefWidth="131.0" text="Correo electrónico" />
+            <TableColumn fx:id="tcDirection" minWidth="0.0" prefWidth="118.0" text="Dirección" />
+            <TableColumn fx:id="tcCareer" minWidth="0.0" prefWidth="114.0" text="Carrera" />
+         </columns>
+         <effect>
+            <InnerShadow color="#41ade7">
+               <input>
+                  <DropShadow color="#41ade7" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </TableView>
+      <Button fx:id="btnMostrarEstudiantes" layoutX="610.0" layoutY="416.0" mnemonicParsing="false" onAction="#btnMostrarEstudiantes" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Mostrar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnModifyStudent" layoutX="418.0" layoutY="416.0" mnemonicParsing="false" onAction="#ModifyStudent" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Modificar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRemoveStudent" layoutX="224.0" layoutY="416.0" mnemonicParsing="false" onAction="#RemoveStudent" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Eliminar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAddStudent" layoutX="29.0" layoutY="416.0" mnemonicParsing="false" onAction="#AddStudent" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: #41ade7;" text="Agregar" textFill="WHITE">
+         <effect>
+            <InnerShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </InnerShadow>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="combo1s" layoutX="29.0" layoutY="493.0" prefHeight="25.0" prefWidth="184.0" promptText="Carreras" style="-fx-background-color: #ffffff;">
+         <effect>
+            <InnerShadow color="#43afe5">
+               <input>
+                  <DropShadow color="#43afe5" spread="0.8" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </ComboBox>
+      <Label fx:id="txtMessage" alignment="CENTER" layoutX="274.0" layoutY="482.0" prefHeight="66.0" prefWidth="473.0" text="Proceso" textFill="#4ed03d">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtErrorMessage" alignment="CENTER" layoutX="277.0" layoutY="482.0" prefHeight="66.0" prefWidth="473.0" text="Proceso malo" textFill="#c62626">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbImage" layoutX="738.0" layoutY="404.0" prefHeight="101.0" prefWidth="137.0" text="Logo UCR" textAlignment="CENTER">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/UCR/2021/III%20Semestre/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%201/Proyecto/src/images/LogoUCR.png" />
+               </source>
+            </ImageInput>
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>
