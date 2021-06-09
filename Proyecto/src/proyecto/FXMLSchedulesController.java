@@ -21,6 +21,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -58,6 +60,46 @@ public class FXMLSchedulesController implements Initializable {
     private ComboBox<String> comboh2;
     @FXML
     private TextField txtSemestre;
+    @FXML
+    private Label txtMessage;
+    @FXML
+    private Label txtTittle;
+    @FXML
+    private Label txtMessage1;
+    @FXML
+    private Label txtMessage11;
+    @FXML
+    private Label txtMessage111;
+    @FXML
+    private RadioButton L;
+    @FXML
+    private RadioButton K;
+    @FXML
+    private RadioButton M;
+    @FXML
+    private RadioButton V;
+    @FXML
+    private RadioButton J;
+    @FXML
+    private RadioButton S;
+    @FXML
+    private RadioButton M2;
+    @FXML
+    private RadioButton J2;
+    @FXML
+    private RadioButton K2;
+    @FXML
+    private RadioButton L2;
+    @FXML
+    private RadioButton V2;
+    @FXML
+    private RadioButton S2;
+    @FXML
+    private Label lbUCR;
+    @FXML
+    private Label txtMessage2;
+    @FXML
+    private Label txtError;
     /**
      * Initializes the controller class.
      */
@@ -77,77 +119,25 @@ public class FXMLSchedulesController implements Initializable {
         } catch (ListException ex) {
             Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        comboH1.getItems().addAll("7am-8:50am","9am-10:50am","11am-12:50","1pm-2:50pm","3pm-4:50pm",
-                "5pm-6:50pm","7pm-8:50");
-        comboh2.getItems().addAll("7am-8:50am","9am-10:50am","11am-12:50","1pm-2:50pm","3pm-4:50pm",
-                "5pm-6:50pm","7pm-8:50");
+ comboH1.getItems().addAll("7:00am-8:50am","9:00am-10:50am","11:00am-12:50","1:00pm-2:50pm",
+                           "3:00pm-4:50pm","5:00pm-6:50pm","7:00pm-8:50",
+                           "7:00am-9:50am","9:00am-11:50am","1:00pm-3:50pm","4:00pm-6:50",
+                           "8:00am-11:50am","1:00pm-4:50pm","5:00pm-8:50pm");
+ 
+ comboh2.getItems().addAll("7:00am-8:50am","9:00am-10:50am","11:00am-12:50","1:00pm-2:50pm",
+                           "3:00pm-4:50pm","5:00pm-6:50pm","7:00pm-8:50",
+                           "7:00am-9:50am","9:00am-11:50am","1:00pm-3:50pm","4:00pm-6:50",
+                           "8:00am-11:50am","1:00pm-4:50pm","5:00pm-8:50pm");
           
           
     }    
-     private String CursoPriv;
-     private String per;
-     private String hora11;
-     private String hora12;
+  
     @FXML
     private void addHorarios(ActionEvent event) throws IOException, ListException {
-    TextInputDialog perio = new TextInputDialog("");
-    TextInputDialog hora1 = new TextInputDialog("");
-    TextInputDialog hora2 = new TextInputDialog("");   
     
-
-            
-            try {
-                this.CursoPriv = comboHorario.getValue();
-                
-            } catch (NumberFormatException ex) {
-                
-            }
-
-        
-        perio.setTitle("SinglyLinkedList");
-        perio.setHeaderText("Ingrese el semestre :");
-        perio.setContentText("");
-        
-        Optional<String> result2 = perio.showAndWait();
-        if (result2.isPresent()) {
-            
-            try {
-                this.per = result2.get();
-                
-            } catch (NumberFormatException ex) {
-                
-            }
-        }
-        
-        hora1.setTitle("SinglyLinkedList");
-        hora1.setHeaderText("Ingrese la opcion de horario 1:");
-        hora1.setContentText("");
-        
-        Optional<String> result25 = hora1.showAndWait();
-        if (result25.isPresent()) {
-            
-            try {
-                this.hora11 = result25.get();
-                
-            } catch (NumberFormatException ex) {
-                
-            }
-        }
-        hora2.setTitle("SinglyLinkedList");
-        hora2.setHeaderText("Ingrese la opcion de horario 2:");
-        hora2.setContentText("");
-        
-        Optional<String> result256 = hora2.showAndWait();
-        if (result256.isPresent()) {
-            
-            try {
-                this.hora12 = result256.get();
-                
-            } catch (NumberFormatException ex) {
-                
-            }
-        }
-listH.add(new TimeTable(new Course(per, CursoPriv, 0, new Career(0, CursoPriv)), per, hora11, hora12));
+listH.add(new TimeTable(new Course(this.txtSemestre.getText(), this.comboHorario.getValue(), 0, new Career(0,
+        this.comboHorario.getValue())), this.txtSemestre.getText(), day+" "+this.comboH1.getValue(),
+        day2+" "+this.comboh2.getValue()));
 
 
 
@@ -171,14 +161,130 @@ util.Utility.file(listH,"Horarios");
                 this.twHorario.setVisible(true);
             } catch (ListException er) {
                 System.out.println("Error");
-            }
+            }   
+        } 
+    }
+    
+    public static String day;
+     public static String day2;
+    @FXML
+    private void L(ActionEvent event) {
+        this.K.setSelected(false);
+        this.M.setSelected(false);
+        this.J.setSelected(false);
+        this.V.setSelected(false);
+        this.S.setSelected(false);
+        day="L";
+    }
 
-            
-        }
-        
-        
-        
-        
+    @FXML
+    private void K(ActionEvent event) {
+        this.L.setSelected(false);
+        this.M.setSelected(false);
+        this.J.setSelected(false);
+        this.V.setSelected(false);
+        this.S.setSelected(false);
+        day="K";
+    }
+
+    @FXML
+    private void M(ActionEvent event) {
+        this.K.setSelected(false);
+        this.L.setSelected(false);
+        this.J.setSelected(false);
+        this.V.setSelected(false);
+        this.S.setSelected(false);
+        day="M";
+    }
+
+    @FXML
+    private void V(ActionEvent event) {
+        this.K.setSelected(false);
+        this.M.setSelected(false);
+        this.J.setSelected(false);
+        this.L.setSelected(false);
+        this.S.setSelected(false);
+        day="V";
+    }
+
+    @FXML
+    private void J(ActionEvent event) {
+        this.K.setSelected(false);
+        this.M.setSelected(false);
+        this.L.setSelected(false);
+        this.V.setSelected(false);
+        this.S.setSelected(false);
+        day="J";
+    }
+
+    @FXML
+    private void S(ActionEvent event) {
+        this.K.setSelected(false);
+        this.M.setSelected(false);
+        this.J.setSelected(false);
+        this.V.setSelected(false);
+        this.L.setSelected(false);
+        day="S";
+    }
+
+    @FXML
+    private void M2(ActionEvent event) {
+        this.K2.setSelected(false);
+        this.L2.setSelected(false);
+        this.J2.setSelected(false);
+        this.V2.setSelected(false);
+        this.S2.setSelected(false);
+        day2="M";
+    }
+
+    @FXML
+    private void J2(ActionEvent event) {
+        this.K2.setSelected(false);
+        this.M2.setSelected(false);
+        this.L2.setSelected(false);
+        this.V2.setSelected(false);
+        this.S2.setSelected(false);
+        day2="J";
+    }
+
+    @FXML
+    private void K2(ActionEvent event) {
+        this.M2.setSelected(false);
+        this.L2.setSelected(false);
+        this.J2.setSelected(false);
+        this.V2.setSelected(false);
+        this.S2.setSelected(false);
+        day2="K";
+    }
+
+    @FXML
+    private void L2(ActionEvent event) {
+        this.K2.setSelected(false);
+        this.M2.setSelected(false);
+        this.J2.setSelected(false);
+        this.V2.setSelected(false);
+        this.S2.setSelected(false);
+        day2="L";
+    }
+
+    @FXML
+    private void V2(ActionEvent event) {
+        this.K2.setSelected(false);
+        this.L2.setSelected(false);
+        this.J2.setSelected(false);
+        this.M2.setSelected(false);
+        this.S2.setSelected(false);
+        day2="V";
+    }
+
+    @FXML
+    private void S2(ActionEvent event) {
+        this.K2.setSelected(false);
+        this.L2.setSelected(false);
+        this.J2.setSelected(false);
+        this.V2.setSelected(false);
+        this.M2.setSelected(false);
+        day2="S";
     }
     
 }

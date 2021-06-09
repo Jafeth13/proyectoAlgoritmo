@@ -56,18 +56,6 @@
                   <Font name="Arial Bold Italic" size="24.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtPassword" layoutX="312.0" layoutY="344.0" prefHeight="45.0" prefWidth="190.0">
-               <effect>
-                  <InnerShadow color="#41ade7">
-                     <input>
-                        <DropShadow color="#41ade7" />
-                     </input>
-                  </InnerShadow>
-               </effect>
-               <font>
-                  <Font name="Arial Bold Italic" size="24.0" />
-               </font>
-            </TextField>
             <Label layoutX="42.0" layoutY="53.0" prefHeight="190.0" prefWidth="595.0" textAlignment="CENTER">
                <font>
                   <Font name="Arial Bold" size="24.0" />
@@ -85,6 +73,18 @@
                   <Font name="Arial" size="48.0" />
                </font>
             </Label>
+            <PasswordField fx:id="txtPassword" layoutX="313.0" layoutY="344.0" prefHeight="45.0" prefWidth="189.0">
+               <effect>
+                  <InnerShadow color="#41ade7">
+                     <input>
+                        <DropShadow color="#41ade7" />
+                     </input>
+                  </InnerShadow>
+               </effect>
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </PasswordField>
          </children>
       </AnchorPane>
    </center>
