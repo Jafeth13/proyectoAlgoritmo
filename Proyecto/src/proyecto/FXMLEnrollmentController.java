@@ -5,9 +5,12 @@
  */
 package proyecto;
 
+import domain.ListException;
 import domain.Student;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +19,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import static proyecto.FXMLCourseController.listp;
+import static proyecto.FXMLSchedulesController.listH;
+import static proyecto.FXMLStudents1Controller.list2;
 
 /**
  * FXML Controller class
@@ -31,7 +38,7 @@ public class FXMLEnrollmentController implements Initializable {
     @FXML
     private ComboBox<String> cbxEnrollmentCourses;
     @FXML
-    private ComboBox<?> cbxSchedules;
+    private ComboBox<String> cbxSchedules;
     @FXML
     private Label txtError;
     @FXML
@@ -41,21 +48,69 @@ public class FXMLEnrollmentController implements Initializable {
     @FXML
     public TableView<Student> TVStu;
     @FXML
-    public TableColumn<?, ?> tcIDM;
+    public TableColumn<Student, Integer> tcIDM;
     @FXML
-    public TableColumn<?, ?> tcCE;
+    public TableColumn<Student, String> tcCE;
     @FXML
-    public TableColumn<?, ?> tcAE;
+    public TableColumn<Student, String> tcAE;
     @FXML
-    public TableColumn<?, ?> tcNE;
+    public TableColumn<Student, String> tcNE;
 
     /**
      * Initializes the controller class.
      */
+        FXMLCourseController tp=new FXMLCourseController();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+     try {             
+            if(!listp.isEmpty()){
+            tp.ty=2;
+            for (int i = 1; i <= listp.size(); i++) {
+                System.out.println("El elemento en la posicion " + i + " es " + listp.getNode(i).data);
+                cbxEnrollmentCourses.getItems().addAll((""+listp.getNode(i).data));
+            }}else{
+                cbxEnrollmentCourses.getItems().add("No hay cursos registradas");
+            }
+        } catch (ListException ex) {
+            Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+      try {
+             
+            if(!listH.isEmpty()){
+            tp.ty=2;
+            for (int i = 1; i <= listH.size(); i++) {
+                System.out.println("El elemento en la posicion " + i + " es " + listH.getNode(i).data);
+                cbxSchedules.getItems().addAll((""+listH.getNode(i).data));
+            }}else{
+                cbxSchedules.getItems().add("No hay horarios registradas");
+            }
+        } catch (ListException ex) {
+            Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+       if (list2.isEmpty()) {
+
+        } else {
+            try {
+                Student r = new Student((Student) list2.getNode(1).getData());
+                for (int j = 0; j <= TVStu.getItems().size(); j++) {
+                    this.TVStu.getItems().clear();
+                }
+                for (int i = 1; i <= list2.size(); i++) {
+                    r = new Student((Student) list2.getNode(i).getData());
+                    this.TVStu.getItems().add(r);
+                    this.tcIDM.setCellValueFactory(new PropertyValueFactory<>("id"));
+                    this.tcCE.setCellValueFactory(new PropertyValueFactory<>("studentID"));
+                    this.tcNE.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+                    this.tcAE.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+                }
+                 this.TVStu.setVisible(true);
+            } catch (ListException er) {
+                System.out.println("Error");
+            }
+        }   
+    }
     
     @FXML
     private void Confirm(ActionEvent event) {

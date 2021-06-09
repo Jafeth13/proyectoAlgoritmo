@@ -12,6 +12,7 @@ import domain.ListException;
 import domain.Security;
 import domain.SinglyLinkedList;
 import domain.Student;
+import domain.TimeTable;
 import static java.awt.font.TextHitInfo.leading;
 import java.io.BufferedReader;
 import java.io.File;
@@ -95,7 +96,15 @@ public class Utility {
                 Security secure2 = (Security) b;
 
                 return secure.getUser().equals(secure2.getUser()) && secure.getPassword().equals(secure2.getPassword());
+                
+                 case "TimeTable":
+                     TimeTable to = (TimeTable) a;
+                TimeTable ti = (TimeTable) b;
+
+                return ti.getSchedule1().equalsIgnoreCase(to.getSchedule1())||ti.getSchedule2().equalsIgnoreCase(to.getSchedule2());
+
         }
+        
         return false; //en cualquier otro caso
     }
 
@@ -117,6 +126,9 @@ public class Utility {
         }
         if (a instanceof Security && b instanceof Security) {
             return "Security";
+        }
+        if (a instanceof Security && b instanceof Security) {
+            return "TimeTable";
         }
         return "unknown"; //desconocido
     }
@@ -163,6 +175,7 @@ public class Utility {
                 String s7 = (String) b;
                 ;
                 return s6.equalsIgnoreCase(s7);
+           
         }
         return false; //en cualquier otro caso
     }

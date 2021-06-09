@@ -15,6 +15,8 @@ import java.net.URL;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,6 +27,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import static proyecto.FXMLCareers1Controller.list;
 import static proyecto.FXMLSecurityController.cL;
 
 /**
@@ -73,7 +76,7 @@ public class FXMLStudents1Controller implements Initializable {
     
     
     
-     private int idE;
+    private int idE;
     private String carne;
     private String last;
     private String first;
@@ -93,25 +96,25 @@ public class FXMLStudents1Controller implements Initializable {
     TextInputDialog dirrecion = new TextInputDialog("");
     TextInputDialog idCarrera = new TextInputDialog("");
 
-    
+    FXMLCareers1Controller i=new FXMLCareers1Controller();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //    try {
-//            if(!list.isEmpty()){
-//            
-//            for (int i = 1; i <= list.size(); i++) {
-//                System.out.println("El elemento en la posicion " + i + " es " + list.getNode(i).data);
-//                combo1.getItems().addAll((""+list.getNode(i).data));
-////                combo1.getItems().addAll((DoublyLinkedList[]) list.getNode(i).getData());
-//            }}else{
-//                combo1.getItems().add("No hay carreras registradas");
-//            }
-//        } catch (ListException ex) {
-//            Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+            try {
+            if(!list.isEmpty()){
+            i.ty=2;
+            for (int i = 1; i <= list.size(); i++) {
+                System.out.println("El elemento en la posicion " + i + " es " + list.getNode(i).data);
+               combo1s.getItems().addAll((""+list.getNode(i).data));
+               // combo1s.getItems().addAll((DoublyLinkedList[]) list.getNode(i).getData());
+            }}else{
+                combo1s.getItems().add("No hay carreras registradas");
+            }
+        } catch (ListException ex) {
+            Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
     }    
-
+    
     @FXML
     private void btnMostrarEstudiantes(ActionEvent event) {
         
@@ -143,9 +146,9 @@ public class FXMLStudents1Controller implements Initializable {
         
     }
     
-private String estuBuscar;
-private int idl;
-private boolean compa2;
+ private String estuBuscar;
+ private int idl;
+ private boolean compa2;
 
     @FXML
     private void ModifyStudent(ActionEvent event) throws ListException {
@@ -251,20 +254,20 @@ private boolean compa2;
 
                 }
             }
-            idCarrera.setTitle("SinglyLinkedList");
-            idCarrera.setHeaderText("Ingrese la carrera ");
-            idCarrera.setContentText("");
-
-            Optional<String> result999 = idCarrera.showAndWait();
-            if (result999.isPresent()) {
+//            idCarrera.setTitle("SinglyLinkedList");
+//            idCarrera.setHeaderText("Ingrese la carrera ");
+//            idCarrera.setContentText("");
+//
+//            Optional<String> result999 = idCarrera.showAndWait();
+//            if (result999.isPresent()) {
 
                 try {
-                    this.idER = result999.get();
+                    this.idER = combo1s.getValue();
 
                 } catch (NumberFormatException ex) {
 
                 }
-            }
+//            }
 
             list2.add(new Student(idl, estuBuscar, last, first, d, phone, correo, casa, new Career(0, idER)));
             btnMostrarEstudiantes(event);
@@ -426,20 +429,13 @@ private boolean compa2;
                 
             }
         }
-        idCarrera.setTitle("SinglyLinkedList");
-        idCarrera.setHeaderText("Ingrese la carrera a añadir");
-        idCarrera.setContentText("");
-        
-        Optional<String> result2918727 = idCarrera.showAndWait();
-        if (result.isPresent()) {
             
             try {
-                this.idER = result2918727.get();
+                this.idER = combo1s.getValue();
                 
             } catch (NumberFormatException ex) {
                 
             }
-        }
        
         list2.add(new Student(idE, carne, last, first, d, phone, correo, casa,new Career(0, idER)));
         util.Utility.file(list2, "Estudiantes");

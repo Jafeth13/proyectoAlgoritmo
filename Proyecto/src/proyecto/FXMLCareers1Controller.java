@@ -51,7 +51,7 @@ public class FXMLCareers1Controller implements Initializable {
     private Label txtMessages;
     @FXML
     private Label txtErrorMessages;
-
+   public static int ty;
     public  static DoublyLinkedList list = new DoublyLinkedList();
     TextInputDialog id = new TextInputDialog("");
     TextInputDialog descripcion = new TextInputDialog("");

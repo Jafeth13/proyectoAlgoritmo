@@ -23,9 +23,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
-import static proyecto.FXMLCareersController.list;
+import static proyecto.FXMLCareers1Controller.list;
 import static proyecto.FXMLCourseController.listp;
 
 /**
@@ -34,7 +35,7 @@ import static proyecto.FXMLCourseController.listp;
  * @author Matamoros Cordero
  */
 public class FXMLSchedulesController implements Initializable {
-    static  SinglyLinkedList listH =new SinglyLinkedList();
+  public  static  SinglyLinkedList listH =new SinglyLinkedList();
     
     @FXML
     private TableView<TimeTable> twHorario;
@@ -51,6 +52,12 @@ public class FXMLSchedulesController implements Initializable {
     @FXML
     private ComboBox<String> comboHorario;
  FXMLCourseController tp=new FXMLCourseController();
+    @FXML
+    private ComboBox<String> comboH1;
+    @FXML
+    private ComboBox<String> comboh2;
+    @FXML
+    private TextField txtSemestre;
     /**
      * Initializes the controller class.
      */
@@ -65,37 +72,37 @@ public class FXMLSchedulesController implements Initializable {
                 comboHorario.getItems().addAll((""+listp.getNode(i).data));
 //                combo1.getItems().addAll((DoublyLinkedList[]) list.getNode(i).getData());
             }}else{
-                comboHorario.getItems().add("No hay carreras registradas");
+                comboHorario.getItems().add("No hay cursos registradas");
             }
         } catch (ListException ex) {
             Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        comboH1.getItems().addAll("7am-8:50am","9am-10:50am","11am-12:50","1pm-2:50pm","3pm-4:50pm",
+                "5pm-6:50pm","7pm-8:50");
+        comboh2.getItems().addAll("7am-8:50am","9am-10:50am","11am-12:50","1pm-2:50pm","3pm-4:50pm",
+                "5pm-6:50pm","7pm-8:50");
+          
+          
     }    
      private String CursoPriv;
      private String per;
      private String hora11;
      private String hora12;
     @FXML
-    private void addHorarios(ActionEvent event) throws IOException {
-    TextInputDialog Curso = new TextInputDialog("");
+    private void addHorarios(ActionEvent event) throws IOException, ListException {
     TextInputDialog perio = new TextInputDialog("");
     TextInputDialog hora1 = new TextInputDialog("");
     TextInputDialog hora2 = new TextInputDialog("");   
     
-        Curso.setTitle("SinglyLinkedList");
-        Curso.setHeaderText("Ingrese el nombrel curso :");
-        Curso.setContentText("");
-        
-        Optional<String> result = Curso.showAndWait();
-        if (result.isPresent()) {
+
             
             try {
-                this.CursoPriv = result.get();
+                this.CursoPriv = comboHorario.getValue();
                 
             } catch (NumberFormatException ex) {
                 
             }
-        }
+
         
         perio.setTitle("SinglyLinkedList");
         perio.setHeaderText("Ingrese el semestre :");
@@ -140,18 +147,10 @@ public class FXMLSchedulesController implements Initializable {
                 
             }
         }
-//        if(hora11.equalsIgnoreCase(hora12)){
-//            
-//        }else{
-//            if(hora11.contains("Domingo")||hora12.contains("Domingo")||	hora11.contains("6am")||hora11.contains("5am")
-//               ||hora11.contains("5am")||hora11.contains("4am")||hora11.contains("3am")||hora11.contains("2am")
-//               ||hora11.contains("1am")||hora11.contains("12am")||hora11.contains("11pm")||hora11.contains("10pm")
-//               ||hora12.contains("6am")||hora12.contains("5am")
-//               ||hora12.contains("5am")||hora12.contains("4am")||hora12.contains("3am")||hora12.contains("2am")
-//               ||hora12.contains("1am")||hora12.contains("12am")||hora12.contains("11pm")||hora12.contains("10pm")){               
-//            
-//            }else{
 listH.add(new TimeTable(new Course(per, CursoPriv, 0, new Career(0, CursoPriv)), per, hora11, hora12));
+
+
+
 util.Utility.file(listH,"Horarios");
            if (listH.isEmpty()) {
 
@@ -162,7 +161,7 @@ util.Utility.file(listH,"Horarios");
                     this.twHorario.getItems().clear();
                 }
                 for (int i = 1; i <= listH.size(); i++) {
-                    ep = new TimeTable((TimeTable) list.getNode(i).getData());
+                    ep = new TimeTable((TimeTable) listH.getNode(i).getData());
                     this.twHorario.getItems().add(ep);
                     this.TCCourse.setCellValueFactory(new PropertyValueFactory<>("courseID"));
                     this.TCSemestre.setCellValueFactory(new PropertyValueFactory<>("period"));
@@ -173,8 +172,7 @@ util.Utility.file(listH,"Horarios");
             } catch (ListException er) {
                 System.out.println("Error");
             }
-//        }
-//            }
+
             
         }
         

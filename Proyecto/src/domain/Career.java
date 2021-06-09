@@ -5,7 +5,7 @@
  */
 package domain;
 
-import proyecto.FXMLCareersController;
+import proyecto.FXMLCareers1Controller;
 
 /**
  *
@@ -40,10 +40,16 @@ public class Career {
     public void setDescription(String description) {
         this.description = description;
     }
-    FXMLCareersController o=new FXMLCareersController();
+    FXMLCareers1Controller o=new FXMLCareers1Controller();
     @Override
     public String toString() {
+        if(o.ty==0){
           return "Career{" + " id = " + id + ", description =" + description + '}';
+        }
+        if(o.ty==2){
+            return description;
+        }
+        return null;
     }
     
     

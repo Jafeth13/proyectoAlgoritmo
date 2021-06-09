@@ -9,7 +9,6 @@ import domain.Career;
 import domain.CircularDoublyLinkedList;
 import domain.Course;
 import domain.ListException;
-import domain.Student;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -25,9 +24,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import static proyecto.FXMLCareersController.list;
-import static proyecto.FXMLCareersController.list2;
+import static proyecto.FXMLCareers1Controller.list;
+
 
 /**
  * FXML Controller class
@@ -62,7 +60,7 @@ public class FXMLCourseController implements Initializable {
     private Button btnAdd;
     @FXML
     private ComboBox<String> combo1;
-FXMLCareersController o=new FXMLCareersController();
+FXMLCareers1Controller o=new FXMLCareers1Controller();
     /**
      * Initializes the controller class.
      */
@@ -70,6 +68,7 @@ FXMLCareersController o=new FXMLCareersController();
     public void initialize(URL url, ResourceBundle rb) {
         
         try {
+            o.ty=2;
             if(!list.isEmpty()){
             for (int i = 1; i <= list.size(); i++) {
                 System.out.println("El elemento en la posicion " + i + " es " + list.getNode(i).data);
@@ -173,20 +172,14 @@ private String d;
                 
             }
         }
-        Carrera.setTitle("CircularDoublyLinkedList");
-        Carrera.setHeaderText("Ingrese la carrera del curso ");
-        Carrera.setContentText("");
-        
-        Optional<String> result291 = Carrera.showAndWait();
-        if (result.isPresent()) {
-            
+
             try {
-                this.carrer = result291.get();
+                this.carrer = combo1.getValue();
                 
             } catch (NumberFormatException ex) {
                 
             }
-        }
+
         listp.add(new Course(d, nombre, creditos, new Career(0,carrer)));
         util.Utility.file(listp,"Cursos");
           }
