@@ -6,6 +6,7 @@
 package domain;
 
 import java.util.Date;
+import proyecto.FXMLEnrollmentController;
 
 /**
  *
@@ -117,10 +118,15 @@ public class Student {
     public void setCareerID(Career careerID) {
         this.careerID = careerID;
     }
-
+    FXMLEnrollmentController il=new FXMLEnrollmentController();
     @Override
     public String toString() {
+        if(il.s==0){
         return "Student{" + "id=" + id + ", studentID=" + studentID + ", lastname=" + lastname + ", firstname=" + firstname + ", birthday=" + birthday + ", phoneNumber=" + phoneNumber + ", email=" + email + ", address=" + address + ", careerID=" + careerID + '}';
+        }if(il.s==2){
+            return studentID+"-"+firstname+"-"+lastname;
+        }
+        return null;
     }
     
 

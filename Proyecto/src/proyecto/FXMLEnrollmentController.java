@@ -5,9 +5,17 @@
  */
 package proyecto;
 
+import domain.Career;
+import domain.CircularDoublyLinkedList;
+import domain.Course;
+import domain.Enrollment;
 import domain.ListException;
+import domain.SinglyLinkedList;
 import domain.Student;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +27,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import static proyecto.FXMLCourseController.listp;
 import static proyecto.FXMLSchedulesController.listH;
@@ -30,7 +39,7 @@ import static proyecto.FXMLStudents1Controller.list2;
  * @author jodas
  */
 public class FXMLEnrollmentController implements Initializable {
-
+  public static CircularDoublyLinkedList listEnro=new CircularDoublyLinkedList();
     @FXML
     private Label txtMessage;
     @FXML
@@ -55,14 +64,38 @@ public class FXMLEnrollmentController implements Initializable {
     public TableColumn<Student, String> tcAE;
     @FXML
     public TableColumn<Student, String> tcNE;
-
+ 
+    
     /**
      * Initializes the controller class.
      */
+    FXMLStudents1Controller o=new FXMLStudents1Controller();
         FXMLCourseController tp=new FXMLCourseController();
+    @FXML
+    private ComboBox<String> cbxEstudiantes;
+    public static int s;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     try {             
+     
+          try {
+             
+            if(!list2.isEmpty()){
+            s=2;
+            for (int i = 1; i <= list2.size(); i++) {
+                System.out.println("El elemento en la posicion " + i + " es " + list2.getNode(i).data);
+                cbxEstudiantes.getItems().addAll((""+list2.getNode(i).data));
+            }}else{
+                cbxEstudiantes.getItems().add("No hay estudiantes registradas");
+            }
+        } catch (ListException ex) {
+            Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+        
+        try {             
             if(!listp.isEmpty()){
             tp.ty=2;
             for (int i = 1; i <= listp.size(); i++) {
@@ -74,6 +107,8 @@ public class FXMLEnrollmentController implements Initializable {
         } catch (ListException ex) {
             Logger.getLogger(FXMLMenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
+     
+     
      
       try {
              
@@ -90,7 +125,7 @@ public class FXMLEnrollmentController implements Initializable {
         }
       
        if (list2.isEmpty()) {
-
+        s=2;
         } else {
             try {
                 Student r = new Student((Student) list2.getNode(1).getData());
@@ -111,9 +146,12 @@ public class FXMLEnrollmentController implements Initializable {
             }
         }   
     }
-    
+  private Date y;
     @FXML
-    private void Confirm(ActionEvent event) {
+    private void Confirm(ActionEvent event) throws ListException, IOException {
+       listEnro.add(new Enrollment(0, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
+               new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),cbxSchedules.getValue()));
+       util.Utility.file(listEnro, "MATRICULA");
     }
     
 }

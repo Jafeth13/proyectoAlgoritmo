@@ -74,7 +74,7 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="txtStudent" alignment="CENTER" layoutX="625.0" layoutY="176.0" prefHeight="66.0" prefWidth="363.0" text="*Nombre Estudiante aqui*" textFill="WHITE">
+      <Label fx:id="txtStudent" alignment="CENTER" layoutX="625.0" layoutY="107.0" prefHeight="66.0" prefWidth="363.0" text="Datos a ingresar" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>
@@ -94,5 +94,14 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Button>
+      <ComboBox fx:id="cbxEstudiantes" layoutX="691.0" layoutY="213.0" prefHeight="26.0" prefWidth="227.0" promptText="Estudiantes" style="-fx-background-color: #ffffff;">
+         <effect>
+            <InnerShadow color="#43afe5">
+               <input>
+                  <DropShadow color="#41ade7" spread="0.8" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </ComboBox>
    </children>
 </AnchorPane>
