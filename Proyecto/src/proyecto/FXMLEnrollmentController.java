@@ -21,7 +21,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -30,6 +32,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import static javax.management.Query.value;
 import static proyecto.FXMLCourseController.listp;
 import static proyecto.FXMLSchedulesController.listH;
 import static proyecto.FXMLStudents1Controller.list2;
@@ -66,7 +69,7 @@ public class FXMLEnrollmentController implements Initializable {
     @FXML
     public TableColumn<Student, String> tcNE;
  
-    
+  
     /**
      * Initializes the controller class.
      */
@@ -83,7 +86,7 @@ public class FXMLEnrollmentController implements Initializable {
     private Label txtStudent1;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        numMatricula.setText(Integer.toString(Enrollment.id));
+      
          try {
              
             if(!listH.isEmpty()){
@@ -168,33 +171,30 @@ public class FXMLEnrollmentController implements Initializable {
     }
   private Date y;
   private String opcion;
-  
+   
  private int f;
+ 
     @FXML
     private void Confirm(ActionEvent event) throws ListException, IOException {
         
-       f=Integer.parseInt(numMatricula.getText()); 
-         if(cbxSchedules.getValue()!=null){
-             Enrollment.id+=1;
-        numMatricula.setText(Integer.toString(Enrollment.id));
-            opcion=cbxSchedules.getValue(); 
-           listEnro.add(new Enrollment(f, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
-               new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),(opcion)));
-       util.Utility.file(listEnro, "MATRICULA");
+             f=Integer.parseInt(numMatricula.getText()); 
+             if(cbxSchedules.getValue()!=null){
+             opcion=cbxSchedules.getValue();
+             listEnro.add(new Enrollment(f, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
+              new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),(opcion)));
+             util.Utility.file(listEnro, "MATRICULA");
         }
-        if(cbxSchedules2.getValue()!=null){
-            Enrollment.id+=1;
-        numMatricula.setText(Integer.toString(Enrollment.id));
+            if(cbxSchedules2.getValue()!=null){
             opcion=cbxSchedules2.getValue();
             listEnro.add(new Enrollment(f, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
                new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),(opcion)));
-       util.Utility.file(listEnro, "MATRICULA");
+            util.Utility.file(listEnro, "MATRICULA");
         }
-        if(cbxSchedules.getValue()!=null&&cbxSchedules2.getValue()!=null){
+            if(cbxSchedules.getValue()!=null&&cbxSchedules2.getValue()!=null){
+          
+        }
             
-        }
-      
-      
+
     }
     
 }

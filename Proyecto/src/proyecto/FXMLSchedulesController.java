@@ -139,8 +139,8 @@ listH.add(new TimeTable(new Course(this.txtSemestre.getValue(), this.comboHorari
         this.comboHorario.getValue())), this.txtSemestre.getValue(), day+" "+this.comboH1.getValue(),
         day2+" "+this.comboh2.getValue()));
 
-
-
+txtMessage2.setVisible(true);
+txtError.setVisible(false);
 util.Utility.file(listH,"Horarios");
            if (listH.isEmpty()) {
 

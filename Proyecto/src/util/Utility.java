@@ -8,6 +8,7 @@ package util;
 import com.sun.javaws.Main;
 import domain.Career;
 import domain.Course;
+import domain.DeEnrollment;
 import domain.Enrollment;
 import domain.ListException;
 import domain.Security;
@@ -109,6 +110,11 @@ public class Utility {
                 Enrollment s91 = (Enrollment) b;
 
                 return s81.getId()==(s91.getId());
+                      case "DeEnrollment":
+                Enrollment s812 = (Enrollment) a;
+                DeEnrollment s932 = (DeEnrollment) b;
+
+                return s812.getId()==(s932.getId());
         }
         
         return false; //en cualquier otro caso
@@ -138,6 +144,9 @@ public class Utility {
         }
         if (a instanceof Enrollment && b instanceof Enrollment) {
             return "Enrollment";
+        }
+        if (a instanceof DeEnrollment && b instanceof Enrollment) {
+            return "DeEnrollment";
         }
         return "unknown"; //desconocido
     }

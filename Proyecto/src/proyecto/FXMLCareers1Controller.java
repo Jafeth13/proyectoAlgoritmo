@@ -122,14 +122,17 @@ public class FXMLCareers1Controller implements Initializable {
             } catch (NumberFormatException ex) {
                 
             }
-        }
+        } 
+        txtMessages.setVisible(true);
+        txtErrorMessages.setVisible(false);
         list.add(new Career(idcursoMod, desc2));
         }else{
-            
+             txtMessages.setVisible(false);
+        txtErrorMessages.setVisible(true);
             
         }
         btnMostrars(event);
-        
+       
     }
     
     private int idcursoRE;
@@ -171,6 +174,8 @@ public class FXMLCareers1Controller implements Initializable {
             } catch (ListException er) {
                 System.out.println("Error");
             }
+             txtMessages.setVisible(true);
+        txtErrorMessages.setVisible(false);
         }
           btnMostrars(event);
         
@@ -210,7 +215,8 @@ public class FXMLCareers1Controller implements Initializable {
             }
         }
         list.add(new Career(idcurso, des));
-
+         txtMessages.setVisible(true);
+        txtErrorMessages.setVisible(false);
         util.Utility.file(list, "Carrera");
         btnMostrars(event);
         

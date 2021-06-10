@@ -7,11 +7,13 @@ package proyecto;
 
 import domain.Career;
 import domain.Course;
+import domain.DeEnrollment;
 import domain.Enrollment;
 import domain.ListException;
 import domain.Student;
 import java.net.URL;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +26,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import static proyecto.FXMLCareers1Controller.list;
 import static proyecto.FXMLCourseController.listp;
@@ -37,7 +40,7 @@ import static proyecto.FXMLStudents1Controller.list2;
  * @author jodas
  */
 public class FXMLDeEnrollmentController implements Initializable {
-
+    
     @FXML
     private Label lbLogo;
     @FXML
@@ -72,7 +75,7 @@ public class FXMLDeEnrollmentController implements Initializable {
     private TableColumn<Enrollment,String> tcNombre;
     @FXML
     private TableColumn<Enrollment, String> tcHorario;
-
+     TextInputDialog id = new TextInputDialog("");
     /**
      * Initializes the controller class.
      */
@@ -132,9 +135,44 @@ private boolean er=false;
     }
        
     }
-
+private int z;
     @FXML
-    private void btnDeEnrollment(ActionEvent event) {
+    private void btnDeEnrollment(ActionEvent event) throws ListException {
+         id.setTitle("");
+        id.setHeaderText("Ingrese el ID de la matricula a borrar:");
+        id.setContentText("");
         
+        Optional<String> result3 = id.showAndWait();
+        if (result3.isPresent()) {
+            
+            try {
+                this.z = Integer.parseInt(result3.get());
+                
+            } catch (NumberFormatException ex) {
+                
+            }
+        }   
+                listEnro.remove(new Enrollment(z, dp, new Student(z, d, d, d, dp, d, d, d, 
+                        new Career(z, d)), new Course(d, d, s, new Career(z, d)), d));
+               if (listEnro.isEmpty()) {
+
+        } else {
+            try {
+                Enrollment ep = new Enrollment((Enrollment) listEnro.getNode(1).getData());
+                for (int j = 0; j <= tvDesmatricular.getItems().size(); j++) {
+                    this.tvDesmatricular.getItems().clear();
+                }
+                for (int i = 1; i <= listEnro.size(); i++) {
+                    ep = new Enrollment((Enrollment) listEnro.getNode(i).getData());
+                    this.tvDesmatricular.getItems().add(ep);
+                    this.tcSigla.setCellValueFactory(new PropertyValueFactory<>("id"));
+                    this.tcNombre.setCellValueFactory(new PropertyValueFactory<>("courseID"));
+                    this.tcHorario.setCellValueFactory(new PropertyValueFactory<>("schedule"));
+                }
+                this.tvDesmatricular.setVisible(true);
+            } catch (ListException er) {
+                System.out.println("Error");
+            }
+        }      
     }
 }

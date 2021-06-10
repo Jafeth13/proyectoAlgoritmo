@@ -258,23 +258,20 @@ public class FXMLStudents1Controller implements Initializable {
 
                 }
             }
-//            idCarrera.setTitle("SinglyLinkedList");
-//            idCarrera.setHeaderText("Ingrese la carrera ");
-//            idCarrera.setContentText("");
-//
-//            Optional<String> result999 = idCarrera.showAndWait();
-//            if (result999.isPresent()) {
-
                 try {
                     this.idER = combo1s.getValue();
 
                 } catch (NumberFormatException ex) {
 
                 }
-//            }
 
             list2.add(new Student(idl, estuBuscar, last, first, d, phone, correo, casa, new Career(0, idER)));
+            txtMessage.setVisible(true);
+            txtErrorMessage.setVisible(false);
             btnMostrarEstudiantes(event);
+        }else{
+            txtMessage.setVisible(false);
+            txtErrorMessage.setVisible(true);
         }
         
     }
@@ -302,6 +299,8 @@ public class FXMLStudents1Controller implements Initializable {
             }
         }
         list2.remove(new Student(0, idEstudianteBorrar, "", "", d, phone, last, des, new Career(idE, desRE)));
+            txtMessage.setVisible(true);
+            txtErrorMessage.setVisible(false);
           if (list2.isEmpty()) {
 
         } else {
@@ -450,7 +449,8 @@ public class FXMLStudents1Controller implements Initializable {
         EnviarCorreos enviarcorreos = new EnviarCorreos();
         enviarcorreos.enviarCorreos(message.toString(),"Bienvenido a la Universidad de Costa Rica",correo);
         btnMostrarEstudiantes(event);
-        
+            txtMessage.setVisible(true);
+            txtErrorMessage.setVisible(false);
     }
     
 }

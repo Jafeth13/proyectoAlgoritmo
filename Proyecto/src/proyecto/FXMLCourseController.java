@@ -20,6 +20,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
@@ -61,6 +62,10 @@ public class FXMLCourseController implements Initializable {
     @FXML
     private ComboBox<String> combo1;
 FXMLCareers1Controller o=new FXMLCareers1Controller();
+    @FXML
+    private Label txtMessages;
+    @FXML
+    private Label txtErrorMessages;
     /**
      * Initializes the controller class.
      */
@@ -100,6 +105,8 @@ private String elim;
             }
         }
         listp.remove(new Course(elim, nombre, creditos, new Career(creditos, elim)));
+        txtMessages.setVisible(true);
+            txtErrorMessages.setVisible(false);
              if (listp.isEmpty()) {
 
              } else {
@@ -179,10 +186,13 @@ private String d;
             } catch (NumberFormatException ex) {
                 
             }
-
-        listp.add(new Course(d, nombre, creditos, new Career(0,carrer)));
-        util.Utility.file(listp,"Cursos");
+            txtMessages.setVisible(true);
+            txtErrorMessages.setVisible(false);
+            listp.add(new Course(d, nombre, creditos, new Career(0,carrer)));
+            util.Utility.file(listp,"Cursos");
           }
+          txtMessages.setVisible(false);
+          txtErrorMessages.setVisible(true);
     }
 
     @FXML
@@ -269,6 +279,8 @@ private String d;
             }
         listp.add(new Course(id, nombre, creditos, new Career(0, carrer)));
         util.Utility.file(listp,"Cursos");
+        txtMessages.setVisible(true);
+        txtErrorMessages.setVisible(false);
     }
     
 }
