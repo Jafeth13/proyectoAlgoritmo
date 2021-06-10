@@ -41,7 +41,6 @@
       <ComboBox fx:id="comboHorario" layoutX="281.0" layoutY="109.0" prefWidth="150.0" />
       <ComboBox fx:id="comboH1" layoutX="299.0" layoutY="283.0" prefWidth="150.0" />
       <ComboBox fx:id="comboh2" layoutX="295.0" layoutY="384.0" prefWidth="150.0" />
-      <TextField fx:id="txtSemestre" layoutX="282.0" layoutY="178.0" />
       <Label fx:id="txtMessage" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="88.0" prefHeight="66.0" prefWidth="266.0" text="Seleccione el curso: " textAlignment="CENTER" textFill="WHITE">
          <effect>
             <DropShadow color="#41ade7" spread="0.9" />
@@ -58,7 +57,7 @@
             <Font name="Arial Bold" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="txtMessage1" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="158.0" prefHeight="66.0" prefWidth="266.0" text="Escriba el Semestre: " textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="txtMessage1" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="154.0" prefHeight="66.0" prefWidth="288.0" text="Seleccione el Semestre: " textAlignment="CENTER" textFill="WHITE">
          <effect>
             <DropShadow color="#41ade7" spread="0.9" />
          </effect>
@@ -123,5 +122,6 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
+      <ComboBox fx:id="txtSemestre" layoutX="308.0" layoutY="175.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

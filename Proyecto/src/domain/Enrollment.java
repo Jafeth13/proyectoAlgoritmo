@@ -12,7 +12,7 @@ import java.util.Date;
  * @author Matamoros Cordero
  */
 public class Enrollment {
-    private int id;
+    public static int id;
     private Date date;
     private Student studentID;
     private Course courseID;
@@ -39,7 +39,7 @@ public class Enrollment {
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id = id++;
     }
 
     public Date getDate() {

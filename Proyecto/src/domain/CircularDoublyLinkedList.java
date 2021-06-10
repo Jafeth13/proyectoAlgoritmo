@@ -307,11 +307,11 @@ public class CircularDoublyLinkedList implements List {
 
     @Override
     public String toString() {
-        String result="CIRCULAR DOUBLY LINKED LIST\n";
+        String result="";
         Node aux = first;
          //el aux es para moverme por la lista hasta el ult elemento
         while(aux!=last){
-            result+=aux.data+"\n";
+            result+=aux.data+" ";
             aux = aux.next;
         }
         //se sale cuando aux == last

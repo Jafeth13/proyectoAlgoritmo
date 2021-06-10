@@ -83,7 +83,7 @@ public class FXMLEnrollmentController implements Initializable {
     private Label txtStudent1;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        numMatricula.setText(Integer.toString(Enrollment.id));
          try {
              
             if(!listH.isEmpty()){
@@ -172,15 +172,19 @@ public class FXMLEnrollmentController implements Initializable {
  private int f;
     @FXML
     private void Confirm(ActionEvent event) throws ListException, IOException {
+        
        f=Integer.parseInt(numMatricula.getText()); 
          if(cbxSchedules.getValue()!=null){
- 
+             Enrollment.id+=1;
+        numMatricula.setText(Integer.toString(Enrollment.id));
             opcion=cbxSchedules.getValue(); 
            listEnro.add(new Enrollment(f, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
                new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),(opcion)));
        util.Utility.file(listEnro, "MATRICULA");
         }
         if(cbxSchedules2.getValue()!=null){
+            Enrollment.id+=1;
+        numMatricula.setText(Integer.toString(Enrollment.id));
             opcion=cbxSchedules2.getValue();
             listEnro.add(new Enrollment(f, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
                new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),(opcion)));

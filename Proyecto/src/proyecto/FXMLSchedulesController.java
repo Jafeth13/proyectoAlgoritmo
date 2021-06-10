@@ -59,7 +59,7 @@ public class FXMLSchedulesController implements Initializable {
     @FXML
     private ComboBox<String> comboh2;
     @FXML
-    private TextField txtSemestre;
+    private ComboBox<String> txtSemestre;
     @FXML
     private Label txtMessage;
     @FXML
@@ -129,14 +129,14 @@ public class FXMLSchedulesController implements Initializable {
                            "7:00am-9:50am","9:00am-11:50am","1:00pm-3:50pm","4:00pm-6:50",
                            "8:00am-11:50am","1:00pm-4:50pm","5:00pm-8:50pm");
           
-          
+      txtSemestre.getItems().addAll("Primer Semestre","Segundo Semestre","Verano");
     }    
   
     @FXML
     private void addHorarios(ActionEvent event) throws IOException, ListException {
     
-listH.add(new TimeTable(new Course(this.txtSemestre.getText(), this.comboHorario.getValue(), 0, new Career(0,
-        this.comboHorario.getValue())), this.txtSemestre.getText(), day+" "+this.comboH1.getValue(),
+listH.add(new TimeTable(new Course(this.txtSemestre.getValue(), this.comboHorario.getValue(), 0, new Career(0,
+        this.comboHorario.getValue())), this.txtSemestre.getValue(), day+" "+this.comboH1.getValue(),
         day2+" "+this.comboh2.getValue()));
 
 
