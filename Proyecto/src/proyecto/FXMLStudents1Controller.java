@@ -27,6 +27,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javax.mail.MessagingException;
+import mails.EnviarCorreos;
+import static mails.EnviarCorreos.message;
+import static mails.EnviarCorreos.multiParte;
 import static proyecto.FXMLCareers1Controller.list;
 import static proyecto.FXMLSecurityController.cL;
 
@@ -328,7 +332,7 @@ public class FXMLStudents1Controller implements Initializable {
     }
 
     @FXML
-    private void AddStudent(ActionEvent event) throws IOException {
+    private void AddStudent(ActionEvent event) throws IOException, MessagingException {
         
         
         idStudent.setTitle("SinglyLinkedList");
@@ -440,6 +444,11 @@ public class FXMLStudents1Controller implements Initializable {
         list2.add(new Student(idE, carne, last, first, d, phone, correo, casa,new Career(0, idER)));
         util.Utility.file(list2, "Estudiantes");
         cL.add(new Student(idE, carne, last, first, d, phone, correo, casa,new Career(0, idER)));
+        EnviarCorreos.texto.setText("Felicidades por ingresar a la Universidad:\n Estos son sus datos:\n\n"+"Cédula: "+idE+"\nCarné asignado: "+carne+ 
+                "\nNombre completo: "+first+" "+last+"\nNúmero telefónico: "+ phone+"\nCorreo: "+correo+"\nDirección: "+casa+"\nCarrera: "+idER);
+        message.setContent(multiParte);
+        EnviarCorreos enviarcorreos = new EnviarCorreos();
+        enviarcorreos.enviarCorreos(message.toString(),"Bienvenido a la Universidad de Costa Rica",correo);
         btnMostrarEstudiantes(event);
         
     }
