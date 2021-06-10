@@ -283,11 +283,11 @@ public class SinglyLinkedList implements List {
 
     @Override
     public String toString() {
-        String result="SINGLY LINKED LIST:   ";
+        String result="\n ";
         Node aux = first;
          //el aux es para moverme por la lista hasta el ult elemento
         while(aux!=null){
-            result+=aux.data+" ";
+            result+=aux.data+" \n";
             aux = aux.next;
         }
         return result;

@@ -5,6 +5,11 @@
  */
 package util;
 
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.sun.javaws.Main;
 import domain.Career;
 import domain.Course;
@@ -15,10 +20,12 @@ import domain.Security;
 import domain.SinglyLinkedList;
 import domain.Student;
 import domain.TimeTable;
+
 import static java.awt.font.TextHitInfo.leading;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,6 +33,7 @@ import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static jdk.nashorn.api.scripting.ScriptObjectMirror.wrap;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -198,30 +206,27 @@ public class Utility {
         return false; //en cualquier otro caso
     }
     public static void exportToPDF(Object show,String name){
-        System.out.println("SOY SHOW: \n"+show);
-         try  {
-             
-             PDDocument documento = new PDDocument();
-             PDPage pagina = new PDPage(PDRectangle.A6);
-             documento.addPage(pagina);
-             PDPageContentStream contenido = new PDPageContentStream(documento, pagina);
-             
-       
 
-             
-             contenido.beginText();
-             contenido.setFont(PDType1Font.TIMES_BOLD, 12);
-             contenido.newLineAtOffset(20, pagina.getMediaBox().getHeight()-52);
-             contenido.showText(show.toString());
+     Document document = new Document();
 
-             contenido.endText();
-             
-             contenido.close();
-             
-            documento.save(name);
-        } catch (IOException ex) {
-            Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    try {
+      PdfWriter.getInstance(document,
+          new FileOutputStream(name));
+
+      document.open();
+
+      Paragraph parrafo = new Paragraph();
+    
+    parrafo.add(show.toString());
+      document.add(parrafo);
+      document.close();
+
+    } catch (DocumentException e) {
+      e.printStackTrace();
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+
     }  
  public static void file(Object b,String name) throws IOException{
      FileWriter file=new FileWriter(name+".txt");
