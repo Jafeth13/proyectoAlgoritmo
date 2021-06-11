@@ -107,6 +107,7 @@ public class FXMLSecurityController implements Initializable {
         else
             this.txtMessage.setText("Usuario no válido");
     }
+    //cargar diferentes escenas
     private void loadpage(String page){
         Parent root = null;
         try {
@@ -116,7 +117,7 @@ public class FXMLSecurityController implements Initializable {
         }
         this.bp.setCenter(root);
     }
-    
+    // metodo de encriptacion de la contraseña
     public String MD5(String md5) throws IOException{
     
         try{

@@ -231,20 +231,31 @@ public class FXMLStudents1Controller implements Initializable {
 
                 }
             }
-            NumeroTelfono.setTitle("Agregar datos del estudiante");
-            NumeroTelfono.setHeaderText("Ingrese el numero de telefono del estudiante :");
-            NumeroTelfono.setContentText("");
-
-            Optional<String> result111 = NumeroTelfono.showAndWait();
-            if (result111.isPresent()) {
-
-                try {
-                    this.phone = result111.get();
-
-                } catch (NumberFormatException ex) {
-
+         int num=0;
+        do{
+        NumeroTelfono.setTitle("Agregar datos del estudiante");
+        NumeroTelfono.setHeaderText("Ingrese el numero de telefono del estudiante a añadir:");
+        NumeroTelfono.setContentText("");
+        
+        Optional<String> result2918 = NumeroTelfono.showAndWait();
+        if (result2918.isPresent()) {
+            
+            try {
+                this.phone = result2918.get();
+                if(util.Utility.isNumber(phone)){
+                 num=1;
+                }else{
+                  alert.setHeaderText(null);
+                 alert.setTitle("Error");
+                    alert.setContentText("Numero de telefono no valido");
+                    alert.showAndWait();  
                 }
+            } catch (NumberFormatException ex) {
+                
             }
+        }
+        }while(num==0);
+
              int n1=0;
         
       do{
@@ -424,6 +435,8 @@ public class FXMLStudents1Controller implements Initializable {
                 
             }
         }
+         int num=0;
+        do{
          NumeroTelfono.setTitle("Agregar datos del estudiante");
         NumeroTelfono.setHeaderText("Ingrese el numero de telefono del estudiante a añadir:");
         NumeroTelfono.setContentText("");
@@ -433,11 +446,20 @@ public class FXMLStudents1Controller implements Initializable {
             
             try {
                 this.phone = result2918.get();
-                
+                if(util.Utility.isNumber(phone)){
+                 num=1;
+                }else{
+                  alert.setHeaderText(null);
+                 alert.setTitle("Error");
+                    alert.setContentText("Numero de telefono no valido");
+                    alert.showAndWait();  
+                }
             } catch (NumberFormatException ex) {
                 
             }
         }
+        }while(num==0);
+
        int n=0;
         
       do{

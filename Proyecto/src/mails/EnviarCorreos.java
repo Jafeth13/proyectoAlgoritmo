@@ -43,17 +43,17 @@ public class EnviarCorreos {
     public void enviarCorreos (String cuerpo, String asunto, String destinatario) throws MessagingException{
     
        Correo correo = new Correo("ucrinforma7@gmail.com","Ucr.informa.7");
-       
-        
+       //correo que envia los email
+        //crea propiedades
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.user", correo.getRemitente());
         props.put("mail.smtp.clave", correo.getClave());
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.port", "587");
+        //ruta
         
-        
-        
+        //verificacion
         new javax.mail.Authenticator() {
       protected PasswordAuthentication getPasswordAuthentication() {
             return new PasswordAuthentication(correo.getRemitente(), correo.getClave());
@@ -68,21 +68,22 @@ public class EnviarCorreos {
         BodyPart adjunto = new MimeBodyPart();
         adjunto.setDataHandler(new DataHandler(new FileDataSource("src/images/LogoUCR.png")));
         adjunto.setFileName("LogoUCR.png");
-
+        //imagen
         
 
        
-
+        //cuerpo del correo
         multiParte.addBodyPart(texto);
         multiParte.addBodyPart(adjunto);
         message.setContent(multiParte);
-
+         //envio y conexion
             Transport transport = session.getTransport("smtp");
         transport.connect("smtp.gmail.com", correo.getRemitente(), correo.getClave());
         transport.sendMessage(message, message.getAllRecipients());
         transport.close();
     }
     catch (MessagingException me) {
+        //mensaje en caso de error
         alert.setTitle("Ha ocurrido un error");
         alert.setHeaderText("No se ha podido enviar correctamente el correo");
         alert.setContentText("Por favor revise que el correo electrónico sea valido y existente...");

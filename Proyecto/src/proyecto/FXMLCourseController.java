@@ -258,7 +258,7 @@ private String d;
         name.setContentText("");
         
         Optional<String> result9 = name.showAndWait();
-        if (result.isPresent()) {
+        if (result9.isPresent()) {
             
             try {
                 this.nombre = result9.get();
@@ -272,7 +272,7 @@ private String d;
         credits.setContentText("");
         
         Optional<String> result29 = credits.showAndWait();
-        if (result.isPresent()) {
+        if (result29.isPresent()) {
             
             try {
                 this.creditos = Integer.parseInt(result29.get());

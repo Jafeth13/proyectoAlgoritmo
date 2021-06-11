@@ -100,7 +100,7 @@ public class FXMLCareers1Controller implements Initializable {
         
          id.setTitle("Agregar datos");
         id.setHeaderText("Ingrese el ID de la carrera a modificar:");
-        id.setContentText("");
+        id.setContentText(" ");
         
         Optional<String> result3 = id.showAndWait();
         if (result3.isPresent()) {
@@ -117,7 +117,7 @@ public class FXMLCareers1Controller implements Initializable {
             list.remove(new Career(idcursoMod, ""));
                    descripcion.setTitle("Agregar datos");
         descripcion.setHeaderText("Ingrese la descripcion de la carerra a modificar:");
-        descripcion.setContentText("");
+        descripcion.setContentText(" ");
         Optional<String> resulXt = descripcion.showAndWait();
         if (resulXt.isPresent()) {
             
@@ -148,7 +148,7 @@ public class FXMLCareers1Controller implements Initializable {
         
         id.setTitle("Eliminar carrera");
         id.setHeaderText("Ingrese el ID de la carrera a borrar:");
-        id.setContentText("");
+        id.setContentText(" ");
         
         Optional<String> result = id.showAndWait();
         if (result.isPresent()) {
@@ -194,7 +194,7 @@ public class FXMLCareers1Controller implements Initializable {
         
         id.setTitle("Agregar datos");
         id.setHeaderText("Ingrese el ID de la carrera a añadir:");
-        id.setContentText("");
+        id.setContentText(" ");
         
         Optional<String> result = id.showAndWait();
         if (result.isPresent()) {
@@ -208,7 +208,7 @@ public class FXMLCareers1Controller implements Initializable {
         }
         descripcion.setTitle("Agregar datos");
         descripcion.setHeaderText("Ingrese la descripcion de la carerra a añadir:");
-        descripcion.setContentText("");
+        descripcion.setContentText(" ");
         Optional<String> resulX = descripcion.showAndWait();
         if (resulX.isPresent()) {
             
@@ -224,6 +224,7 @@ public class FXMLCareers1Controller implements Initializable {
         txtErrorMessages.setVisible(false);
         util.Utility.file(list, "Carrera");
         btnMostrars(event);
+        
     }
     
 }

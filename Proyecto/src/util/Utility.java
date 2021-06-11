@@ -295,6 +295,16 @@ public class Utility {
         }
         return true;
     }
+public static boolean isNumber(String numero) {
+        for (int i = 0; i < numero.length(); i++) {
+            if (numero.charAt(i) < 48 || numero.charAt(i) > 57) {
+                return false;
+            }if(numero.length() >=9 || numero.length() <=7){
+                return false;
+            }
+        }
+        return true;
+    }
 
  
 }
