@@ -13,6 +13,7 @@ import java.io.Serializable;
 
 import java.security.InvalidParameterException;
 import java.util.Properties;
+import javafx.scene.control.Alert;
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
 import javax.mail.BodyPart;
@@ -33,6 +34,7 @@ import javax.mail.internet.MimeMultipart;
  */
 
 public class EnviarCorreos {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
   public static BodyPart texto = new MimeBodyPart();  
   public static Properties props = System.getProperties();
   public static Session session = Session.getDefaultInstance(props);
@@ -81,7 +83,10 @@ public class EnviarCorreos {
         transport.close();
     }
     catch (MessagingException me) {
-        me.printStackTrace();   //Si se produce un error
+        alert.setTitle("Ha ocurrido un error");
+        alert.setHeaderText("No se ha podido enviar correctamente el correo");
+        alert.setContentText("Por favor revise que el correo electrónico sea valido y existente...");
+        alert.showAndWait();
     }
         
     }
