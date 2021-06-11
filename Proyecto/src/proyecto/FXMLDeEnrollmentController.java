@@ -168,7 +168,11 @@ private boolean er=false;
     private void btnConfirm(ActionEvent event) throws ListException {
         d=(txtCarnet.getText());
        er= list2.contains(new Student(0, d, "", "", dp, "", "", "", new Career(s, "")));
-       if(er==true){     
+       if(er==true){
+       btnConfirm.setVisible(true);txtAreaRemark.setVisible(true);txtInfo2.setVisible(true);
+       txtInfo.setVisible(true);txtInfo.setText("Se encontro el estudiante");txtTittle.setVisible(true);txtRed.setVisible(true);
+       cbxCurso.setVisible(true);cbxHorario.setVisible(true);cbxName.setVisible(true);
+       btnConfirm.setVisible(true);btnDeEnrollment.setVisible(true);
        if (listEnro.isEmpty()) {
 
         } else {

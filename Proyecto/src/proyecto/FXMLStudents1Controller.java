@@ -246,7 +246,7 @@ public class FXMLStudents1Controller implements Initializable {
                  num=1;
                 }else{
                   alert.setHeaderText(null);
-                 alert.setTitle("Error");
+                  alert.setTitle("Error");
                     alert.setContentText("Numero de telefono no valido");
                     alert.showAndWait();  
                 }
