@@ -194,6 +194,11 @@ private boolean er=false;
        
     }
 private int z;
+public static String id2;
+public static Course curso2;
+ public static Student estudiante2;
+ public static String horario2;
+ public static String motivo;
     @FXML
     private void btnDeEnrollment(ActionEvent event) throws ListException, IOException {
          id.setTitle("Retirar curso");
@@ -239,7 +244,11 @@ private int z;
                 listDE.add(new DeEnrollment(z, dp, new Student(0, cbxName.getValue(), d, d, dp, d, d, d,
                 new Career(0, d)), new Course(d, cbxCurso.getValue(), s, new Career(0, d))
                 , cbxHorario.getValue(), txtAreaRemark.getText()));
-         
+         id2 = Integer.toString(z);
+                    curso2=new Course(d, cbxCurso.getValue(), s, new Career(0, d));
+                    horario2=cbxHorario.getValue();
+                    estudiante2=new Student(0, cbxName.getValue(), d, d, dp, d, d, d,new Career(0, d));
+                    motivo=txtAreaRemark.getText();
                 util.Utility.file(listDE, "Cursos desmatriculados");
        
     }

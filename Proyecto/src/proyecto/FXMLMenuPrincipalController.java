@@ -19,7 +19,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import static proyecto.FXMLDeEnrollmentController.listDE;
 
@@ -66,16 +68,20 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
     @FXML
     public  Menu MenuEnroll;
     public static int AllowEnroll;
+    @FXML
+    private MenuBar MenuBar;
+    @FXML
+    private AnchorPane AnchorPanePrincipal;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      
+        AnchorPanePrincipal.setVisible(true);
         if(FXMLSecurityController.Type==2){
-        MenuCareer.setVisible(false); MenuStudent.setVisible(false);
-        MenuCourses.setVisible(false);MenuSchedules.setVisible(false); MenuReports.setVisible(false);
+        MenuCareer.setVisible(false); MenuStudent.setVisible(false);MenuEnroll.setVisible(false);
+        MenuCourses.setVisible(false);MenuSchedules.setVisible(false); MenuReports.setVisible(true);
         if(FXMLSecurityController.Type==1){
         MenuCareer.setVisible(true); MenuStudent.setVisible(false); MenuEnroll.setVisible(false);
         MenuCourses.setVisible(false);MenuSchedules.setVisible(false); MenuReports.setVisible(false);
@@ -153,11 +159,19 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
                  alert.setTitle("Información");
                     alert.setContentText("Se ha generado su reporte en un archivo PDF...");
                     alert.showAndWait(); 
-        
+      if(FXMLSecurityController.Type==1){  
        FXMLEnrollmentController list = new FXMLEnrollmentController();
        
                  list.a=0;
        util.Utility.exportToPDF(list.listEnro,"Reporte de Matrícula.pdf");
+      }
+      if(FXMLSecurityController.Type==2){
+      FXMLEnrollmentController list = new FXMLEnrollmentController();
+       
+                 list.a=0;      
+       util.Utility.exportToPDF("Número de matricula:"+list.id+"\n Estudiante: "+list.estudiante+" \n Curso: "+list.curso.toString()+"\n Horaio: "+list.horario,"Reporte de Matrícula Estudiante.pdf");
+      
+      } 
     }
 
     @FXML
@@ -167,11 +181,13 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
     @FXML
     private void LogOut(ActionEvent event) {
+        AnchorPanePrincipal.setVisible(false);
         this.loadpage("FXMLSecurity");
     }
 
     @FXML
     private void DeenrollmentReport(ActionEvent event) {
+        if(FXMLSecurityController.Type==1){ 
          alert.setHeaderText(null);
                  alert.setTitle("Información");
                     alert.setContentText("Se ha generado su reporte en un archivo PDF...");
@@ -179,5 +195,16 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
      FXMLDeEnrollmentController l=new FXMLDeEnrollmentController();
                   l.b=0;
        util.Utility.exportToPDF(l.listDE,"Reporte de Retiro de cursos.pdf");
+        }  
+       if(FXMLSecurityController.Type==2){
+      FXMLDeEnrollmentController list = new FXMLDeEnrollmentController();
+       
+                 list.b=0;      
+       util.Utility.exportToPDF("Número de matricula:"+list.id2+"\n Estudiante: "+list.estudiante2+" \n Curso: "+list.curso2.toString()+"\n Horaio: "+list.horario2,"Reporte de Retiro Estudiante.pdf");
+      alert.setHeaderText(null);
+                 alert.setTitle("Información");
+                    alert.setContentText("Se ha generado su reporte en un archivo PDF...");
+                    alert.showAndWait(); 
+      } 
     }
 }

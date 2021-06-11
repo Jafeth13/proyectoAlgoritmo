@@ -24,6 +24,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -177,7 +178,11 @@ public class FXMLEnrollmentController implements Initializable {
   private String opcion;
    
  private int f;
- 
+ public static String id;
+ public static Course curso;
+ public static Student estudiante;
+ public static String horario;
+ Alert alert = new Alert(Alert.AlertType.INFORMATION);
     @FXML
     private void Confirm(ActionEvent event) throws ListException, IOException {
   
@@ -189,7 +194,17 @@ public class FXMLEnrollmentController implements Initializable {
              listEnro.add(new Enrollment(f, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
               new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),(opcion)));
              util.Utility.file(listEnro, "MATRICULA");
+             alert.setHeaderText(null);
+                 alert.setTitle("Matrícula");
+                    alert.setContentText("¡Matrículado exitosamente!");
+                    alert.showAndWait(); 
+                    id=Integer.toString(f);
+                    curso=new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, ""));
+                    horario=opcion;
+                    estudiante=new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, ""));
         }
+             
+             
             if(cbxSchedules2.getValue()!=null){
                 FXMLDeEnrollmentController l=new FXMLDeEnrollmentController();
             opcion=cbxSchedules2.getValue();
@@ -197,6 +212,10 @@ public class FXMLEnrollmentController implements Initializable {
             listEnro.add(new Enrollment(f, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
                new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),(opcion)));
             util.Utility.file(listEnro, "MATRICULA");
+            alert.setHeaderText(null);
+                 alert.setTitle("Matrícula");
+                    alert.setContentText("¡Matrículado exitosamente!");
+                    alert.showAndWait(); 
         }
             if(cbxSchedules.getValue()!=null&&cbxSchedules2.getValue()!=null){
           
