@@ -6,6 +6,8 @@
 package domain;
 
 import java.util.Date;
+import proyecto.FXMLDeEnrollmentController;
+import proyecto.FXMLEnrollmentController;
 
 /**
  *
@@ -72,10 +74,21 @@ public class Enrollment {
     public void setSchedule(String schedule) {
         this.schedule = schedule;
     }
-
+    FXMLDeEnrollmentController l=new FXMLDeEnrollmentController();
     @Override
     public String toString() {
-        return "Enrollment{" + "id=" + id + ", date=" + date + ", studentID=" + studentID + ", courseID=" + courseID + ", schedule=" + schedule + '}';
+        if(l.b==0){
+        return "Enrollment{" + "id=" + id + ", studentID=" + studentID + ", courseID=" + courseID + ", schedule=" + schedule + '}';
+        }if(l.b==3){
+            return schedule;
+        }if(l.b==2){
+            return studentID.toString();
+        }
+        if(l.b==1){
+            return courseID.toString();
+        }
+        
+        return null;
     }
     
     

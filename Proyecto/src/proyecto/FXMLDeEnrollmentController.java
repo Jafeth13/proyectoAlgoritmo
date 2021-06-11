@@ -6,11 +6,13 @@
 package proyecto;
 
 import domain.Career;
+import domain.CircularDoublyLinkedList;
 import domain.Course;
 import domain.DeEnrollment;
 import domain.Enrollment;
 import domain.ListException;
 import domain.Student;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.Optional;
@@ -21,6 +23,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -32,6 +35,7 @@ import static proyecto.FXMLCareers1Controller.list;
 import static proyecto.FXMLCourseController.listp;
 import static proyecto.FXMLEnrollmentController.listEnro;
 import static proyecto.FXMLEnrollmentController.s;
+import static proyecto.FXMLSchedulesController.listH;
 import static proyecto.FXMLStudents1Controller.list2;
 
 /**
@@ -40,7 +44,7 @@ import static proyecto.FXMLStudents1Controller.list2;
  * @author jodas
  */
 public class FXMLDeEnrollmentController implements Initializable {
-    
+    public  static CircularDoublyLinkedList listDE=new CircularDoublyLinkedList();
     @FXML
     private Label lbLogo;
     @FXML
@@ -60,8 +64,6 @@ public class FXMLDeEnrollmentController implements Initializable {
     @FXML
     private Button btnDeEnrollment;
     @FXML
-    private TextArea txtAreaName;
-    @FXML
     private Label txtMessage2;
     @FXML
     private TextArea txtAreaRemark;
@@ -76,9 +78,19 @@ public class FXMLDeEnrollmentController implements Initializable {
     @FXML
     private TableColumn<Enrollment, String> tcHorario;
      TextInputDialog id = new TextInputDialog("");
+  
+    @FXML
+    private ComboBox<String> cbxName;
+    @FXML
+    private ComboBox<String> cbxCurso;
+    @FXML
+    private ComboBox<String> cbxHorario;
+    public static int b;
+   
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        if (listEnro.isEmpty()) {
@@ -101,8 +113,49 @@ public class FXMLDeEnrollmentController implements Initializable {
                 System.out.println("Error");
             }
         }
-    
-}
+  
+        if (!listEnro.isEmpty()) {
+            b = 3;
+            try {
+                for (int i = 1; i <= listEnro.size(); i++) {
+                    System.out.println("El elemento en la posicion " + i + " es " + listEnro.getNode(i).data);
+                    cbxHorario.getItems().addAll(("" + listEnro.getNode(i).data));
+                }
+            } catch (ListException ex) {
+                Logger.getLogger(FXMLDeEnrollmentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            cbxHorario.getItems().add("No hay horarios registradas");
+        }
+        
+          if (!listEnro.isEmpty()) {
+            b = 2;
+            try {
+                for (int i = 1; i <= listEnro.size(); i++) {
+                    System.out.println("El elemento en la posicion " + i + " es " + listEnro.getNode(i).data);
+                    cbxName.getItems().addAll(("" + listEnro.getNode(i).data));
+                }
+            } catch (ListException ex) {
+                Logger.getLogger(FXMLDeEnrollmentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            cbxName.getItems().add("No hay estudiantes matriculados registradas");
+        }
+          if (!listEnro.isEmpty()) {
+            b = 1;
+            try {
+                for (int i = 1; i <= listEnro.size(); i++) {
+                    System.out.println("El elemento en la posicion " + i + " es " + listEnro.getNode(i).data);
+                    cbxCurso.getItems().addAll(("" + listEnro.getNode(i).data));
+                }
+            } catch (ListException ex) {
+                Logger.getLogger(FXMLDeEnrollmentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            cbxCurso.getItems().add("No hay cursos matriculados");
+        }
+        
+    }
 private String d;
 private Date dp;
 private boolean er=false;
@@ -137,7 +190,7 @@ private boolean er=false;
     }
 private int z;
     @FXML
-    private void btnDeEnrollment(ActionEvent event) throws ListException {
+    private void btnDeEnrollment(ActionEvent event) throws ListException, IOException {
          id.setTitle("");
         id.setHeaderText("Ingrese el ID de la matricula a borrar:");
         id.setContentText("");
@@ -152,6 +205,8 @@ private int z;
                 
             }
         }   
+                  FXMLDeEnrollmentController l=new FXMLDeEnrollmentController();
+                  l.b=0;
                 listEnro.remove(new Enrollment(z, dp, new Student(z, d, d, d, dp, d, d, d, 
                         new Career(z, d)), new Course(d, d, s, new Career(z, d)), d));
                if (listEnro.isEmpty()) {
@@ -173,6 +228,15 @@ private int z;
             } catch (ListException er) {
                 System.out.println("Error");
             }
-        }      
+        }  
+               FXMLEnrollmentController lp=new FXMLEnrollmentController();
+               lp.a=0;
+                listDE.add(new DeEnrollment(z, dp, new Student(0, cbxName.getValue(), d, d, dp, d, d, d,
+                new Career(0, d)), new Course(d, cbxCurso.getValue(), s, new Career(0, d))
+                , cbxHorario.getValue(), txtAreaRemark.getText()));
+         
+                util.Utility.file(listDE, "Cursos desmatriculados");
+                System.out.println(listDE.toString());
+       
     }
 }

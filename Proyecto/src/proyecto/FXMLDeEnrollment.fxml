@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -71,7 +72,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <TableView fx:id="tvDesmatricular" layoutX="31.0" layoutY="183.0" prefHeight="355.0" prefWidth="540.0" style="-fx-background-color: #41ade7;">
+      <TableView fx:id="tvDesmatricular" layoutX="31.0" layoutY="183.0" prefHeight="355.0" prefWidth="488.0" style="-fx-background-color: #41ade7;">
         <columns>
           <TableColumn fx:id="tcSigla" prefWidth="123.0" text="Sigla" />
           <TableColumn fx:id="tcNombre" prefWidth="152.0" text="Nombre" />
@@ -90,7 +91,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnDeEnrollment" layoutX="718.0" layoutY="424.0" mnemonicParsing="false" onAction="#btnDeEnrollment" prefHeight="50.0" prefWidth="144.0" style="-fx-background-color: #41ade7;" text="Retirar Curso" textFill="WHITE">
+      <Button fx:id="btnDeEnrollment" layoutX="717.0" layoutY="424.0" mnemonicParsing="false" onAction="#btnDeEnrollment" prefHeight="50.0" prefWidth="144.0" style="-fx-background-color: #41ade7;" text="Retirar Curso" textFill="WHITE">
          <effect>
             <InnerShadow>
                <input>
@@ -102,16 +103,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <TextArea fx:id="txtAreaName" editable="false" layoutX="590.0" layoutY="230.0" prefHeight="25.0" prefWidth="399.0" text="Aqui va el nombre del curso seleccionado">
-         <effect>
-            <InnerShadow color="#41ade7">
-               <input>
-                  <DropShadow color="#41ade7" />
-               </input>
-            </InnerShadow>
-         </effect>
-      </TextArea>
-      <Label fx:id="txtMessage2" alignment="CENTER" layoutX="664.0" layoutY="167.0" prefHeight="66.0" prefWidth="251.0" text="Usted Seleccionó:" textFill="WHITE">
+      <Label fx:id="txtMessage2" alignment="CENTER" layoutX="671.0" layoutY="151.0" prefHeight="66.0" prefWidth="251.0" text="Usted Seleccionó:" textFill="WHITE">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#41ade7" spread="0.9" />
          </effect>
@@ -119,7 +111,7 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <TextArea fx:id="txtAreaRemark" layoutX="590.0" layoutY="264.0" prefHeight="146.0" prefWidth="399.0" promptText="Ingrese el motivo de su retiro">
+      <TextArea fx:id="txtAreaRemark" layoutX="651.0" layoutY="276.0" prefHeight="135.0" prefWidth="290.0" promptText="Ingrese el motivo de su retiro">
          <effect>
             <InnerShadow color="#41ade7">
                <input>
@@ -128,10 +120,13 @@
             </InnerShadow>
          </effect>
       </TextArea>
-      <Label fx:id="txtInfo2" layoutX="582.0" layoutY="118.0" prefHeight="66.0" prefWidth="414.0" textFill="#4ed03d">
+      <Label fx:id="txtInfo2" layoutX="600.0" layoutY="101.0" prefHeight="66.0" prefWidth="414.0" textFill="#4ed03d">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
+      <ComboBox fx:id="cbxName" layoutX="533.0" layoutY="217.0" prefWidth="150.0" promptText="Estudiante" />
+      <ComboBox fx:id="cbxCurso" layoutX="701.0" layoutY="215.0" prefHeight="25.0" prefWidth="150.0" promptText="Curso" />
+      <ComboBox fx:id="cbxHorario" layoutX="874.0" layoutY="215.0" prefHeight="25.0" prefWidth="131.0" promptText="Horario" />
    </children>
 </AnchorPane>

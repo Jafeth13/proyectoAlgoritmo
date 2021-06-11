@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
+import static proyecto.FXMLDeEnrollmentController.listDE;
 
 /**
  * FXML Controller class
@@ -159,8 +160,7 @@ public class FXMLMenuPrincipalController implements Initializable {
 
     @FXML
     private void DeenrollmentReport(ActionEvent event) {
-    FXMLDeEnrollmentController list = new FXMLDeEnrollmentController();
-      
-       util.Utility.exportToPDF(list.toString(),"Reporte de Retiro de cursos.pdf");
+      FXMLDeEnrollmentController li=new FXMLDeEnrollmentController();
+       util.Utility.exportToPDF(li.listDE,"Reporte de Retiro de cursos.pdf");
     }
 }

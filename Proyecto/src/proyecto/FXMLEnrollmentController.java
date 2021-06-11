@@ -84,6 +84,7 @@ public class FXMLEnrollmentController implements Initializable {
     private TextField numMatricula;
     @FXML
     private Label txtStudent1;
+    public int a;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       
@@ -180,12 +181,16 @@ public class FXMLEnrollmentController implements Initializable {
              f=Integer.parseInt(numMatricula.getText()); 
              if(cbxSchedules.getValue()!=null){
              opcion=cbxSchedules.getValue();
+                 FXMLDeEnrollmentController l=new FXMLDeEnrollmentController();
+                 l.b=0;
              listEnro.add(new Enrollment(f, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
               new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),(opcion)));
              util.Utility.file(listEnro, "MATRICULA");
         }
             if(cbxSchedules2.getValue()!=null){
+                FXMLDeEnrollmentController l=new FXMLDeEnrollmentController();
             opcion=cbxSchedules2.getValue();
+            l.b=0;
             listEnro.add(new Enrollment(f, y, new Student(s,cbxEstudiantes.getValue() , "", "", y, "", "", "", new Career(s, "")),
                new Course("", cbxEnrollmentCourses.getValue(), s, new Career(s, "")),(opcion)));
             util.Utility.file(listEnro, "MATRICULA");

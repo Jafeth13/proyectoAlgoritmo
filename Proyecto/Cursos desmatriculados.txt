@@ -1,0 +1,2 @@
+
+DeEnrollment{id = 2, studentID =C07262-Josue-Sanchez---C07262-C07262, courseID=calculo, schedule=M 7:00am-8:50am, remark=ta feo}

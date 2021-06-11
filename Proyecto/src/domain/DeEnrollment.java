@@ -6,6 +6,8 @@
 package domain;
 
 import java.util.Date;
+import proyecto.FXMLDeEnrollmentController;
+import proyecto.FXMLEnrollmentController;
 
 /**
  *
@@ -75,10 +77,23 @@ public class DeEnrollment {
     public void setRemark(String remark) {
         this.remark = remark;
     }
-
+    FXMLEnrollmentController l=new FXMLEnrollmentController();
     @Override
     public String toString() {
-        return "DeEnrollment{" + "id = " + id + ", date=" + date + ", studentID =" + studentID + ", courseID=" + courseID + ", schedule=" + schedule + ", remark=" + remark + '}';
+        if(l.a==0){
+        return "DeEnrollment{" + "id = " + id + ", studentID =" + studentID + ", courseID=" + courseID + ", schedule=" + schedule + ", remark=" + remark + '}';
+        }
+        if(l.a==3){
+            return schedule;
+        }if(l.a==2){
+            return studentID.toString();
+        }
+        if(l.a==1){
+            return courseID.toString();
+        }
+        
+        return null;
+    
     }
     
 }
