@@ -159,10 +159,7 @@ public class FXMLMenuPrincipalController implements Initializable {
 
     @FXML
     private void DeenrollmentReport(ActionEvent event) {
-    SinglyLinkedList list = new SinglyLinkedList();
-         list.add(new Career(1, "INGENIERIA ESPACIAL"));
-          list.add(new Career(2, "INFORMATICA EMPRESARIAL"));
-        list.add(new Career(3, "ENSEÑANZA DEL INGLES"));
+    FXMLDeEnrollmentController list = new FXMLDeEnrollmentController();
       
        util.Utility.exportToPDF(list.toString(),"Reporte de Retiro de cursos.pdf");
     }
