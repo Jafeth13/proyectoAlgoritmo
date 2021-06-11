@@ -5,13 +5,17 @@
  */
 package proyecto;
 
+
 import domain.Career;
 import domain.CircularLinkedList;
 import domain.ListException;
 import domain.Security;
 import domain.SinglyLinkedList;
 import domain.Student;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -30,8 +34,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import util.Utility;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -52,12 +59,24 @@ public class FXMLSecurityController implements Initializable {
     private Button btnSignIn;
     @FXML
     private Label txtMessage;
+    @FXML
+    private Label lbEma;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+         Image image = new Image("images/LogoUCR.png");
+         ImageView iv1 = new ImageView();
+         iv1.setImage(image);
+         this.lbImage.setGraphic(iv1);
+         
+         Image image2 = new Image("images/Ematricula.png");
+         ImageView iv2 = new ImageView();
+         iv2.setImage(image2);
+         this.lbEma.setGraphic(iv2);
+      
         try {
             cL.add(new Security("Admin",MD5("1234")));
             

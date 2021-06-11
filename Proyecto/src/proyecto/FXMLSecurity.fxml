@@ -13,15 +13,7 @@
    <center>
       <AnchorPane prefHeight="522.0" prefWidth="945.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lbImage" layoutX="609.0" layoutY="53.0" prefHeight="164.0" prefWidth="319.0" text="Logo UCR" textAlignment="CENTER">
-               <effect>
-                  <ImageInput>
-                     <source>
-                        <Image url="file:/C:/UCR/2021/III%20Semestre/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%201/Proyecto/src/images/LogoUCR.png" />
-                     </source>
-                  </ImageInput>
-               </effect>
-            </Label>
+            <Label fx:id="lbImage" layoutX="609.0" layoutY="53.0" prefHeight="164.0" prefWidth="319.0" textAlignment="CENTER" />
             <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="264.0" prefHeight="42.0" prefWidth="282.0" text="Usuario/Carnet:" textAlignment="CENTER" textFill="#41ade7">
                <font>
                   <Font name="Arial Bold" size="36.0" />
@@ -56,17 +48,10 @@
                   <Font name="Arial Bold Italic" size="24.0" />
                </font>
             </TextField>
-            <Label layoutX="42.0" layoutY="53.0" prefHeight="190.0" prefWidth="595.0" textAlignment="CENTER">
+            <Label fx:id="lbEma" layoutX="42.0" layoutY="53.0" prefHeight="190.0" prefWidth="595.0" textAlignment="CENTER">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
-               <effect>
-                  <ImageInput>
-                     <source>
-                        <Image url="file:/C:/UCR/2021/III%20Semestre/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%201/Proyecto/src/images/Ematricula.png" />
-                     </source>
-                  </ImageInput>
-               </effect>
             </Label>
             <Label fx:id="txtMessage" alignment="CENTER" layoutX="66.0" layoutY="460.0" prefHeight="59.0" prefWidth="527.0" textFill="#c62626">
                <font>
