@@ -32,7 +32,7 @@ import static proyecto.FXMLDeEnrollmentController.listDE;
  */
 public class FXMLMenuPrincipalController implements Initializable {
 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
+Alert alert1 = new Alert(Alert.AlertType.ERROR);
     @FXML
     private BorderPane bp;
     @FXML
@@ -155,6 +155,7 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
     @FXML
     private void EnrollmentReport(ActionEvent event) {
+        try{
         alert.setHeaderText(null);
                  alert.setTitle("Información");
                     alert.setContentText("Se ha generado su reporte en un archivo PDF...");
@@ -171,7 +172,12 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
                  list.a=0;      
        util.Utility.exportToPDF("Número de matricula:"+list.id+"\n Estudiante: "+list.estudiante+" \n Curso: "+list.curso.toString()+"\n Horaio: "+list.horario,"Reporte de Matrícula Estudiante.pdf");
       
-      } 
+      }}catch(Exception e){
+      alert1.setHeaderText(null);
+                 alert1.setTitle("Información");
+                    alert1.setContentText("Ha ocurrido un error, es probable que la lista se encuentre vacía...");
+                    alert1.showAndWait();
+      }  
     }
 
     @FXML
@@ -187,6 +193,7 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
     @FXML
     private void DeenrollmentReport(ActionEvent event) {
+        try{
         if(FXMLSecurityController.Type==1){ 
          alert.setHeaderText(null);
                  alert.setTitle("Información");
@@ -205,6 +212,11 @@ Alert alert = new Alert(Alert.AlertType.INFORMATION);
                  alert.setTitle("Información");
                     alert.setContentText("Se ha generado su reporte en un archivo PDF...");
                     alert.showAndWait(); 
+      }}catch(Exception e){
+      alert1.setHeaderText(null);
+                 alert1.setTitle("Información");
+                    alert1.setContentText("Ha ocurrido un error, es probable que la lista se encuentre vacía...");
+                    alert1.showAndWait();
       } 
     }
 }
