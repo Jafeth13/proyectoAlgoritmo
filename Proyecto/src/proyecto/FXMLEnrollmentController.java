@@ -177,7 +177,7 @@ public class FXMLEnrollmentController implements Initializable {
  
     @FXML
     private void Confirm(ActionEvent event) throws ListException, IOException {
-        
+  
              f=Integer.parseInt(numMatricula.getText()); 
              if(cbxSchedules.getValue()!=null){
              opcion=cbxSchedules.getValue();

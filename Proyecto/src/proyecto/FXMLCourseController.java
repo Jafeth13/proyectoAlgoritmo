@@ -90,7 +90,7 @@ FXMLCareers1Controller o=new FXMLCareers1Controller();
 private String elim;
     @FXML
     private void Remove(ActionEvent event) throws ListException {
-         busc.setTitle("CircularDoublyLinkedList");
+         busc.setTitle("Eliminar curso");
         busc.setHeaderText("Ingrese el ID del curso a borrar:");
         busc.setContentText("");
         
@@ -127,6 +127,7 @@ private String elim;
             } catch (ListException er) {
                 System.out.println("Error");
             }
+            btnMostrar(event);
         }
         
     }
@@ -134,7 +135,7 @@ private boolean compa;
 private String d;
     @FXML
     private void Modify(ActionEvent event) throws ListException, IOException {
-         busc.setTitle("CircularDoublyLinkedList");
+         busc.setTitle("Modificar curso");
         busc.setHeaderText("Ingrese el ID del curso a modificar:");
         busc.setContentText("");
         
@@ -151,7 +152,7 @@ private String d;
           compa = listp.contains(new Course(d, nombre, creditos, new Career(creditos, d)));
           if (compa == true) {
             listp.remove(new Course(d, nombre, creditos, new Career(creditos, d)));
-              name.setTitle("CircularDoublyLinkedList");
+              name.setTitle("Agregar datos");
         name.setHeaderText("Ingrese el nombre del curso :");
         name.setContentText("");
         
@@ -165,7 +166,7 @@ private String d;
                 
             }
         }
-        credits.setTitle("CircularDoublyLinkedList");
+        credits.setTitle("Agregar datos");
         credits.setHeaderText("Ingrese los creditos del curso :");
         credits.setContentText("");
         
@@ -193,6 +194,7 @@ private String d;
           }
           txtMessages.setVisible(false);
           txtErrorMessages.setVisible(true);
+          btnMostrar(event);
     }
 
     @FXML
@@ -227,7 +229,7 @@ private String d;
     private String carrer;
     @FXML
     private void Add(ActionEvent event) throws IOException {
-        idCourse.setTitle("CircularDoublyLinkedList");
+        idCourse.setTitle("Agregar datos");
         idCourse.setHeaderText("Ingrese el ID del curso a añadir:");
         idCourse.setContentText("");
         
@@ -241,7 +243,7 @@ private String d;
                 
             }
         }
-        name.setTitle("CircularDoublyLinkedList");
+        name.setTitle("Agregar datos");
         name.setHeaderText("Ingrese el nombre del curso a añadir:");
         name.setContentText("");
         
@@ -255,7 +257,7 @@ private String d;
                 
             }
         }
-        credits.setTitle("CircularDoublyLinkedList");
+        credits.setTitle("Agregar datos");
         credits.setHeaderText("Ingrese los creditos del curso a añadir:");
         credits.setContentText("");
         
@@ -281,6 +283,7 @@ private String d;
         util.Utility.file(listp,"Cursos");
         txtMessages.setVisible(true);
         txtErrorMessages.setVisible(false);
+        btnMostrar(event);
     }
     
 }

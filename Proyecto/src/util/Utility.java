@@ -269,5 +269,32 @@ public class Utility {
 
      
  }
+ public static boolean isCorreo(String email) {
+        String subCorreo = null;
+        if ('@' == email.charAt(0)) {
+            return false;
+        }
+        for (int i = 0; i < email.length(); i++) {
+            if ('@' == email.charAt(i)) {
+                subCorreo = email.toLowerCase().substring(i);
+            }
+        }
+        if (subCorreo == null || subCorreo.length() < 5 || !(97 <= subCorreo.charAt(1) && subCorreo.charAt(1) <= 122)) {
+            return false;
+        }
+
+        int i = 1;
+        while ('.' != subCorreo.charAt(i)) {
+            i++;
+            if (i >= subCorreo.length()) {
+                return false;
+            }
+        }
+        if (i + 2 >= subCorreo.length()) {
+            return false;
+        }
+        return true;
+    }
+
  
 }

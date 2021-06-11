@@ -5,6 +5,7 @@
  */
 package proyecto;
 
+import com.sun.mail.smtp.SMTPAddressFailedException;
 import domain.Career;
 import domain.DoublyLinkedList;
 import domain.ListException;
@@ -20,6 +21,8 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -28,6 +31,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.mail.MessagingException;
+import javax.mail.SendFailedException;
 import mails.EnviarCorreos;
 import static mails.EnviarCorreos.message;
 import static mails.EnviarCorreos.multiParte;
@@ -40,6 +44,10 @@ import static proyecto.FXMLSecurityController.cL;
  * @author jodas
  */
 public class FXMLStudents1Controller implements Initializable {
+    
+    Alert alert = new Alert(AlertType.ERROR);
+
+
 
     @FXML
     private Label txtMessage1;
@@ -155,9 +163,9 @@ public class FXMLStudents1Controller implements Initializable {
  private boolean compa2;
 
     @FXML
-    private void ModifyStudent(ActionEvent event) throws ListException {
+    private void ModifyStudent(ActionEvent event) throws ListException, MessagingException {
         
-          idStudent.setTitle("SinglyLinkedList");
+          idStudent.setTitle("Agregar datos del estudiante");
         idStudent.setHeaderText("Ingrese el Carnet del estudiante a buscar:");
         idStudent.setContentText("");
 
@@ -174,7 +182,7 @@ public class FXMLStudents1Controller implements Initializable {
         compa2 = list2.contains(new Student(0, estuBuscar, "", "", d, phone, last, des, new Career(idE, desRE)));
         if (compa2 == true) {
             list2.remove(new Student(0, estuBuscar, "", "", d, phone, last, des, new Career(idE, desRE)));
-            carnet.setTitle("SinglyLinkedList");
+            carnet.setTitle("Agregar datos del estudiante");
             carnet.setHeaderText("Ingrese el ID del estudiante:");
             carnet.setContentText("");
 
@@ -188,7 +196,7 @@ public class FXMLStudents1Controller implements Initializable {
 
                 }
             }
-            lastName.setTitle("SinglyLinkedList");
+            lastName.setTitle("Agregar datos del estudiante");
             lastName.setHeaderText("Ingrese el apellido del estudiante :");
             lastName.setContentText("");
 
@@ -202,7 +210,7 @@ public class FXMLStudents1Controller implements Initializable {
 
                 }
             }
-            firstName.setTitle("SinglyLinkedList");
+            firstName.setTitle("Agregar datos del estudiante");
             firstName.setHeaderText("Ingrese el nombre del estudiante :");
             firstName.setContentText("");
 
@@ -216,7 +224,7 @@ public class FXMLStudents1Controller implements Initializable {
 
                 }
             }
-            NumeroTelfono.setTitle("SinglyLinkedList");
+            NumeroTelfono.setTitle("Agregar datos del estudiante");
             NumeroTelfono.setHeaderText("Ingrese el numero de telefono del estudiante :");
             NumeroTelfono.setContentText("");
 
@@ -230,21 +238,35 @@ public class FXMLStudents1Controller implements Initializable {
 
                 }
             }
-            email.setTitle("SinglyLinkedList");
-            email.setHeaderText("Ingrese el correo del estudiante:");
-            email.setContentText("");
-
-            Optional<String> result66 = email.showAndWait();
-            if (result66.isPresent()) {
-
-                try {
-                    this.correo = result66.get();
-
-                } catch (NumberFormatException ex) {
-
+             int n1=0;
+        
+      do{
+        email.setTitle("Agregar datos del estudiante");
+        email.setHeaderText("Ingrese el correo del estudiante a añadir:");
+        email.setContentText("");
+       
+        Optional<String> result291871 = email.showAndWait();
+       
+        if (result291871.isPresent()){
+            
+            try {
+                this.correo = result291871.get();
+                if(util.Utility.isCorreo(correo)){
+                 n1=1;
+                 
+                }else{
+                  alert.setHeaderText(null);
+                 alert.setTitle("Error");
+                    alert.setContentText("Correo no valido");
+                    alert.showAndWait();  
                 }
-            }
-            dirrecion.setTitle("SinglyLinkedList");
+            } catch (NumberFormatException ex) {
+                
+        }
+//        
+        }
+      }while(n1==0);
+            dirrecion.setTitle("Agregar datos del estudiante");
             dirrecion.setHeaderText("Ingrese la dirrecion del estudiante :");
             dirrecion.setContentText("");
 
@@ -269,6 +291,11 @@ public class FXMLStudents1Controller implements Initializable {
             txtMessage.setVisible(true);
             txtErrorMessage.setVisible(false);
             btnMostrarEstudiantes(event);
+            EnviarCorreos.texto.setText("Felicidades por ingresar a la Universidad:\n Estos son sus datos:\n\n"+"Cédula: "+idE+"\nCarné asignado: "+carne+ 
+                "\nNombre completo: "+first+" "+last+"\nNúmero telefónico: "+ phone+"\nCorreo: "+correo+"\nDirección: "+casa+"\nCarrera: "+idER);
+        message.setContent(multiParte);
+            EnviarCorreos enviarcorreos2 = new EnviarCorreos();
+        enviarcorreos2.enviarCorreos(message.toString(),"Bienvenido a la Universidad de Costa Rica",correo);
         }else{
             txtMessage.setVisible(false);
             txtErrorMessage.setVisible(true);
@@ -284,7 +311,7 @@ public class FXMLStudents1Controller implements Initializable {
     @FXML
     private void RemoveStudent(ActionEvent event) throws ListException {
         
-         idStudent.setTitle("SinglyLinkedList");
+         idStudent.setTitle("Eliminar datos del estudiante");
         idStudent.setHeaderText("Ingrese el Carnet del estudiante a borrar:");
         idStudent.setContentText("");
         
@@ -334,7 +361,7 @@ public class FXMLStudents1Controller implements Initializable {
     private void AddStudent(ActionEvent event) throws IOException, MessagingException {
         
         
-        idStudent.setTitle("SinglyLinkedList");
+        idStudent.setTitle("Agregar datos del estudiante");
         idStudent.setHeaderText("Ingrese el ID del estudiante a añadir:");
         idStudent.setContentText("");
         
@@ -348,7 +375,7 @@ public class FXMLStudents1Controller implements Initializable {
                 
             }
         }
-        carnet.setTitle("SinglyLinkedList");
+        carnet.setTitle("Agregar datos del estudiante");
         carnet.setHeaderText("Ingrese el carnet del estudiante a añadir:");
         carnet.setContentText("");
         
@@ -362,7 +389,7 @@ public class FXMLStudents1Controller implements Initializable {
                 
             }
         }
-        lastName.setTitle("SinglyLinkedList");
+        lastName.setTitle("Agregar datos del estudiante");
         lastName.setHeaderText("Ingrese el apellido del estudiante a añadir:");
         lastName.setContentText("");
         
@@ -376,7 +403,7 @@ public class FXMLStudents1Controller implements Initializable {
                 
             }
         }
-        firstName.setTitle("SinglyLinkedList");
+        firstName.setTitle("Agregar datos del estudiante");
         firstName.setHeaderText("Ingrese el nombre del estudiante a añadir:");
         firstName.setContentText("");
         
@@ -390,7 +417,7 @@ public class FXMLStudents1Controller implements Initializable {
                 
             }
         }
-         NumeroTelfono.setTitle("SinglyLinkedList");
+         NumeroTelfono.setTitle("Agregar datos del estudiante");
         NumeroTelfono.setHeaderText("Ingrese el numero de telefono del estudiante a añadir:");
         NumeroTelfono.setContentText("");
         
@@ -404,21 +431,36 @@ public class FXMLStudents1Controller implements Initializable {
                 
             }
         }
-        email.setTitle("SinglyLinkedList");
+       int n=0;
+        
+      do{
+        email.setTitle("Agregar datos del estudiante");
         email.setHeaderText("Ingrese el correo del estudiante a añadir:");
         email.setContentText("");
-        
+       
         Optional<String> result29187 = email.showAndWait();
-        if (result.isPresent()) {
+       
+        if (result.isPresent()){
             
             try {
                 this.correo = result29187.get();
-                
+                if(util.Utility.isCorreo(correo)){
+                 n=1;
+                 
+                }else{
+                  alert.setHeaderText(null);
+                 alert.setTitle("Error");
+                    alert.setContentText("Correo no valido");
+                    alert.showAndWait();  
+                }
             } catch (NumberFormatException ex) {
                 
-            }
         }
-        dirrecion.setTitle("SinglyLinkedList");
+//        
+        }
+      }while(n==0);
+
+        dirrecion.setTitle("Agregar datos del estudiante");
         dirrecion.setHeaderText("Ingrese la dirrecion del estudiante a añadir:");
         dirrecion.setContentText("");
         
@@ -446,11 +488,16 @@ public class FXMLStudents1Controller implements Initializable {
         EnviarCorreos.texto.setText("Felicidades por ingresar a la Universidad:\n Estos son sus datos:\n\n"+"Cédula: "+idE+"\nCarné asignado: "+carne+ 
                 "\nNombre completo: "+first+" "+last+"\nNúmero telefónico: "+ phone+"\nCorreo: "+correo+"\nDirección: "+casa+"\nCarrera: "+idER);
         message.setContent(multiParte);
+        try{
         EnviarCorreos enviarcorreos = new EnviarCorreos();
-        enviarcorreos.enviarCorreos(message.toString(),"Bienvenido a la Universidad de Costa Rica",correo);
+        enviarcorreos.enviarCorreos(message.toString(),"Bienvenido a la Universidad de Costa Rica",correo);}
+        catch(SMTPAddressFailedException e){
+            alert.setTitle("Ha ocurrido un error");
+        alert.setHeaderText("No se ha podido enviar correctamente el correo");
+        alert.setContentText("Por favor revise que el correo electrónico sea valido y existente...");
+        alert.showAndWait();
+        }
         btnMostrarEstudiantes(event);
-            txtMessage.setVisible(true);
-            txtErrorMessage.setVisible(false);
     }
     
 }

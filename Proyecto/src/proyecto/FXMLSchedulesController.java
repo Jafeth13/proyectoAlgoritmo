@@ -161,7 +161,7 @@ util.Utility.file(listH,"Horarios");
                 this.twHorario.setVisible(true);
             } catch (ListException er) {
                 System.out.println("Error");
-            }   
+            }
         } 
     }
     

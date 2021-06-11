@@ -93,7 +93,7 @@ public class FXMLCareers1Controller implements Initializable {
     @FXML
     private void Modifys(ActionEvent event) throws ListException {
         
-         id.setTitle("DoublyLinkedList");
+         id.setTitle("Agregar datos");
         id.setHeaderText("Ingrese el ID de la carrera a modificar:");
         id.setContentText("");
         
@@ -110,7 +110,7 @@ public class FXMLCareers1Controller implements Initializable {
         comp=list.contains(new Career(idcursoMod, ""));
         if(comp==true){
             list.remove(new Career(idcursoMod, ""));
-                   descripcion.setTitle("DoublyLinkedList");
+                   descripcion.setTitle("Agregar datos");
         descripcion.setHeaderText("Ingrese la descripcion de la carerra a modificar:");
         descripcion.setContentText("");
         Optional<String> resulXt = descripcion.showAndWait();
@@ -141,7 +141,7 @@ public class FXMLCareers1Controller implements Initializable {
     @FXML
     private void Removes(ActionEvent event) throws ListException {
         
-        id.setTitle("DoublyLinkedList");
+        id.setTitle("Eliminar carrera");
         id.setHeaderText("Ingrese el ID de la carrera a borrar:");
         id.setContentText("");
         
@@ -187,7 +187,7 @@ public class FXMLCareers1Controller implements Initializable {
     @FXML
     private void Adds(ActionEvent event) throws IOException {
         
-        id.setTitle("DoublyLinkedList");
+        id.setTitle("Agregar datos");
         id.setHeaderText("Ingrese el ID de la carrera a añadir:");
         id.setContentText("");
         
@@ -201,7 +201,7 @@ public class FXMLCareers1Controller implements Initializable {
                 
             }
         }
-        descripcion.setTitle("DoublyLinkedList");
+        descripcion.setTitle("Agregar datos");
         descripcion.setHeaderText("Ingrese la descripcion de la carerra a añadir:");
         descripcion.setContentText("");
         Optional<String> resulX = descripcion.showAndWait();
@@ -219,7 +219,6 @@ public class FXMLCareers1Controller implements Initializable {
         txtErrorMessages.setVisible(false);
         util.Utility.file(list, "Carrera");
         btnMostrars(event);
-        
     }
     
 }

@@ -191,7 +191,7 @@ private boolean er=false;
 private int z;
     @FXML
     private void btnDeEnrollment(ActionEvent event) throws ListException, IOException {
-         id.setTitle("");
+         id.setTitle("Retirar curso");
         id.setHeaderText("Ingrese el ID de la matricula a borrar:");
         id.setContentText("");
         

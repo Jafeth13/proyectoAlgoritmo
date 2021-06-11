@@ -33,7 +33,7 @@
                <items>
                   <MenuItem fx:id="btnSchedule" mnemonicParsing="false" onAction="#Schedule" text="Ir al menu Horarios" />
                </items></Menu>
-            <Menu mnemonicParsing="false" text="Matrícula">
+            <Menu fx:id="MenuEnroll" mnemonicParsing="false" text="Matrícula">
                <items>
                   <MenuItem fx:id="btnNewEnrollment" mnemonicParsing="false" onAction="#NewEnrollment" text="Nueva Matrícula" />
                   <SeparatorMenuItem mnemonicParsing="false" />
