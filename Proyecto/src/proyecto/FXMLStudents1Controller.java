@@ -30,6 +30,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 import mails.EnviarCorreos;
@@ -111,11 +113,16 @@ public class FXMLStudents1Controller implements Initializable {
     FXMLCareers1Controller i=new FXMLCareers1Controller();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        Image image = new Image("images/LogoUCR.png");
+         ImageView iv1 = new ImageView();
+         iv1.setImage(image);
+         this.lbImage.setGraphic(iv1);
+        
             try {
             if(!list.isEmpty()){
             i.ty=2;
             for (int i = 1; i <= list.size(); i++) {
-                System.out.println("El elemento en la posicion " + i + " es " + list.getNode(i).data);
                combo1s.getItems().addAll((""+list.getNode(i).data));
                // combo1s.getItems().addAll((DoublyLinkedList[]) list.getNode(i).getData());
             }}else{

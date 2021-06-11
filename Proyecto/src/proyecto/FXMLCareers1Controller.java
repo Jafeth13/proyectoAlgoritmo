@@ -21,6 +21,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -59,7 +61,10 @@ public class FXMLCareers1Controller implements Initializable {
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        Image image = new Image("images/LogoUCR.png");
+         ImageView iv1 = new ImageView();
+         iv1.setImage(image);
+         this.lbImages.setGraphic(iv1);
     }    
 
     @FXML

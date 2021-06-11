@@ -31,6 +31,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import static proyecto.FXMLCareers1Controller.list;
 import static proyecto.FXMLCourseController.listp;
 import static proyecto.FXMLEnrollmentController.listEnro;
@@ -93,6 +95,12 @@ public class FXMLDeEnrollmentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        Image image = new Image("images/LogoUCR.png");
+         ImageView iv1 = new ImageView();
+         iv1.setImage(image);
+         this.lbLogo.setGraphic(iv1);
+        
        if (listEnro.isEmpty()) {
 
         } else {
@@ -118,7 +126,6 @@ public class FXMLDeEnrollmentController implements Initializable {
             b = 3;
             try {
                 for (int i = 1; i <= listEnro.size(); i++) {
-                    System.out.println("El elemento en la posicion " + i + " es " + listEnro.getNode(i).data);
                     cbxHorario.getItems().addAll(("" + listEnro.getNode(i).data));
                 }
             } catch (ListException ex) {
@@ -132,7 +139,6 @@ public class FXMLDeEnrollmentController implements Initializable {
             b = 2;
             try {
                 for (int i = 1; i <= listEnro.size(); i++) {
-                    System.out.println("El elemento en la posicion " + i + " es " + listEnro.getNode(i).data);
                     cbxName.getItems().addAll(("" + listEnro.getNode(i).data));
                 }
             } catch (ListException ex) {
@@ -145,7 +151,6 @@ public class FXMLDeEnrollmentController implements Initializable {
             b = 1;
             try {
                 for (int i = 1; i <= listEnro.size(); i++) {
-                    System.out.println("El elemento en la posicion " + i + " es " + listEnro.getNode(i).data);
                     cbxCurso.getItems().addAll(("" + listEnro.getNode(i).data));
                 }
             } catch (ListException ex) {
@@ -236,7 +241,6 @@ private int z;
                 , cbxHorario.getValue(), txtAreaRemark.getText()));
          
                 util.Utility.file(listDE, "Cursos desmatriculados");
-                System.out.println(listDE.toString());
        
     }
 }

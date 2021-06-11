@@ -28,6 +28,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import static proyecto.FXMLCareers1Controller.list;
 import static proyecto.FXMLCourseController.listp;
 
@@ -105,12 +107,18 @@ public class FXMLSchedulesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        Image image = new Image("images/LogoUCR.png");
+         ImageView iv1 = new ImageView();
+         iv1.setImage(image);
+         this.lbUCR.setGraphic(iv1);
+         
+        
           try {
              
             if(!listp.isEmpty()){
             tp.ty=2;
             for (int i = 1; i <= listp.size(); i++) {
-                System.out.println("El elemento en la posicion " + i + " es " + listp.getNode(i).data);
                 comboHorario.getItems().addAll((""+listp.getNode(i).data));
 //                combo1.getItems().addAll((DoublyLinkedList[]) list.getNode(i).getData());
             }}else{

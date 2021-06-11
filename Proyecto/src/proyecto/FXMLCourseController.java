@@ -25,6 +25,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import static proyecto.FXMLCareers1Controller.list;
 
 
@@ -66,17 +68,25 @@ FXMLCareers1Controller o=new FXMLCareers1Controller();
     private Label txtMessages;
     @FXML
     private Label txtErrorMessages;
+    @FXML
+    private Label txtMessages1;
+    @FXML
+    private Label lbImages;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        Image image = new Image("images/LogoUCR.png");
+         ImageView iv1 = new ImageView();
+         iv1.setImage(image);
+         this.lbImages.setGraphic(iv1);
+        
         try {
             o.ty=2;
             if(!list.isEmpty()){
             for (int i = 1; i <= list.size(); i++) {
-                System.out.println("El elemento en la posicion " + i + " es " + list.getNode(i).data);
                 combo1.getItems().addAll((""+list.getNode(i).data));
 //                combo1.getItems().addAll((DoublyLinkedList[]) list.getNode(i).getData());
             }}else{

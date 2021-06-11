@@ -32,6 +32,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import static javax.management.Query.value;
 import static proyecto.FXMLCourseController.listp;
 import static proyecto.FXMLSchedulesController.listH;
@@ -87,13 +89,17 @@ public class FXMLEnrollmentController implements Initializable {
     public int a;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        Image image = new Image("images/LogoUCR.png");
+         ImageView iv1 = new ImageView();
+         iv1.setImage(image);
+         this.lbUCR.setGraphic(iv1);
       
          try {
              
             if(!listH.isEmpty()){
             tp.ty=3;
             for (int i = 1; i <= listH.size(); i++) {
-                System.out.println("El elemento en la posicion " + i + " es " + listH.getNode(i).data);
                 cbxSchedules2.getItems().addAll((""+listH.getNode(i).data));
             }}else{
                 cbxSchedules2.getItems().add("No hay horarios registradas");
@@ -108,7 +114,6 @@ public class FXMLEnrollmentController implements Initializable {
             if(!list2.isEmpty()){
             s=2;
             for (int i = 1; i <= list2.size(); i++) {
-                System.out.println("El elemento en la posicion " + i + " es " + list2.getNode(i).data);
                 cbxEstudiantes.getItems().addAll((""+list2.getNode(i).data));
             }}else{
                 cbxEstudiantes.getItems().add("No hay estudiantes registradas");
@@ -125,7 +130,6 @@ public class FXMLEnrollmentController implements Initializable {
             if(!listp.isEmpty()){
             tp.ty=2;
             for (int i = 1; i <= listp.size(); i++) {
-                System.out.println("El elemento en la posicion " + i + " es " + listp.getNode(i).data);
                 cbxEnrollmentCourses.getItems().addAll((""+listp.getNode(i).data));
             }}else{
                 cbxEnrollmentCourses.getItems().add("No hay cursos registradas");
@@ -139,7 +143,6 @@ public class FXMLEnrollmentController implements Initializable {
             if(!listH.isEmpty()){
             tp.ty=2;
             for (int i = 1; i <= listH.size(); i++) {
-                System.out.println("El elemento en la posicion " + i + " es " + listH.getNode(i).data);
                 cbxSchedules.getItems().addAll((""+listH.getNode(i).data));
             }}else{
                 cbxSchedules.getItems().add("No hay horarios registradas");
